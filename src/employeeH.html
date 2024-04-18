@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <link rel="stylesheet" href="employeeStyle.css">
+    <script src="employeeScript.js"></script>
+</head>
+<body>
+
+
+    <nav>
+        <ul >
+            <li onclick = showSidebar() id="burger"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+            <h1>hello Sam</h1>
+        </ul>
+
+        <ul class="sidebar" id="sidebar">
+            <li onclick = hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href= "#home">Home</a></li>
+            <li><a href= "#profile">Profile</a></li>
+        </ul>
+    </nav>
+
+<section class="content" id="content">
+    <section class="grid">
+        <article id="tLeft">
+            <h2>Timesheets</h2>
+
+        </article>
+        <article id="tLeft">
+            <h2>Notifications</h2>
+
+        </article>
+        <article>
+            <h2>Meals/Car wash</h2>
+        </article>
+    </section>
+</section>
+    
+</body>
+</html>

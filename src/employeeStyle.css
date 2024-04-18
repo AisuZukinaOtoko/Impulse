@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+     background: linear-gradient(45deg,rgb(0, 162, 255),rgb(0, 40, 56)); 
+
+}
+nav{
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    padding-top: 0px;
+    list-style: none;
+    height: 100%;
+    
+    display: flex;
+}
+
+nav ul{
+    width: 100%;
+    list-style: none;
+    align-items: center;
+}
+nav h1{
+    text-align: center;
+}
+nav #burger{
+    width: 70px;
+}
+
+
+nav a{
+    text-decoration: none;
+    color: black;
+    padding:20px;
+    align-items: center;
+}
+nav li:hover{
+    background-color: lightgray;
+}
+
+.sidebar{
+    position: fixed;
+    height: 100vh;
+    width: 150px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    
+}
+.sidebar a{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.content {
+    
+    margin-left: 0px;
+    padding: 10px;
+}
+.content .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(480px,1fr));
+    gap: 15px;
+    height: 70vh; 
+
+}
+.content .grid article{
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
