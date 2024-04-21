@@ -39,7 +39,7 @@ nav a{
     height: 100%;
 }
 nav a:hover{
-    background-color: lightslategray;
+    background-color: lightgray;
 }
 nav li:last-child{
     position: absolute;
@@ -66,4 +66,57 @@ nav li:last-child{
 h1{
     padding: 10px;
     text-align: center;
+}
+h2{
+    text-align: center;
+}
+
+#accountTile{
+    padding: 0 10px;
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    top: 0;
+    left: 60px;
+    z-index: 999;
+    background-color: lightgray;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+#settingTile{
+    padding: 0 10px;
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    top: 0;
+    left: 60px;
+    z-index: 999;
+    background-color: lightgray;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top:10px;
+}
+
+#accountTile img{
+    padding: 10px;
+    border-radius: 50%;
+}
+
+
+
+.acc{
+    padding-top: 10px;
+}
+
+@media (max-width:560px) {
+    .content .grid{
+        grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+    }
 }
