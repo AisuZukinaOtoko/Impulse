@@ -1,0 +1,19 @@
+{
+  "name": "impulse",
+  "version": "5.0.0",
+  "description": "\"Impulse web app\"",
+  "main": "src/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AisuZukinaOtoko/Impulse.git"
+  },
+  "author": "Kgolagano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AisuZukinaOtoko/Impulse/issues"
+  },
+  "homepage": "https://github.com/AisuZukinaOtoko/Impulse#readme"
+}
