@@ -1,25 +1,38 @@
 
+
 function showsettingTile() {
     var navSettings = document.getElementById("settingTile");
-    if (navSettings.style.display == "none") {
-        navSettings.style.display = "flex";
+    if (navSettings.style.transform == "translateX(-100%)") {
+        navSettings.style.transform = "translateX(0)";
     } else {
-        navSettings.style.display = "none";
+        navSettings.style.transform = "translateX(-100%)";
     }
 
     var navAccount = document.getElementById("accountTile");
-    navAccount.style.display = "none";
+    navAccount.style.transform = "translateX(-100%)";
+    // navAccount.style.display = "none";
 }
 
 function showaccountTile() {
     var navAccount = document.getElementById("accountTile");
-    if (navAccount.style.display == "none") {
-        navAccount.style.display = "flex";
+    if (navAccount.style.transform == "translateX(-100%)") {
+        // navAccount.style.display = "flex";
+        navAccount.style.transform = "translateX(0)";
     } else {
-        navAccount.style.display = "none";
+
+        navAccount.style.transform = "translateX(-100%)";
     }
     var navSettings = document.getElementById("settingTile");
-    navSettings.style.display = "none";
+    navSettings.style.transform = "translateX(-100%)";
+}
+
+
+function home(){
+    var navAccount = document.getElementById("accountTile");
+    var navSettings = document.getElementById("settingTile");
+    navSettings.style.transform = "translateX(-100%)";
+    navAccount.style.transform = "translateX(-100%)";
+
 }
 
 
@@ -30,3 +43,9 @@ function hideSidebar(){
     content.style.marginLeft="0px";
     sidebar.style.display="none";
 }
+
+document.getElementById("report").addEventListener("click", function() {
+    window.location.href = "feedback.html";
+});
+
+
