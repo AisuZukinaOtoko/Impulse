@@ -1,4 +1,4 @@
-const { multiply } = require('../src/script');
+const { multiply } = require('../public/js_files/script');
 
 // Test multiply function
 test('Multiplies 3 * 4 to equal 12', () => {

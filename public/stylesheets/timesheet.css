@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: url(pink-and-purple-sunset-with-palm-trees.webp) center / cover ; */
+    background-color:#bfcfee;
+}
+
+#selButton, #deselButton, .checkboxes{
+    visibility: hidden;
+ 
+}
+
+.hidden{
+    display: none;
+}
+
+#delSelRowsBtn{
+    visibility: visible;
+}
+table, th, td {
+    padding: 1rem;
+    border-collapse: collapse;
+}
+
+td {
+    background: #bfcfee;
+}
+
+.Table{
+    width: 82vw;
+    height: 90vh;
+
+    /* background-color: rgba(255, 255, 255, 0.5); */
+   
+    /* box-shadow: 0 .4rem .8rem #0005; */
+    border-radius: .8rem;
+    overflow: hidden;
+}
+
+.table_header{
+    width: 100%;
+    height: 7%;
+    /* background-color: #fff4; */
+    padding: .8rem 1rem;
+}
+
+.table_body{
+    width: 99%;
+    height: calc(89% - 1.6rem);
+    background-color: #fffb;
+    margin: 1.5rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.table_body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.table_body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.table_body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+
+table{
+    width: 100%;
+}
+thead th{
+    position: sticky; /*freeze row*/
+    /* top: 0; */
+    /* left: 0; */
+    background-color: #d5d1defe;
+    text-align: left;
+}
+/* .Button{  
+    padding: 2px 15px;  
+    border-radius: 10px; 
+    border-color: none; 
+}  
+.Button:active{  
+    transform: scale(0.98);  
+}  
+.Button:hover{  
+    background-color: black;  
+    color: white;  
+}  */
+tbody input{
+    
+    background-color: #bfcfee;
+    border: none;
+    
+    
+}
+tbody {
+    
+    background-color: #bfcfee;
+    border: none;
+    
+    
+}
+
+/* Button Styles */
+.Button {
+    /* display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; */
+    min-width: 130px;
+    min-height: 40px;
+    font-weight: bold;
+    padding:10px 20px;
+    text-align: center;
+    /* background: rgba(red, green, blue, alpha); */
+    background-color:#bfcfee;
+
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s ease;
+    display:center;
+}
+
+/* Hover State */
+.Button:hover {
+    /* background-color: #0056b3;
+    border-color: #0056b3; */
+    /* background: rgba(255, 255, 255, 0.3); */
+    background: #fffb;
+}
+
+/* Active State */
+.Button:active {
+    background-color: #fffb;
+    border-color: #fffb;
+    transform: scale(0.98);  
+}

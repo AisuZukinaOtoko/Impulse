@@ -47,5 +47,3 @@ function hideSidebar(){
 document.getElementById("report").addEventListener("click", function() {
     window.location.href = "feedback.html";
 });
-
-

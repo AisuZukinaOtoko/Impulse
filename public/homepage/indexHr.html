@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impulse</title>
-    <link rel="stylesheet" href="homeHR.css">
+    <link rel="stylesheet" href="/stylesheets/styleHR.css">
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
@@ -13,35 +13,17 @@
 
     <h1 id="placeholder"> <i data-feather="sunset"></i>Impulse </h1>
 
-    <!--  -->
-    <label >
-        <input type="checkbox" id="togglecheckbox" checked>
-    <div class="toggle">
-        <span class="line1 common"></span>
-        <span class="line2 common"></span>
-        <span class="line3 common"></span>
-    </div>
-    </label>
-
-
     <!-- navigation bar -->
     <nav id="nav">
-        <h2 id="logo"><i data-feather="sunset"></i>Impulse</h2>
         <ul>
-            
-            
-            <a href="#" id="profile"  class="nav_items"><i class="iconss" data-feather="user"></i>Profile</a>
-            <a href="#" id="settings" class="nav_items"><i class="iconss" data-feather="settings"></i>Settings</a>
-            <a href="#" id="notifications" class="nav_items" ><i class="iconss" data-feather="bell"></i>Notifications</a>
-            <a href="#" id="logout" class="nav_items"><i class="iconss" data-feather="log-out"></i>Log Out</a>
+            <a href="#" id="profile"  class="nav_items"><i class="iconss" data-feather="user"></i></a>
+            <a href="#" id="settings" class="nav_items"><i class="iconss" data-feather="settings"></i></a>
+            <a href="#" id="notifications" class="nav_items" ><i class="iconss" data-feather="bell"></i></a>
+            <a href="/logout/" id="logout" class="nav_items"><i class="iconss" data-feather="log-out"></i></a>
         </ul>
-       
     </nav>
 
-    <!-- transparent thingy -->
-    <div id="overlay"></div>
-
-    <!-- invisible sections profile, settings, notifications -->
+    <!-- invisible sections profile, settings, notification, logout-->
     <section id="profile-section"  style="display: none" >
         <a href="#" class="exit"> <i data-feather="x-circle"></i></a>
         <h1>Your Profile</h1>
@@ -60,9 +42,7 @@
             <h1> Logout</h1>
         <p>You are about to logout</p>
         <button id="logout-btn"> Log Out</button>
-    </section>
-    
-
+        </section>
 
     <section class="sectioning"> 
 
@@ -71,15 +51,13 @@
 
             <a class="btn" href="">View Team Timesheets</a>
             <a class="btn" href="">Print Timesheets</a>
-            
+        
         </article>
 
         <article class="tiles">
             <h2 class="tile_heading"> Staff</h2>
             <a class="btn" href=""> Request Feedback</a>
-            <a class="btn" href=""> Add Staff</a>
-            <a class="btn" href="">Remove Staff</a>
-            <a class="btn" href=""> Change Permission</a>
+            <a class="btn" href="/homepage/userman.html"> User Management</a>
         </article>
 
     </section>
@@ -107,7 +85,7 @@
         feather.replace();
       </script>
 
-<script src="homepageHR.js"></script>
+<script src="../js_files/scriptHr.js"></script>
 
 </body>
 </html>
