@@ -3,25 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
     <title>Timesheet Table</title>
-    <link rel="stylesheet" href="/stylesheets/timesheet.css">
-   <!--EXCEL export library links-->
-   <!-- <link.rel="stylesheet".href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-<link.rel="stylesheet".href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="timesheet2.css">
 
-<script.src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<script.src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
-<script.src="https://cdn.datatables.net/buttons/1.6.4/js/buttons. flash.min. js"></script>
-<script.src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script.src="https://cdnjs.cloudflare. com/ajax/libs/pdfmake/0.1.53/pdfmake.min. js"></script>
-<script.src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script.src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
-<script.src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script> -->
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+     <!--EXCEL export library links-->
+  
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -33,30 +20,49 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script> -->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
-<!-- <script type = "text/javascript">
-    $(document).ready(function(){
-        $('#main_table').DataTable(
-            {
-                dom: 'Blfrtip',
-                buttons: [
-             'excel', 'pdf' // Specify which buttons to include
-        ]
-            }
-        );
-    });
-</script> -->
 </head>
+
+
 <body>
+
     <main class="Table"> 
         <section class="table_header">
             <h1><p>Timesheet</p></h1>
             <h3 id="date"></h3>
         </section>
         <section class="table_body">
-
+<form method="POST" name="form1">
+            <table id="add_table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Task</th>
+                        <th>Start-time</th>
+                        <th>End-time</th>
+                        <th class="hidden">Duration</th>
+                        <th>Manager/Supervisor</th>
+                        
+                    </tr>
+                </thead>
+                <tbody class="t_body">
+                    
+                   <tr>
+                        <td ><input id="date_col" type="date"></td>
+                        <td ><input id="task_col" type="text"></td>
+                        <td ><input id="start_col" type="time"></td>
+                        <td ><input id="end_col" type="time" ></td>
+                        <td><input id="manager_col" class="manager_col" type="text"></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <input id="saveButton" type="button" class="Button" value="Save" onclick="saveRow()">
+            <br><br>
             <table id="main_table">
                 <thead>
                     <tr>
@@ -65,40 +71,49 @@
                         <th>Task</th>
                         <th>Start-time</th>
                         <th>End-time</th>
-                        <th>Duration</th>
                         <th>Manager/Supervisor</th>
+                        <th>Duration</th>
                         
                     </tr>
                 </thead>
-                <tbody>
-                    
-                    <tr>
-                        <td><input id="chk_col" class="checkboxes hidden" type=checkbox></td>
-                        <td ><input id="date_col" type="date"></td>
-                        <td ><input id="task_col" type="text"></td>
-                        <td ><input id="start_col" type="datetime-local"></td>
-                        <td ><input id="end_col" type="datetime-local"></td>
-                        <td ><input id="duration_col" type="datetime-local"></td>
-                        <!-- <td ><input id="start_col" type="text"></td>
-                        <td ><input id="end_col" type="text"></td>
-                        <td ><input id="duration_col" type="text"></td> -->
-                        <td><input id="manager_col" class="manager_col" type="text"></td>
-                        
-                    </tr> 
+
+                <tbody class="main_tbody">
+                    <!-- inputs must be stored here -->
                 </tbody>
+
             </table>
+        </form>
             <br>  
-            <input type = button class = "Button" value = "Add new row" onclick = addRow()>  
             <input type = button class = "Button" id="selRows" value = "Select Rows" onclick = ShowSelButtons()>  
             <input type = button class = "Button hidden" id="delSelRowsBtn" value = "Delete selected rows" onclick = delRow()> 
             <input type = button class = "Button hidden" id="selButton" value = "Select All" onclick = selAll()> 
             <input type = button class = "Button hidden" id="deselButton" value = "Deselect All" onclick = deselAll()> 
+            <button id="export-btn" class = "Button">Export as PDF</button>
 
         </section>
-    </main>
+        <script src="timesheet2.js"></script>
+        <script src="html2pdf.bundle.js"></script>
+        <script type="text/javascript">
+
+            document.getElementById('export-btn').onclick = function(){
+            const element = document.getElementById('main_table');
+
+            const opt = {
+                margin: 0.5,
+                filename: 'Timesheet',
+                image: {type: 'jpeg', quality: 0.98 },
+                html2pdfcanvas: {scale: 2},
+                jsPDF: {unit: 'in', format:'letter', orientation: 'portrait'}
+            };
+
+            html2pdf().from(element).set(opt).save();
+
+            };
+        </script>
 </body>
-<script src="../js_files/timesheet.js"></script>
-<script>
+
+
+<!-- <script>
     $(document).ready(function() {
         $('#main_table').DataTable({
             dom: 'Blfrtip',
@@ -107,5 +122,5 @@
             ]
         });
     });
-    </script>
-</html> 
+    </script> -->
+</html>

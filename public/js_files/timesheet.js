@@ -18,60 +18,144 @@ updateDate();
 //update the date every 2 minutes
 setInterval(updateDate, 1000);
 
+function saveRow(){
 
-//button functionalities
-function addRow(){  
-        const mytable =  document.getElementById("main_table");  
-        const rows = mytable.rows.length;  
-        const r = mytable.insertRow(rows);  
-        const c1 = r.insertCell(0);  
-        const c2 = r.insertCell(1);  
-        const c3 = r.insertCell(2);
-        const c4 = r.insertCell(3);
-        const c5 = r.insertCell(4);
-        const c6 = r.insertCell(5);
-        const c7 = r.insertCell(6);
-        /*there are seven columns*/  
-        // for(let i=0;i<7;i++ ){
-        //     const addition = r.insertCell(i);
-        // }
-        const checkbox = document.createElement("input");  
-        const Date_ = document.createElement("input");  
-        const task =document.createElement("input");
-        const start = document.createElement("input");
-        const end = document.createElement("input");
-        const duration = document.createElement("input");
-        const Manager = document.createElement("input");
-        Manager.classList.add("manager_col");  
-        //Manager.setAttribute("id", "manager_col");
-        Manager.addEventListener("keyup", addRowOnEnter);
-        checkbox.classList.add("checkboxes");
+    const date = document.getElementById('date_col').value;
+    const task = document.getElementById('task_col').value;
+    const startTime = document.getElementById('start_col').value;
+    const endTime = document.getElementById('end_col').value;
+    const manager = document.getElementById('manager_col').value;
+
+    // if(!ValidateData_Empty(date,task,startTime,endTime,manager)){
+    //     alert("One or more required fields are empty");
+    //     return;
+    // }
+    if(!ValidateData_Date(date)){
+        alert("Invalid Date entered");
+        return;
+    }
+    if(!ValidateData_Time(startTime, endTime)){
+        alert("Invalid times entered");
+        return;
+    }
+
+    let cols=[date,task,startTime,endTime,manager];
+
+ 
+
+    let row = document.createElement('tr');
+    row.classList.add('main_tbody');
+    //add checkbox first
+    const chk = document.createElement('input');
+    chk.classList.add('checkboxes');
+    chk.classList.add('hidden');
+    chk.type = 'checkbox';
+    const td = row.appendChild(document.createElement('td'));
+    td.appendChild(chk);
+    
+    //number of columns
+    const cols_len = cols.length;
+    for(let i =0;i<cols_len;i++){
+        const cell = row.appendChild(document.createElement('td'));
+        cell.innerText = cols[i];
+    }
+    const duration = document.createElement('td');
+    duration.innerText = CalcDuration();
+    const td2 = row.appendChild(document.createElement('td'));
+    td2.appendChild(duration);
+    
+    document.getElementById('main_table').appendChild(row);
+    //clear afterwards
+    clear();
+}
+
+function clear(){
+    document.getElementById('date_col').value ='';
+    document.getElementById('task_col').value ='';
+    document.getElementById('start_col').value ='';
+    document.getElementById('end_col').value ='';
+    document.getElementById('manager_col').value ='';
+}
+
+function CalcDuration(){
+    const startTime = document.getElementById('start_col').value;
+    const endTime = document.getElementById('end_col').value;
+
+    // Parse the time values into Date objects
+    var startDate = new Date('1970-01-01T' + startTime + 'Z');
+    var endDate = new Date('1970-01-01T' + endTime + 'Z');
+    let empty = false;
+    let durationSpan = document.getElementById('duration_col');
+
+         
+        // Calculate the difference in milliseconds
+        // const durationMs = Math.abs(endDate- startDate);
+        const durationMs = endDate- startDate;
         
-        checkbox.type = "checkbox";  
-        Date_.type = "date";
-        task.type="text";
-        start.type="datetime-local";
-        end.type="datetime-local";
-        duration.type="datetime-local";
-        // start.type="text";
-        // end.type="text";
-        // duration.type="text";
-        Manager.type = "text";  
-        c1.appendChild(checkbox);  
-        c2.appendChild(Date_);
-        c3.appendChild(task);
-        c4.appendChild(start);
-        c5.appendChild(end);
-        c6.appendChild(duration);
-        c7.appendChild(Manager); 
-        //if sel all buttons are visible, make checkboxes visible too
-        //!!! 
-        const deselButton = document.querySelector('#deselButton');
-        if(!deselButton.classList.contains('hidden')){
-            checkbox.style.visibility = "visible";
-        }
-} 
+        // Convert milliseconds to hours and minutes
+        const hours = Math.floor(durationMs / (1000 * 60 * 60));
+        const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
 
+        // Display the duration
+        let duration= hours +"hr(s) "+minutes+"mins";
+        
+        return duration;
+       
+   
+}
+
+function isEmpty(value) {
+    return value.trim() === '';
+}
+
+//show select all and deselect all
+function ShowSelButtons(){
+    const checkboxes = document.querySelectorAll(".checkboxes");
+    const selButton = document.querySelector('#selButton');
+    const deselButton = document.querySelector('#deselButton');
+    const selRowsButton = document.querySelector('#selRows');
+    const delSelRowsBtn = document.querySelector('#delSelRowsBtn');
+    for(const chkbox of checkboxes){
+        chkbox.style.visibility = "visible";
+        chkbox.classList.remove('hidden');
+    }
+    selRowsButton.style.visibility = "hidden";
+    selRowsButton.classList.add('hidden');
+    selButton.classList.remove('hidden');
+    selButton.style.visibility = "visible";
+    deselButton.classList.remove('hidden');
+    deselButton.style.visibility = "visible";
+    delSelRowsBtn.style.visibility="visible";
+    delSelRowsBtn.classList.remove('hidden');
+
+    // if(delSelRowsBtn.style.visibility == "visible"){
+    //     delSelRowsBtn.style.visibility="hidden";
+    //     delSelRowsBtn.classList.add('hidden');
+    // }
+}
+function selAll(){
+    const mytable = document.getElementById("main_table"); 
+    const ele=mytable.getElementsByTagName('input'); 
+   
+                for(var i=0; i<ele.length; i++){ 
+                    if(ele[i].type=='checkbox'){ 
+                        ele[i].checked=true;  
+                    }
+                    
+                } 
+      
+}
+function deselAll(){
+    const mytable = document.getElementById("main_table"); 
+    const ele=mytable.getElementsByTagName('input');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox'){ 
+                       
+                        ele[i].checked=false;  
+                    }
+                } 
+  
+}
 function delRow(){  
     const mytable = document.getElementById("main_table");  
     const selRowsButton = document.querySelector('#selRows');
@@ -100,76 +184,7 @@ function delRow(){
     
 } 
 
-//show select all and deselect all
-function ShowSelButtons(){
-    const checkboxes = document.querySelectorAll(".checkboxes");
-    const selButton = document.querySelector('#selButton');
-    const deselButton = document.querySelector('#deselButton');
-    const selRowsButton = document.querySelector('#selRows');
-    const delSelRowsBtn = document.querySelector('#delSelRowsBtn');
-    for(const chkbox of checkboxes){
-        chkbox.style.visibility = "visible";
-        chkbox.classList.remove('hidden');
-    }
-    selRowsButton.style.visibility = "hidden";
-    selRowsButton.classList.add('hidden');
-    selButton.classList.remove('hidden');
-    selButton.style.visibility = "visible";
-    deselButton.classList.remove('hidden');
-    deselButton.style.visibility = "visible";
-    delSelRowsBtn.style.visibility="visible";
-    delSelRowsBtn.classList.remove('hidden');
-
-    // if(delSelRowsBtn.style.visibility == "visible"){
-    //     delSelRowsBtn.style.visibility="hidden";
-    //     delSelRowsBtn.classList.add('hidden');
-    // }
-}
-
-
-function selAll(){
-    const mytable = document.getElementById("main_table"); 
-    const ele=mytable.getElementsByTagName('input'); 
-    //start loop at one so that table cant be empty 
-                for(var i=1; i<ele.length; i++){ 
-                    if(ele[i].type=='checkbox'){ 
-                        ele[i].checked=true;  
-                    }
-                    
-                } 
-      
-}
-
-
- 
-
-function deselAll(){
-    const mytable = document.getElementById("main_table"); 
-    const ele=mytable.getElementsByTagName('input');  
-                for(var i=0; i<ele.length; i++){  
-                    if(ele[i].type=='checkbox'){ 
-                       
-                        ele[i].checked=false;  
-                    }
-                } 
-  
-}
-// function addRowOnEnter(){
-//     //const input = document.getElementById("manager_col");
-//     const inputs = document.querySelectorAll(".manager_col");
-//     //console.log(inputs);
-//     inputs.forEach(function(input){
-//         input.addEventListener("keyup", function(event) {
-//             if (event.code === "Enter") {
-//                 event.preventDefault();
-//                 addRow();
-//             }
-//         });
-//     });
-    
-// }
-
-function addRowOnEnter() {
+function SaveOnEnter() {
     const inputs = document.querySelectorAll(".manager_col");
     inputs.forEach(function(input) {
                // Remove existing event listener for "keyup" event
@@ -193,20 +208,57 @@ function handleKeyPress(event) {
 
         if (currentInput === lastInputInRow) {
             event.preventDefault();
-            addRow();
+            saveRow();
         }
     }
 }
-document.addEventListener('DOMContentLoaded', addRowOnEnter);
+document.addEventListener('DOMContentLoaded', SaveOnEnter);
 
-// Create a MutationObserver instance
-const observer = new MutationObserver(function(){
-    const inputs = document.querySelectorAll(".manager_col");
-    //console.log(inputs);
-});
 
-// Configure the observer to observe changes in the DOM
-const observerConfig = { subtree: true, childList: true, attributes: true, characterData: true };
+//DATA VALIDATION FUNCTIONS
+function ValidateData_Empty(date, task,startTime,endTime,manager){
+    //make sure fields are not empty
+    let fieldsValid = true;
+    let cols=[date,task,startTime,endTime,manager];
 
-// Start observing the document for changes
-observer.observe(document.documentElement, observerConfig);
+    for(let i=0;i<cols.length;i++){
+        if(isEmpty(cols[i])){
+            fieldsValid = false;
+        }
+
+    }
+    return fieldsValid;
+}
+
+function ValidateData_Date(date){
+    //check that entered date is before or on current date
+    let validDate = true;
+    const currDate = new Date();
+    const year = currDate.getFullYear();
+    const month = currDate.getMonth() + 1; // Adding 1 because January is 0-indexed
+    const day = currDate.getDate();
+
+    // Format the date as desired (e.g., YYYY-MM-DD)
+    const formattedDate = year + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day);
+    console.log(formattedDate); // Output: YYYY-MM-DD
+    console.log(date);
+    if(date>formattedDate){
+        validDate = false;
+    }
+
+    return validDate;
+}
+
+function ValidateData_Time(startTime, endTime){
+    let validTime = true;
+    var startDate = new Date('1970-01-01T' + startTime + 'Z');
+    var endDate = new Date('1970-01-01T' + endTime + 'Z');
+    const durationMs = endDate-startDate;
+
+    if(durationMs<=0){
+        validTime = false;
+    }
+
+    return validTime;
+}
+
