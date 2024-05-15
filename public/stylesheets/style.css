@@ -1,0 +1,149 @@
+
+form {
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    left: 75%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+
+form * {
+    font-family: 'Poppins',sans-serif;
+    color: #000000;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.527);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+::placeholder {
+    color: #000000;
+}
+
+button {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+/* log in end */
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'sans-serif';
+}
+
+
+body{    
+    background: url("yuriy-kovalev-nN1HSDtKdlw-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(204, 208, 205, 0.3);
+    min-height: 110vh;
+    padding: 50px;
+}
+
+.welcome-border{
+    display: flex;
+    border-radius: 25px;
+    width: 50dvw;
+    height: 75dvh;
+    padding: 50px;
+    background-color: #06141b;
+    margin-right: 100px;
+    margin-bottom: 20px;
+
+    
+}
+
+.sign-in{
+    display: flex;
+    width: 50%;
+    height: 750px;
+    border-radius: 25px;
+    padding: 50px;
+    
+}
+
+.welcome-text{
+    
+    width:50%;
+    color: #CCD0CF;
+    font-size: 5.5vw;
+    
+}
+
+.sign-in-btn{
+    
+    width: 130px;
+    height: 40px;
+    font-weight: 50;
+    background: rgba(red, green, blue, alpha);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s ease;
+    display:center;
+}
+
+.sign-in-btn:hover{
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#logo{
+    margin-top: 20px;
+}
+
+
+
+
+
