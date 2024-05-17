@@ -15,6 +15,7 @@ const config = {
 var app = express();
 app.set('views', 'views');
 app.set('view engine', 'ejs');
+app.engine('ejs', require('ejs').__express);
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
