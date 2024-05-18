@@ -2,7 +2,7 @@
   "name": "impulse",
   "version": "1.0.0",
   "description": "Let us make a good product.",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "ansi-escapes": "^4.3.2",
     "ansi-regex": "^5.0.1",
