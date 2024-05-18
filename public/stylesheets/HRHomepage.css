@@ -12,6 +12,8 @@ body{
     background: #0F1322 ; 
     z-index: 000;
 }
+
+
 #name{
     font-size: 50px;
 }
@@ -109,7 +111,6 @@ body{
     margin-bottom: 10px;
 }
 
-
 .NameRole{
     margin-top:40px;
     margin-bottom:-60px;
@@ -139,22 +140,72 @@ body{
     /* margin-left:auto;
     margin-right: 75px; */
     margin-top: 20px;
-    padding: 30px 20px;
-    height: fit-content;
+    padding: 10px 20px;
+    height: 400px;
     width: 500px;
     /* background-color: white; */
+    overflow-y: auto;
     border-radius: 30px;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
-#FeedbackCard{
+
+#MoreCards::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+#MoreCards::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: white;
+    visibility: hidden;
+}
+
+#MoreCards:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+#ReportsCard{
+    background-color:#93D5E1 ;
+    border-radius: 30px;
+    min-height: 150px;
+    width:100%;
+    padding: 30px 20px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+#ManageStaffCard{
     background-color:#BEC2D1 ;
     border-radius: 30px;
     min-height: 150px;
     width:100%;
     padding: 30px 20px;
-    align-self: flex-start;
+    margin-bottom: 10px;
+}
+#RequestFeedbackCard{
+    background-color:#444857 ;
+    border-radius: 30px;
+    min-height: 150px;
+    width:100%;
+    padding: 30px 20px;
+    margin-bottom: 10px;
+}
+#ManageBookingsCard{
+    background-color:#93D5E1 ;
+    border-radius: 30px;
+    min-height: 150px;
+    width:100%;
+    padding: 30px 20px;
+    margin-bottom: 10px;
+}
+#StaffTimesheets{
+    background-color:#BEC2D1 ;
+    border-radius: 30px;
+    min-height: 150px;
+    width:100%;
+    padding: 30px 20px;
 }
 .cards{
     display:flex;
