@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
+*{
+    font-family: 'Heebo' ,'Tahoma', sans-serif;
+    color: white;
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    
+}
+body{
+    background: #0F1322 ; 
+    z-index: 000;
+}
+
+button {
+    font-size: 16px;
+    position: relative;
+    margin: auto;
+    padding: 1em 2.5em 1em 2.5em;
+    border: none;
+    background: #fff;
+    transition: all 0.1s linear;
+    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+    border-radius: 2em;
+}
+
+   
+button:active {
+    transform: scale(0.95);
+    border-color: aqua;
+}
+   
+
+
+button .border {
+    position: absolute;
+    border: 0.15em solid #fff;
+    transition: all 0.3s 0.08s linear;
+    top: 50%;
+    left: 50%;
+    width: 9em;
+    height: 3em;
+    transform: translate(-50%, -50%);
+}
+
+button:hover  {
+    display: block;
+    width: 9.9em;
+    height: 3.7em;
+}
+#name{
+    font-size: 50px;
+}
+.horizontalNavbar{
+    margin-left: 75px;
+    margin-right: 395px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.horNavButtons ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    padding:0;
+}
+.horNavButtons{
+    margin-left: auto;
+    margin-top: 15px;
+    background-color: #353948;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+    
+}
+
+.navButton {
+    display: block;
+    position: relative;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+}
+
+.navButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.navButton:hover{
+    background-color: #93D5E1;
+}
+
+
+.verticalLine{
+    z-index: 999;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom:0;
+}
+#vl1{
+    border-left: 1px solid white;
+    left: 40px;
+    margin-left: 0;
+}
+/* #vl2{
+    border-right: 1px solid white;
+    margin-right:0;
+    margin-left: auto;
+    right:320px;
+} */
+
+#verticalNavbar li {
+    display: block;
+    width: 32px;
+    padding: 15px 8px;
+}
+
+#verticalNavbar{
+    list-style: none;
+    margin: 0;
+    margin-top: -70px;
+    padding: 0;
+    width: 32px;
+    height: 100%;
+    min-width:200px;
+}
+
+#verticalNavbar li:last-child{
+    position: absolute;
+    bottom: 0;
+    left:0;
+}
+#verticalNavbar li:hover {
+    cursor: pointer;
+
+}
+
+.NameRole{
+    margin-left: 140px;
+    font-size: 20px;
+}
+#nameSurname{
+    margin-inline: 7px;
+}
+.greeting{
+    display: flex;
+}
+#role{
+    font-size: 16px;
+}
+#PersonalCard{
+    /* margin-left: 65px; */
+    margin-right: 20px;
+    padding: 30px 20px;
+    min-height: 300px;
+    height:fit-content;
+    width: auto;
+    min-width: 475px;
+    background-color:#353948;
+    border-radius: 30px;
+}
+#MoreCards{
+    /* margin-left:auto;
+    margin-right: 75px; */
+    padding: 30px 20px;
+    min-height: 300px;
+    height:fit-content;
+    width: auto;
+    min-width: 500px;
+    
+    border-radius: 30px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#FeedbackCard{
+    background-color:#BEC2D1 ;
+    border-radius: 30px;
+    min-height: 150px;
+    width:100%;
+    padding: 30px 20px;
+    align-self: flex-start;
+}
+.cards{
+    display:flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+}
+.MainCards{
+    margin-top: 70px;
+    margin-left:75px;
+    margin-right:20px;
+    width: auto;
+    min-height: 400px;
+    height:fit-content;
+    padding:10px 40px;
+    display:flex;
+    justify-content: space-between;
+}
+.SideCards{
+    margin-top:-100px;
+    margin-right:20px;
+    margin-left:auto;
+    padding:0;
+    width: 280px;
+    min-height: 550px;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#CalendarCard{
+    height: fit-content;
+    min-height: 250px;
+    width:auto;
+    background-color: #BEC2D1;
+    border-radius: 25px;
+    padding: 20px 15px;
+}
+#NotificationCard{
+    height: fit-content;
+    min-height: 200px;
+    background-color:#93D5E1;
+    border-radius: 25px;
+    padding: 20px 15px;
+    color: black
+}
