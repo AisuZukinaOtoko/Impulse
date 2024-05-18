@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "appService.defaultWebAppToDeploy": "/subscriptions/76a10c30-0ce9-4994-94f7-f047d76e0545/resourceGroups/Impulse2/providers/Microsoft.Web/sites/impulseWebApp",
+    "appService.deploySubpath": "."
 }
