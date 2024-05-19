@@ -13,9 +13,9 @@ body{
     z-index: 000;
     overflow: auto;
 }
-a {
+/* a {
     text-decoration: none;
-}
+} */
 #name{
     font-size: 50px;
 }
