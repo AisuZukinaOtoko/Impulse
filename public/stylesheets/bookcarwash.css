@@ -307,83 +307,24 @@ button span {
   }
   
 
-  .popup{
+  .staffli{
     display: flex;
     flex-direction: column;
-    width:400px;
-    background:transparent;
-    border: 2px solid rgba(219, 236, 244, .1);
-    border-radius: 6px;
-    backdrop-filter: blur(5px);
-    background-color: rgba(219, 236, 244, 0.1);
-    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    position: absolute;
-    top:0;
-    left: 50%;
-    transform: translate(-50%,-50%) scale(0.1);
-    text-align: center;
     align-items: center;
+    position: absolute;
+    z-index: 1000;
+
+    background-color: rgba(191,194,209,255);
+    /* margin: 500px; */
+    width: 70%;
+    height: 90%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    /* text-align: center; */
     padding: 0 30px 30px;
-    color: #194569;
+    border: 1px solid rgba(16,19,34,255);
+    border-radius: 20px;
     visibility: hidden;
     transition: transform 0.4s, top 0.4s;
 }
-.popup .input-box{
-    position: relative;
-    width: 100%;
-    height: 50px;
-    margin: 30px 0;
-}
-
-.input-box input{
-    width: 100%;
-    height: 50%;
-    background: transparent;
-    outline: none;
-    border: 2px solid rgba(25, 69, 105, 1);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #194569;
-    padding: 20px 45px 20px 20px;
-}
-
-.input-box input::placeholder{
-    color: #194569;
-}
-.input-box i {
-    position: absolute;
-    right: 20px;
-    top: 25%;
-    transform: translate(-50%);
-    font-size: 20px;
-}
-
-.popup .add{
-    width: 100%;
-    height: 45px;
-    background: #194569;
-    border-bottom: 20px;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: white;
-    font-weight: 600;
-}
-
-.popup .close{
-    width: 100%;
-    height: 45px;
-    background: #194569;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: white;
-    font-weight: 600;
-}
-
-
-
