@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Resources - Feedback</title>
+    <link rel="stylesheet" href="../stylesheets/FeedbackHR.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+<section class="container">
+
+    <nav>
+        <ul>
+            <a href="#" id="profile"  class="nav_items"><i class="iconss" data-feather="user"></i></a>
+            <a href="#" id="settings" class="nav_items"><i class="iconss" data-feather="settings"></i></a>
+            <a href="#" id="notifications" class="nav_items" ><i class="iconss" data-feather="bell"></i></a>
+            <a href="#" id="logout" class="nav_items"><i class="iconss" data-feather="log-out"></i></a>
+        </ul>
+    </nav>
+
+    <section class="content">
+
+        <h1> Staff Feedback</h1>
+
+        <article class="two-sections">
+
+            <section class="comment-section">
+            <a>Comment Section</a>
+
+            <article id="insert-comments">
+
+            </article>
+
+            </section>
+
+            <section class="request-section collapsed" id="reqSection">
+                <!-- headline -->
+                    <a class="holder"> Feedback Management<i id="open-Requests" data-feather="arrow-up-right"></i></a>
+            
+                    <a href="#" id="reqFeedback" > Request Feedback </a>
+
+                    <table>
+                        <thread>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Staffmember Name</th>
+                                <th>Time</th>
+                                <th>Request status</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            <tr>
+                                <th>Project1</th>
+                                <th>Peter Parker</th>
+                                <th>--:--</th>
+                                <th>Pending</th>
+                            </tr>
+                            <tr>
+                                <th>Project1</th>
+                                <th>MJ</th>
+                                <th>25/03, 14:09</th>
+                                <th>Done</th>
+                            </tr>
+                            <tr>
+                                <th>Project3</th>
+                                <th>Hlengiwe Mhlaba</th>
+                                <th> 25/03, 09:37</th>
+                                <th>Done</th>
+                            </tr>
+                        </tbody>
+                    </table>
+
+            </section>
+
+        </article>
+
+    </section>
+
+    <section class="sidepage"></section>
+
+    <!-- overlay ... dzon worry bourrrrit-->
+    <section id="overlay" style="display: none;"></section>
+
+    <!-- hidden elements -->
+    <!-- staff list to search & request feedback -->
+    <article class="staffli" id="stafflist">
+        <a class="staff"> Staff List</a>
+        
+        <section class="input-cont">
+            <input type="text" id="searchbar" class="with-icon" placeholder="Search"></section>
+
+        <section class="thelist" id="thelist"></section>
+        
+        <footer>
+            <a id="closelist"> Close</a>
+        </footer>
+
+    </article>
+
+</section>
+
+    <script>
+        feather.replace();
+      </script>
+
+<script src="../js_files/FeedbackHR.js"></script>
+</body>
+</html>
