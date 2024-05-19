@@ -10,6 +10,20 @@ router.get('/users', (req, res) => {
         });
 });
 
+router.get('/users/:email', (req, res) => {
+    const { email } = req.params;
+    if (!email) {
+        res.status(400).send("An error occurred.");
+        return;
+    }
+
+    let query = "SELECT * FROM dbo.users WHERE email = '" + email + "'";
+    dbRequest(query)
+        .then((response) => {
+            res.status(200).json(response);
+        });
+});
+
 router.post('/users', (req, res) => {
     const { Name, LastName, email, permissions, phoneNo } = req.body;
 
