@@ -32,3 +32,5 @@ var options = {
 
 var chart = new ApexCharts(document.querySelector("#hourChart"), options);
 chart.render();
+
+console.log("Hello_world!!");
