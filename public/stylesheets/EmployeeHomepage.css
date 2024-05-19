@@ -12,9 +12,9 @@ body{
     background: #0F1322 ; 
     z-index: 000;
 }
-a {
+/* a {
     text-decoration: none;
-}
+} */
 #name{
     font-size: 50px;
 }

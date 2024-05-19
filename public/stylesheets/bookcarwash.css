@@ -15,6 +15,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color:#0f1322;
+    overflow: auto;
 }
 
 .wrap{
@@ -170,7 +171,6 @@ tbody{
     width: 87vw;
     height: 90vh;
     border-radius: .8rem;
-    overflow: hidden;
 }
 
 .table_body{
