@@ -40,7 +40,8 @@
     align-items: center;
     justify-content: center;
     height: 40vh;
-    width: 40vh;
+    width: 35vh;
+    margin-left: 10px;
     background-color:#353948 ;
   }
 
