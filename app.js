@@ -26,6 +26,8 @@ app.use(auth(config));
 
 app.use('/', indexRouter);
 app.use('/api', require("./api/users/users.js"));
+app.use('/api', require("./api/timesheets/timesheets.js"));
+app.use('/api', require("./api/feedback/feedback.js"));
 
 app.listen(port, () => {
     console.log('Express is running on port 3000');

@@ -4,7 +4,7 @@ const dbRequest = require('./../boilerplate')
 
 
 router.get('/timesheet', (req, res) =>{
-    dbRequest("SELECT * FROM dbo.users")
+    dbRequest("SELECT * FROM dbo.timesheet")
   .then((data) => {
     res.json(data);
 })
@@ -12,15 +12,15 @@ router.get('/timesheet', (req, res) =>{
 
 
 router.post('/timesheet', (req, res) =>{
-    const {Name, LastName, email, permissions, phoneNo} = req.body;
+    const {date, startTime, endTime, duration, manager, task, email} = req.body;
 
-    if (!Name || !LastName || !email || permissions == undefined || !phoneNo){
+    if (!date || !startTime || !endTime || !duration || !manager || !task || !email){
         res.status(400).send("An error occured.");
         return;
     }
 
-    let query = "INSERT INTO dbo.users VALUES ('" + Name + "', '" + LastName + "', '" + email + "', " + permissions + ", N'" + phoneNo + "')";
-    console.log(query);
+    let query = "INSERT INTO dbo.timesheet VALUES (NEWID(), '" + date + "', '" + startTime + "', '" + endTime + "', '" + duration + "', '" + manager + "','" + task + "','" + email + "')";
+
     dbRequest(query)
   .then((response) => {
     res.status(200).json(response);
@@ -28,14 +28,14 @@ router.post('/timesheet', (req, res) =>{
 });
 
 
-router.delete('/timesheet/delete/:email', (req, res) =>{
-    const {email} = req.params;
-    if (!email){
+router.delete('/timesheet/delete/:id', (req, res) =>{
+    const {id} = req.params;
+    if (!id){
         res.status(400).send("An error occured.");
         return;
     }
 
-    let query = "DELETE FROM dbo.users WHERE email = '" + email + "'"; 
+    let query = "DELETE FROM dbo.timesheet WHERE id = CONVERT(uniqueidentifier, '" + id + "')"; 
     dbRequest(query)
   .then((response) => {
     res.status(200).json(response);
