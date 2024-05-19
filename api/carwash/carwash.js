@@ -3,23 +3,23 @@ var router = express.Router();
 const dbRequest = require('./../boilerplate')
 
 
-router.get('/feedback', (req, res) =>{
-    dbRequest("SELECT * FROM dbo.feedbacks")
+router.get('/carwash', (req, res) =>{
+    dbRequest("SELECT * FROM dbo.carwashBooking")
   .then((data) => {
     res.json(data);
 })
 });
 
 
-router.post('/feedback', (req, res) =>{
-    const {project_reference, description, email, date} = req.body;
+router.post('/carwash', (req, res) =>{
+    const {date, slot, email, carModel} = req.body;
 
-    if (!date || !project_reference || !description || !email){
+    if (!date || !slot || !email || !carModel){
         res.status(400).send("An error occured.");
         return;
     }
 
-    let query = "INSERT INTO dbo.feedbacks VALUES (NEWID(), '" + project_reference + "', '" + description + "', '" + email + "', '" + date + "')";
+    let query = "INSERT INTO dbo.carwashBooking VALUES (NEWID(), '" + date + "', '" + slot + "', '" + email +  "', '" + carModel + "')";
 
     dbRequest(query)
   .then((response) => {
@@ -28,14 +28,14 @@ router.post('/feedback', (req, res) =>{
 });
 
 
-router.delete('/feedback/delete/:id', (req, res) =>{
+router.delete('/carwash/delete/:id', (req, res) =>{
     const {id} = req.params;
     if (!id){
         res.status(400).send("An error occured.");
         return;
     }
 
-    let query = "DELETE FROM dbo.feedbacks WHERE id = CONVERT(uniqueidentifier, '" + id + "')"; 
+    let query = "DELETE FROM dbo.carwashBooking WHERE id = CONVERT(uniqueidentifier, '" + id + "')"; 
     dbRequest(query)
   .then((response) => {
     res.status(200).json(response);
