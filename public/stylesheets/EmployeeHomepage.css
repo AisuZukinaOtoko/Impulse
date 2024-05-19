@@ -12,6 +12,9 @@ body{
     background: #0F1322 ; 
     z-index: 000;
 }
+a {
+    text-decoration: none;
+}
 #name{
     font-size: 50px;
 }
@@ -49,7 +52,7 @@ body{
     padding-bottom: 2px;
     letter-spacing: 2px;
     font-size: 14px;
-    
+    text-decoration: none;
     padding-inline: 15px;
     cursor: pointer;  
     background-color: #444857;
