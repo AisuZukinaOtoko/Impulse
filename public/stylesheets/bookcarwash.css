@@ -170,7 +170,7 @@ tbody{
     width: 87vw;
     height: 90vh;
     border-radius: .8rem;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .table_body{
