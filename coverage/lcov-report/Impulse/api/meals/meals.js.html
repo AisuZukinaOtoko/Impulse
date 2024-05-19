@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Impulse/api/feedback/feedback.js</title>
+    <title>Code coverage report for Impulse/api/meals/meals.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">Impulse/api/feedback</a> feedback.js</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">Impulse/api/meals</a> meals.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -156,23 +156,23 @@ var router = express.Router();
 const dbRequest = require('./../boilerplate')
 &nbsp;
 &nbsp;
-router.get('/feedback', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt;{
-<span class="cstat-no" title="statement not covered" >    dbRequest("SELECT * FROM dbo.feedbacks")</span>
+router.get('/meal', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt;{
+<span class="cstat-no" title="statement not covered" >    dbRequest("SELECT * FROM dbo.meals")</span>
   .then(<span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
 <span class="cstat-no" title="statement not covered" >    res.json(data);</span>
 })
 });
 &nbsp;
 &nbsp;
-router.post('/feedback', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt;{
-    const {project_reference, description, email, date} = <span class="cstat-no" title="statement not covered" >req.body;</span>
+router.post('/meal', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt;{
+    const {date, type, description, email} = <span class="cstat-no" title="statement not covered" >req.body;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (!date || !project_reference || !description || !email){</span>
+<span class="cstat-no" title="statement not covered" >    if (!date || !type || !description || !email){</span>
 <span class="cstat-no" title="statement not covered" >        res.status(400).send("An error occured.");</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
     }
 &nbsp;
-    let query = <span class="cstat-no" title="statement not covered" >"INSERT INTO dbo.feedbacks VALUES (NEWID(), '" + project_reference + "', '" + description + "', '" + email + "', '" + date + "')";</span>
+    let query = <span class="cstat-no" title="statement not covered" >"INSERT INTO dbo.meals VALUES (NEWID(), '" + date + "', '" + type + "', '" + description + "', '" + email + "')";</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    dbRequest(query)</span>
   .then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {
@@ -181,14 +181,14 @@ router.post('/feedback', <span class="fstat-no" title="function not covered" >(r
 });
 &nbsp;
 &nbsp;
-router.delete('/feedback/delete/:id', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt;{
+router.delete('/meal/delete/:id', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt;{
     const {id} = <span class="cstat-no" title="statement not covered" >req.params;</span>
 <span class="cstat-no" title="statement not covered" >    if (!id){</span>
 <span class="cstat-no" title="statement not covered" >        res.status(400).send("An error occured.");</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
     }
 &nbsp;
-    let query = <span class="cstat-no" title="statement not covered" >"DELETE FROM dbo.feedbacks WHERE id = CONVERT(uniqueidentifier, '" + id + "')"; </span>
+    let query = <span class="cstat-no" title="statement not covered" >"DELETE FROM dbo.meals WHERE id = CONVERT(uniqueidentifier, '" + id + "')"; </span>
 <span class="cstat-no" title="statement not covered" >    dbRequest(query)</span>
   .then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {
 <span class="cstat-no" title="statement not covered" >    res.status(200).json(response);</span>
