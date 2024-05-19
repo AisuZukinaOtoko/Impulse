@@ -26,10 +26,10 @@ function saveRow(){
     const endTime = document.getElementById('end_col').value;
     const manager = document.getElementById('manager_col').value;
 
-    // if(!ValidateData_Empty(date,task,startTime,endTime,manager)){
-    //     alert("One or more required fields are empty");
-    //     return;
-    // }
+    if(!ValidateData_Empty(date,task,startTime,endTime,manager)){
+        alert("One or more required fields are empty");
+        return;
+    }
     if(!ValidateData_Date(date)){
         alert("Invalid Date entered");
         return;

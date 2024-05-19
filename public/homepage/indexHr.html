@@ -6,6 +6,7 @@
     <title>Impulse</title>
     <link rel="stylesheet" href="/stylesheets/styleHR.css">
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -22,6 +23,22 @@
             <a href="/logout/" id="logout" class="nav_items"><i class="iconss" data-feather="log-out"></i></a>
         </ul>
     </nav>
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await axios.post("https://detect.roboflow.com/parking-lot-availability/8", {
+                    api_key: "HCIwZ8VofW30c9z33ISs",
+                    image: "IMAGE_URL"
+                });
+                console.log(response.data);
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        fetchData();
+    </script>
 
     <!-- invisible sections profile, settings, notification, logout-->
     <section id="profile-section"  style="display: none" >
