@@ -9,36 +9,38 @@
     <title>bookmeals</title>
 </head>
 <body>
+    <h1 id="name">impulse.</h1>
+    <nav class="verticalNavbar">
+        <article>
+            <ul>
+                <li><a href="#"><img src="../../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
+                <li><a href="#"><img src="/assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
+                <li><a href="#"><img src="/assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
+            </ul>
+           
+        </article>
+    </nav>
+
     <section class="container1">
         <!--Top menu -->
         <article class="subcontainer1">
 
-            <article class="circular">
-                <article class="inner"></article>
-                <article class="outer"></article>
-                <article class="numb">
-                   0%
-                </article>
-                <article class="circle">
-                   <article class="dot">
-                      
-                   </article>
-                   <article class="bar left">
-                      <article class="progress"></article>
-                   </article>
-                   <article class="bar right">
-                      <article class="progress"></article>
-                   </article>
-                </article>
-             </article>
+            <h3 class="subtextbox3">Meals available</h3>
+                    <nav class="verticaloption">
+                        <article class="vertbtn">
+                            <ul>
+                                <a> <li class="navButton">Pizza for R30</li></a>
+                                <a ><li class="navButton">Chicken for R25</li></a> 
+                                <a><li class="navButton">Snacks for R20</li></a>
+                            </ul>
+                        </article>
+                    </nav>
              
         </article>
 
-        <h1>Average meals booked</h1>
-
     </section>
         
-       <article class="container2">
+       <article class="container4">
 
         <section class="chart" >
             <canvas id="barchart" width="10" height="10"></canvas>
@@ -53,10 +55,10 @@
                         <input type="date" id="eventDate">
                         <input type="text"
                             id="eventTitle"
-                            placeholder="Event Title">
+                            placeholder="Meal Type">
                         <input type="text"
                             id="eventDescription"
-                            placeholder="Event Description">
+                            placeholder="Description">
                         <button id="addEvent" onclick="addEvent()">
                             Add
                         </button>
@@ -125,7 +127,16 @@
         </section>
        </article>
     
-         
+       <nav class="horizontalNavbar">
+        <article class="horNavButtons">
+            <ul>
+                <li class="navButton">Home</li>
+               <li class="navButton"><a href="bookcarwash.html">Book car wash</a></li> 
+               <li class="navButton"><a href="bookmeals.html">Book meal</a></li>
+               <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
+            </ul>
+        </article>
+    </nav>
 
     
     <br>
