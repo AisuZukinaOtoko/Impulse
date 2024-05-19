@@ -264,7 +264,3 @@ function ValidateData_Time(startTime, endTime){
 
     return validTime;
 }
-
-
-
-
