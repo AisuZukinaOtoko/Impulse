@@ -29,6 +29,9 @@ body{
     display: flex;
     padding:0;
 }
+.horNavButtons ul a{
+    text-decoration: none;
+}
 .horNavButtons{
     margin-left: auto;
     margin-top: 15px;
