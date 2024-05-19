@@ -6,7 +6,9 @@
     font-family: 'Lucida Sans', Arial, sans-serif
 
 }
-
+a {
+    text-decoration: none;
+}
 body{
     min-height: 100vh;
     display: flex;
@@ -15,20 +17,115 @@ body{
     background-color:#0f1322;
 }
 
-.welcome_bar{
-    background: #93d5e1;
-    margin-bottom: 50px;
-    max-width: 100%;
-    left: 0;
-    height: 500px;
+.wrap{
+    display: flex;
+}
+.textbox1{
+    color: white;
+    margin-left: 120px;
+    margin-top: 10px;
+}
+.subtextbox1{
+    margin-left: 180px;
+}
+.container2{
+    background: #353948;
+    background-size: cover;
+    width: 500px;
+    height: 580px;
     padding: 20px 0;
-    border-radius: 2em;
+    border-radius: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    transition: all 0.5s ease;
+}
+.container3{
+    background: #353948;
+    background-size: cover;
+    width: 500px;
+    height: 580px;
+    padding: 20px 0;
+    border-radius: 50px;
+    margin-left: 200px;
+    transition: all 0.5s ease;
 }
 
+.container2 .subcontainer2{
+    background: #93d5e1;
+    width: 480px;
+    height: 450px;
+    padding: 20px 0;
+    margin-top: 50px;
+    margin-left: 10px;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+}
 
-.welcome_bar img{
+.container3 .subcontainer2{
+    background: #93d5e1;
+    width: 480px;
+    height: 450px;
+    padding: 20px 0;
+    margin-top: 50px;
+    margin-left: 10px;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+}
+#name{
+    font-size: 50px;
+}
+.horizontalNavbar{
+    margin-left: 79px;
+    margin-right: 395px;
+    display: flex;
+}
 
-    margin-top: 250px;
+.horNavButtons ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding:0;
+}
+.horNavButtons{
+    margin-left: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+    
+}
+
+.navButton {
+    
+    position: relative;
+    height: 50px;
+    width: 300px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-decoration: none;
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+}
+
+.navButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.navButton:hover{
+    background-color: #93D5E1;
 }
 
 .hidden{
@@ -209,4 +306,84 @@ button span {
     margin: 1cm; /* adjust margins as needed */
   }
   
+
+  .popup{
+    display: flex;
+    flex-direction: column;
+    width:400px;
+    background:transparent;
+    border: 2px solid rgba(219, 236, 244, .1);
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(219, 236, 244, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    align-items: center;
+    padding: 0 30px 30px;
+    color: #194569;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+.popup .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 50%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(25, 69, 105, 1);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #194569;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: #194569;
+}
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 25%;
+    transform: translate(-50%);
+    font-size: 20px;
+}
+
+.popup .add{
+    width: 100%;
+    height: 45px;
+    background: #194569;
+    border-bottom: 20px;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+
+.popup .close{
+    width: 100%;
+    height: 45px;
+    background: #194569;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+
+
 
