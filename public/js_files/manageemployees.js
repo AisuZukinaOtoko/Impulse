@@ -20,13 +20,10 @@ setInterval(updateDate, 1000);
 
 function saveRow(){
 
-    const date = document.getElementById('date_col').value;
-    const available_slots = document.getElementById('availableslots_col').value;
-    const startTime = document.getElementById('start_col').value;
-    const endTime = document.getElementById('end_col').value;
-    const vehicle_type = document.getElementById('vehicletype_col').value;
-    const vehicle_model = document.getElementById('vehiclemodel_col').value;
-
+    const employee_name=document.getElementById('employeename_col').value;
+    const task=document.getElementById('task_col').value;
+    const project=document.getElementById('project_col').value;
+    const title=document.getElementById('title_col').value;
 
     // if(!ValidateData_Empty(date,task,startTime,endTime,manager)){
     //     alert("One or more required fields are empty");
@@ -41,7 +38,7 @@ function saveRow(){
         return;
     }
 
-    let cols=[date,available_slots,startTime,endTime,vehicle_type,vehicle_model,];
+    let cols=[employee_name,task,project,title];
 
  
 
@@ -72,12 +69,10 @@ function saveRow(){
 }
 
 function clear(){
-    document.getElementById('date_col').value ='';
-    document.getElementById('availableslots_col').value ='';
-    document.getElementById('start_col').value ='';
-    document.getElementById('end_col').value ='';
-    document.getElementById('vehicletype_col').value ='';
-    document.getElementById('vehiclemodel_col').value ='';
+    document.getElementById('employeename_col').value ='';
+    document.getElementById('task_col').value ='';
+    document.getElementById('project_col').value ='';
+    document.getElementById('title_col').value ='';
 }
 
 function CalcDuration(){
@@ -118,6 +113,7 @@ function ShowSelButtons(){
     const deselButton = document.querySelector('#deselButton');
     const selRowsButton = document.querySelector('#selRows');
     const delSelRowsBtn = document.querySelector('#delSelRowsBtn');
+    const editBtn=document.querySelector('#editButton')
     for(const chkbox of checkboxes){
         chkbox.style.visibility = "visible";
         chkbox.classList.remove('hidden');
@@ -130,6 +126,8 @@ function ShowSelButtons(){
     deselButton.style.visibility = "visible";
     delSelRowsBtn.style.visibility="visible";
     delSelRowsBtn.classList.remove('hidden');
+    editBtn.style.visibility="visible";
+    editBtn.classList.remove('hidden');
 
     // if(delSelRowsBtn.style.visibility == "visible"){
     //     delSelRowsBtn.style.visibility="hidden";

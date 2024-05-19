@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/manageemployees.css">
+    <link rel="stylesheet" href="../stylesheets/bookcarwash.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <main class="Table">
+
+        <article class="main">
+            <!--Serach bar-->
+            <article onclick="hideallfunction()" id="hideall"></article>
+            
+            <article id="search-section-js" class="searchsection">
+                <article role="search" class="search">
+                <input tabindex="1" id="search-bar-js" class="searchbar" type="search" aria-label="Search text" placeholder="Search..." name="search">
+                <button tabindex="-1" class="searchbutton" id="close-img-js" aria-label="Cancel"><img src="/assets/round_close_white_24dp.png" alt="cancel" class="closeimg globalsearchremove" class="searchbutton" id="close-img-js" aria-label="Cancel"></button>
+                <button tabindex="2" class="searchbutton" id="search-img-js" aria-label="Search"><img src="/assets/round_search_white_24dp.png" alt="search" class="searchimg"></button>  
+              </article>
+                <article class="middle">
+                <article class="borderbetween globalsearchremove"></article>
+                </article>
+                <article class="middle">
+              <ul tabindex="3" class="list globalsearchremove">
+                
+              </ul>
+              </article>
+              </article>
+    
+            <section class="table_body">
+                <form method="POST" name="form1">
+                            <table id="add_table">
+                                <thead>
+                                    <tr>
+                                        <th>Employee Name</th>
+                                        <th>Task</th>
+                                        <th>Project</th>
+                                        <th>Title</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody class="t_body">
+                                    
+                                   <tr>
+                                        <td ><input id="employeename_col" class="employeename_col" type="text"></td>
+                                        <td><input id="task_col" class="task_col" type="text"></td>
+                                        <td><input id="project_col" class="project_col" type="text"></td>
+                                        <td><input id="Title_col" class="title_col" type="text"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <input id="saveButton" type="button" class="Button" value="Add" onclick="saveRow()">
+                        </section>
+    
+                        <section class="bookings">
+                            <table id="main_table">
+                                <thead>
+                                    <tr>
+                                        <th>Employee Name</th>
+                                        <th>Task</th>
+                                        <th>Project</th>
+                                        <th>Title</th>
+                                        
+                                    </tr>
+                                </thead>
+                
+                                <tbody class="main_tbody">
+                                    <!-- inputs must be stored here -->
+                                </tbody>
+                
+                            </table>
+                        </form>
+                            <br>  
+                            <input type = button class = "Button" id="selRows" value = "Select Rows" onclick = ShowSelButtons()>  
+                            <input type = button class = "Button hidden" id="delSelRowsBtn" value = "Delete selected rows" onclick = delRow()> 
+                            <input type = button class = "Button hidden" id="selButton" value = "Select All" onclick = selAll()> 
+                            <input type = button class = "Button hidden" id="deselButton" value = "Deselect All" onclick = deselAll()> 
+                            <input type = button class = "Button hidden" id="editButton" value = "Edit selected rows" onclick = deselAll()>
+                            <button id="export-btn" class = "Button">Export as PDF</button>
+                
+                        
+    
+                        </section>
+    
+            <script src="../js_files/manageemployees.js"></script>
+            <script src="../js_files/html2pdf.bundle.js"></script>
+            <script type="text/javascript">
+    
+                document.getElementById('export-btn').onclick = function(){
+                const element = document.getElementById('main_table');
+    
+                const opt = {
+                    margin: 0.5,
+                    filename: 'Timesheet',
+                    image: {type: 'jpeg', quality: 0.98 },
+                    html2pdfcanvas: {scale: 2},
+                    jsPDF: {unit: 'in', format:'letter', orientation: 'portrait'}
+                };
+    
+                html2pdf().from(element).set(opt).save();
+    
+                };
+            </script>
+
+</body>
+</html>
