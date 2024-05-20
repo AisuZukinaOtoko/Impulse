@@ -38,6 +38,7 @@ body{
     padding: 20px 0;
     border-radius: 50px;
     margin-right: 50px;
+    margin-left: 200px;
     margin-bottom: 50px;
     transition: all 0.5s ease;
 }
@@ -75,6 +76,7 @@ body{
 }
 #name{
     font-size: 50px;
+    margin-right: 200px;
 }
 .verticaloption{
     margin-left: 79px;
@@ -100,7 +102,13 @@ body{
     
 }
 
-.navButton {
+Button{
+    color: black;
+}
+input{
+    color: black;
+}
+.slotButton {
     
     position: relative;
     height: 50px;
@@ -122,11 +130,11 @@ body{
     text-align: center;
 }
 
-.navButton:active{
+.slotButton:active{
     transform: scale(0.9);
     background-color: #93D5E1;
 }
-.navButton:hover{
+.slotButton:hover{
     background-color: #93D5E1;
 }
 
@@ -136,12 +144,14 @@ body{
 }
 table, th, td {
     padding: 1rem;
+    color: black;
     border-collapse: collapse;
     border: solid;
     border-width: 0.05rem;
     
 
 }
+
 
 /* td {
     background: #bfcfee;
@@ -151,12 +161,14 @@ tbody input{
     /* width: 100%; */
     background-color: none;
     border: none;
+    color: black;
 }
 
 tbody{
     /* width: 100%; */
     background-color: #fffb;
     border-radius: .6rem;
+    color: black;
     
     
 }
@@ -223,6 +235,7 @@ tbody{
     border-radius: .6rem;
     overflow: auto;
     margin-top: 10px;
+    margin-left: 200px;
     overflow-y: auto; /* Enable vertical scrolling */
     padding-left: 1.5rem;
 }
@@ -330,16 +343,11 @@ button span {
     transition: transform 0.4s, top 0.4s;
 }
 
-#name{
-    color: white;
-    margin-left: 100px;
-	margin-top: -20px;
-    margin-bottom: 50px;
- }
 
- .horizontalNavbar{
-    margin-top: -1050px;
-	margin-left: 800px;
+.horizontalNavbar{
+	margin-right: -1000px;
+	margin-top: -1100px;
+    margin-bottom: 100px;
     display: flex;
 }
 
@@ -374,6 +382,7 @@ button span {
     letter-spacing: 2px;
     font-size: 14px;
     text-decoration: none;
+    color: white;
     padding-inline: 15px;
     cursor: pointer;  
     background-color: #444857;
@@ -386,14 +395,6 @@ button span {
 }
 .navButton:hover{
     background-color: #93D5E1;
-}
-
-input{
-    color: black;
-}
-
-#export-btn{
-    color: black;
 }
 
 .verticalNavbar{
@@ -439,4 +440,87 @@ input{
     height:5%;
     margin-inline: auto;
     margin-bottom: 10px;
+}
+
+.popup{
+    display: flex;
+    flex-direction: column;
+    width:400px;
+    background:transparent;
+    border: 2px solid rgba(219, 236, 244, .1);
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(219, 236, 244, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    align-items: center;
+    padding: 0 30px 30px;
+    color: #194569;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+.popup .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 50%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(25, 69, 105, 1);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #194569;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: #194569;
+}
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 25%;
+    transform: translate(-50%);
+    font-size: 20px;
+}
+
+.popup .add{
+    width: 100%;
+    height: 45px;
+    background: #194569;
+    border-bottom: 20px;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+
+.popup .close{
+    width: 100%;
+    height: 45px;
+    background: #194569;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
 }
