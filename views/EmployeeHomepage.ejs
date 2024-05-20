@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Employee</title>
         <link rel="stylesheet" href="../stylesheets/EmployeeHomepage.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     </head>
     <body>
         <p style="display: none;" class="hidden" id="Email"><%= user.email %></p>
@@ -18,7 +19,7 @@
                     <li class="navButton">Home</li>
                    <li class="navButton"><a href="../homepage/bookcarwash.html">Book car wash</a></li> 
                    <li class="navButton"><a href="../homepage/bookmeals.html">Book meal</a></li>
-                   <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
+                   <li class="navButton" onclick="storeData()"><a href="../homepage/timesheet.html" >Timesheet</a></li>
                 </ul>
             </article>
         </nav>
@@ -29,8 +30,7 @@
                     <li><a href="#"><img src="../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
                     <li><a href="#"><img src="../assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
                     <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
-                </ul>
-               
+                </ul> 
             </article>
         </nav>
         
@@ -45,7 +45,7 @@
        <article class="cards">
             <article class="MainCards" >
                 <!-- remove names of cards when entering the info -->
-                <article id="PersonalCard">Personal card</article>
+                <article id="PersonalCard"><h2 class="ppp">Personal card</h2></article>
                 
                 <article id="MoreCards">
                     <section id="FeedbackCard" onclick="MoveToFeedback()">
@@ -56,9 +56,31 @@
 
             <article class="SideCards">
                 <article id="CalendarCard">calendar card</article>
-                <article id="NotificationCard" >notification card</article>
+                <article  id="NotificationCard" >notification card</article>
             </article>
        </article>
+
+       <section class="wrapper">
+        <header>
+          <p class="current-date"></p>
+          <article class="icons">
+            <span id="prev" class="material-symbols-rounded">chevron_left</span>
+            <span id="next" class="material-symbols-rounded">chevron_right</span>
+          </article>
+        </header>
+        <article class="calendar">
+          <ul class="weeks">
+            <li>Sun</li>
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li>Sat</li>
+          </ul>
+          <ul class="days"></ul>
+        </article>
+      </section>
 
        <script src="../js_files/EmployeeHomepage.js"></script>
     </body>
