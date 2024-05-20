@@ -1,3 +1,7 @@
+import axios from 'https://cdn.skypack.dev/axios';
+
+var TimesheetData = {};
+var timesheetIDS = [];
 
 //update the date
 function updateDate(){
@@ -14,10 +18,74 @@ function updateDate(){
     const docDate = document.querySelector("#date");
     docDate.innerText = currDate;
 }
-
 updateDate();
 //update the date every 2 minutes
 setInterval(updateDate, 1000);
+
+// //get email from homepage
+// window.onload = function() {
+//     const email = localStorage.getItem('email');
+//     document.getElementById('empName').innerText = email;
+// };
+
+function createRow(object){
+    const date = object.date;
+    const task = object.task;
+    const startTime = object.startTime;
+    const endTime = object.endTime;
+    const manager = object.manager;
+
+    
+    const duration = object.duration;
+
+    let cols=[date,task,startTime,endTime,manager,duration];
+
+ 
+
+    let row = document.createElement('tr');
+    row.classList.add('main_tbody');
+    //add checkbox first
+    const chk = document.createElement('input');
+    chk.classList.add('checkboxes');
+    chk.classList.add('hidden');
+    chk.type = 'checkbox';
+    const td = row.appendChild(document.createElement('td'));
+    td.appendChild(chk);
+    
+    //number of columns
+    const cols_len = cols.length;
+    for(let i =0;i<cols_len;i++){
+        const cell = row.appendChild(document.createElement('td'));
+        cell.innerText = cols[i];
+    }
+    
+    document.getElementById('main_table').appendChild(row);
+}
+
+function fetchData(){
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    axios.get(url)
+    .then((response) => {
+        TimesheetData = response.data.recordset;
+        
+        let index = 0;
+        for (const object of TimesheetData){
+            //check the email
+            timesheetIDS.push(object.id);
+            createRow(object);
+            console.log(object);
+            index += 1;
+        }
+
+        console.log(timesheetIDS);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+      });
+}
+
+fetchData();
+
 
 function saveRow(){
 
@@ -70,6 +138,8 @@ function saveRow(){
     //clear afterwards
     clear();
 }
+
+document.getElementById('saveButton').addEventListener('click', saveRow);
 
 function clear(){
     document.getElementById('date_col').value ='';
@@ -293,25 +363,10 @@ function SaveTable(){
     };
 
     // make request to the api
-    //const url = process.env.BASEURL + "/api/timesheet";
-    //const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
-    const url = "http://localhost:3000/api/timesheet";
-    fetch(url, { 
-        method: 'POST',
-        headers: {
-        },
-        'Content-Type': 'application/json',
-        //mode: 'no-cors',
-        body: JSON.stringify(record),
-      })
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    axios.post(url, record)
     .then((response) => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json();
-    })
-    .then((data) => {
-        console.log(data);
+        console.log(response.data);
     })
     .catch((error) => {
         console.error('Error:', error.message); // Handle errors

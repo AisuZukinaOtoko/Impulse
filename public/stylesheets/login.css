@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+@font-face {
+    font-family: 'amznFont';
+    src: url('../assets/ITC_Officina_Sans_Std_Bold/ITC_Officina_Sans_Std_Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 *{
     font-family: 'Heebo' ,'Tahoma', sans-serif;
@@ -19,23 +25,39 @@ body{
 
 
 .logo{
-    margin-bottom: 100px;
+    margin-bottom: 3%;
 }
 
 .slogan{
     display: flex;
     flex-direction: column;
-    margin-top: 350px;
+    margin-bottom: auto;
+    margin-top: 10%;
+
 }
 
+.unite{
+    font-family: 'amznFont';
+    color: rgb(248, 213, 57);
+    margin-left: 1%;
+    font-size: 650%;
+}
 .collaborate{
-    margin-left: -20px;
+    font-family: 'amznFont';
+    color: rgb(248, 213, 57);
+    margin-left: 7%;
+    font-size: 650%;
+}
+.achieve{
+    font-family: 'amznFont';
+    color: rgb(248, 213, 57);
+    margin-left: 14%;
+    font-size: 650%;
 }
 
 button {
     font-size: 16px;
     position: relative;
-    margin: auto;
     padding: 1em 2.5em 1em 2.5em;
     border: none;
     background: #fff;
@@ -70,6 +92,10 @@ button:hover .border {
 }
 
 .signIn{
-    margin-top: 30px;
-    margin-left: 50px;
+    font-family: 'amznFont';
+    margin-top: -30px;
+    margin-left: 80%;
+    color: rgb(248, 213, 57);
+    font-weight: 500;
+    
 }
