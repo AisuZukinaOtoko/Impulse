@@ -1,9 +1,9 @@
 *{
-    margin: 0;
-    padding: 0;
-
+    font-family: 'Heebo' ,'Tahoma', sans-serif;
+    color: white;
     box-sizing: border-box;
-    font-family: 'Lucida Sans', Arial, sans-serif
+    padding:0;
+    margin:0;
 
 }
 a {
@@ -20,6 +20,7 @@ body{
 
 .wrap{
     display: flex;
+    margin-top: 100px;
 }
 .textbox1{
     color: white;
@@ -37,6 +38,7 @@ body{
     padding: 20px 0;
     border-radius: 50px;
     margin-right: 50px;
+    margin-left: 200px;
     margin-bottom: 50px;
     transition: all 0.5s ease;
 }
@@ -74,14 +76,15 @@ body{
 }
 #name{
     font-size: 50px;
+    margin-right: 200px;
 }
-.horizontalNavbar{
+.verticaloption{
     margin-left: 79px;
     margin-right: 395px;
     display: flex;
 }
 
-.horNavButtons ul {
+.vertbtn ul {
     border: none;
     background: none;
     list-style-type: none;
@@ -89,7 +92,7 @@ body{
     flex-direction: column;
     padding:0;
 }
-.horNavButtons{
+.vertbtn{
     margin-left: auto;
     margin-top: 15px;
     border-radius: 8px;
@@ -99,7 +102,13 @@ body{
     
 }
 
-.navButton {
+Button{
+    color: black;
+}
+input{
+    color: black;
+}
+.slotButton {
     
     position: relative;
     height: 50px;
@@ -121,11 +130,11 @@ body{
     text-align: center;
 }
 
-.navButton:active{
+.slotButton:active{
     transform: scale(0.9);
     background-color: #93D5E1;
 }
-.navButton:hover{
+.slotButton:hover{
     background-color: #93D5E1;
 }
 
@@ -135,12 +144,14 @@ body{
 }
 table, th, td {
     padding: 1rem;
+    color: black;
     border-collapse: collapse;
     border: solid;
     border-width: 0.05rem;
     
 
 }
+
 
 /* td {
     background: #bfcfee;
@@ -150,12 +161,14 @@ tbody input{
     /* width: 100%; */
     background-color: none;
     border: none;
+    color: black;
 }
 
 tbody{
     /* width: 100%; */
     background-color: #fffb;
     border-radius: .6rem;
+    color: black;
     
     
 }
@@ -222,6 +235,7 @@ tbody{
     border-radius: .6rem;
     overflow: auto;
     margin-top: 10px;
+    margin-left: 200px;
     overflow-y: auto; /* Enable vertical scrolling */
     padding-left: 1.5rem;
 }
@@ -307,7 +321,128 @@ button span {
   }
   
 
-  .popup{
+  .staffli{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+
+    background-color: rgba(191,194,209,255);
+    /* margin: 500px; */
+    width: 70%;
+    height: 90%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    /* text-align: center; */
+    padding: 0 30px 30px;
+    border: 1px solid rgba(16,19,34,255);
+    border-radius: 20px;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+
+.horizontalNavbar{
+	margin-right: -1000px;
+	margin-top: -1100px;
+    margin-bottom: 100px;
+    display: flex;
+}
+
+.horNavButtons ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    padding:0;
+}
+.horNavButtons ul a{
+    text-decoration: none;
+}
+.horNavButtons{
+    margin-left: auto;
+    margin-top: 15px;
+    background-color: #353948;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+    
+}
+
+.navButton {
+    display: block;
+    position: relative;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+}
+
+.navButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.navButton:hover{
+    background-color: #93D5E1;
+}
+
+.verticalNavbar{
+    position: fixed;
+    height: 100vh;
+    width: 40px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: 100%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-right: 2px solid white ;
+}
+.verticalNavbar ul{
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar li{
+    display: flex;
+    margin-left: 5px;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+.verticalNavbar a{
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar a:hover{
+    cursor: pointer;
+}
+
+.verticalNavbar li:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height:5%;
+    margin-inline: auto;
+    margin-bottom: 10px;
+}
+
+.popup{
     display: flex;
     flex-direction: column;
     width:400px;
@@ -384,6 +519,8 @@ button span {
     color: white;
     font-weight: 600;
 }
-
-
-
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}

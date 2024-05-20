@@ -3,39 +3,122 @@
 /* General styling for the entire page */
 
 *{
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
+    font-family: 'Heebo' ,'Tahoma', sans-serif;
+    color: white;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    padding:0;
+    margin:0;
+    
+}
+body{
+	min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#0f1322;
+    overflow: auto;
+}
+a{
+	text-decoration: none;
 }
 
+#name{
+    font-size: 50px;
+	margin-right: 500px;
+	margin-left: -800px;
+}
+.verticaloption{
+    margin-left: 79px;
+    margin-right: 395px;
+    display: flex;
+}
+input{
+	color: grey;
+}
+.vertbtn ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding:0;
+}
+.vertbtn{
+    margin-left: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+    
+}
 
+.menuButton {
+    
+    position: relative;
+    height: 50px;
+    width: 300px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-decoration: none;
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+}
+
+.menuButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.menuButton:hover{
+    background-color: #93D5E1;
+}
+
+.horNavButtons ul a{
+    text-decoration: none;
+}
 .container1{
-    background: url(/assets/pexels-gabby-k-7144973.jpg);
+    background: url(../assets/pexels-gabby-k-7144973.jpg);
     background-size: cover;
     width: 500px;
     height: 980px;
     padding: 20px 0;
     border-radius: 50px;
-    margin-right: 50px;
+    margin-left: 100px;
+
     transition: all 0.5s ease;
 }
 .container1 .subcontainer1{
     background: #0f1322;
     width: 480px;
-    height: 150px;
+    height: 400px;
     padding: 20px 0;
     margin-top: 550px;
     margin-left: 10px;
+	margin-right: 50px;
     border-radius: 50px;
     transition: all 0.5s ease;
 }
 
+.subtextbox3{
+  color:white;
+  margin-left:155px;
+  margin-top: 20px;
+}
 
-
-.container2 .chart{
+.container4{
+  margin-left: 50px;
+}
+.container4 .chart{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,7 +130,7 @@
 
 .wrapper {
 	max-width: 600px;
-	margin-top: 90px;
+	margin-top: 50px;
     color: white;
     background-color: #1a1d29;
 }
@@ -291,119 +374,106 @@
 }
 
 
-.circular{
-    height: 100px;
-    width: 100px;
-    position: relative;
-    margin-top: 10px;
-    margin-left: 60px;
-  }
-  .circular .inner, .circular .outer, .circular .circle{
-    position: absolute;
-    z-index: 6;
-    height: 100%;
-    width: 100%;
-    border-radius: 100%;
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0.2);
-  }
-  .circular .inner{
-    top: 50%;
-    left: 50%;
-    height: 80px;
-    width: 80px;
-    margin: -40px 0 0 -40px;
-    background-color: #dde6f0;
-    border-radius: 100%;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
-  }
-  .circular .circle{
-    z-index: 1;
-    box-shadow: none;
-  }
-  .circular .numb{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    font-size: 18px;
-    font-weight: 500;
-    color: #4158d0;
-  }
-  .circular .bar{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #fff;
-    -webkit-border-radius: 100%;
-    clip: rect(0px, 100px, 100px, 50px);
-  }
-  .circle .bar .progress{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    -webkit-border-radius: 100%;
-    clip: rect(0px, 50px, 100px, 0px);
-  }
-  .circle .bar .progress, .dot span{
-    background: #4158d0;
-  }
-  .circle .left .progress{
-    z-index: 1;
-    animation: left 4s linear both;
-  }
-  @keyframes left {
-    100%{
-      transform: rotate(180deg);
-    }
-  }
-  .circle .right{
-    z-index: 3;
-    transform: rotate(180deg);
-  }
-  .circle .right .progress{
-    animation: right 4s linear both;
-    animation-delay: 4s;
-  }
-  @keyframes right {
-    100%{
-      transform: rotate(180deg);
-    }
-  }
-  .circle .dot{
-    z-index: 2;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 50%;
-    height: 10px;
-    margin-top: -5px;
-    animation: dot 8s linear both;
-    transform-origin: 0% 50%;
-  }
-  .circle .dot span {
-    position: absolute;
-    right: 0;
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-  }
-  @keyframes dot{
-    0% {
-      transform: rotate(-90deg);
-    }
-    50% {
-      transform: rotate(90deg);
-      z-index: 4;
-    }
-    100% {
-      transform: rotate(270deg);
-      z-index: 4;
-    }
-  }
 
  h1{
     color: white;
-    margin-left: 175px;
-    margin-top: -80px;
+    margin-left: 100px;
+	margin-bottom: 100px;
  }
+
+ .horizontalNavbar{
+	margin-right: -1000px;
+	margin-top: -1100px;
+    display: flex;
+}
+
+.horNavButtons ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    padding:0;
+}
+.horNavButtons ul a{
+    text-decoration: none;
+}
+.horNavButtons{
+    margin-left: auto;
+    margin-top: 15px;
+    background-color: #353948;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+    
+}
+
+.navButton {
+    display: block;
+    position: relative;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-decoration: none;
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+}
+
+.navButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.navButton:hover{
+    background-color: #93D5E1;
+}
+
+.verticalNavbar{
+    position: fixed;
+    height: 100vh;
+    width: 40px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: 100%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-right: 2px solid white ;
+}
+.verticalNavbar ul{
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar li{
+    display: flex;
+    margin-left: 5px;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+.verticalNavbar a{
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar a:hover{
+    cursor: pointer;
+}
+
+.verticalNavbar li:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height:5%;
+    margin-inline: auto;
+    margin-bottom: 10px;
+}
+
