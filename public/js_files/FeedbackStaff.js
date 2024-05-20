@@ -4,23 +4,33 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //loading feedback comments
 
-    fetchComments()
-    .then(function(comments) {
-        FeedbackComments(comments);
-    })
-    .catch(function(error) {
-        // console.error('Error fetching comments:', error);
-    });
+    // fetchComments()
+    // .then(function(comments) {
+    //     FeedbackComments(comments);
+    // })
+    // .catch(function(error) {
+    //     // console.error('Error fetching comments:', error);
+    // });
 
-    function fetchComments() {
-        return fetch('http://impulsewebapp.azurewebsites.net/api/feedback')
-            .then(function(response) {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            });
-    }
+    // function fetchComments() {
+    //     return fetch('http://impulsewebapp.azurewebsites.net/api/feedback')
+    //         .then(function(response) {
+    //             if (!response.ok) {
+    //                 throw new Error('Network response was not ok');
+    //             }
+    //             return response.json();
+    //         });
+    // }
+
+    const url = 'https://impulsewebapp.azurewebsites.net/api/feedback';
+    axios.get(url)
+    .then((response) => {
+        console.log(response.data.recordset);
+        FeedbackComments(response.data.recordset);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message);
+    })
 
     function FeedbackComments(comments) {
         const commentContainer = document.getElementById('insert-comments');
@@ -32,9 +42,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
             commentElement.innerHTML = `
                 <p><strong>Email:</strong> ${comment.email}</p>
-                <p><strong>Project:</strong> ${comment.project}</p>
-                <p><strong>Message:</strong> ${comment.message}</p>
-                <p><strong>Date:</strong> ${new Date(comment.timestamp).toLocaleString()}</p>
+                <p><strong>Project:</strong> ${comment.project_reference}</p>
+                <p><strong>Message:</strong> ${comment.description}</p>
+                <p><strong>Date:</strong> ${new Date(comment.date).toLocaleString()}</p>
                 <hr>
             `;
 
@@ -84,14 +94,16 @@ document.addEventListener("DOMContentLoaded", function(){
             const project = document.getElementById('dropdown').value;
             const message = document.getElementById('message').value;
             const time = new Date();
-            const dateTimeString = currentDate.toLocaleString();
+            const dateTimeString = time.toLocaleString();
 
             const commentData = {
-                "email": email,
+                "email": "JohnDoe1@gmail.com",
                 "project_reference": project,
                 "description": message, 
                 "date": dateTimeString
             };
+
+            console.log(commentData);
 
             const url = 'https://impulsewebapp.azurewebsites.net/api/feedback';
             axios.post(url, commentData)
