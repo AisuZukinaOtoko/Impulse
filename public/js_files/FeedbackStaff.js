@@ -1,5 +1,46 @@
+import axios from 'https://cdn.skypack.dev/axios';
 
 document.addEventListener("DOMContentLoaded", function(){
+
+    //loading feedback comments
+
+    fetchComments()
+    .then(function(comments) {
+        FeedbackComments(comments);
+    })
+    .catch(function(error) {
+        // console.error('Error fetching comments:', error);
+    });
+
+    function fetchComments() {
+        return fetch('http://impulsewebapp.azurewebsites.net/api/feedback')
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            });
+    }
+
+    function FeedbackComments(comments) {
+        const commentContainer = document.getElementById('insert-comments');
+        commentContainer.innerHTML = '';
+
+        comments.forEach(comment => {
+            const commentElement = document.createElement('section');
+            commentElement.classList.add('comment');
+
+            commentElement.innerHTML = `
+                <p><strong>Email:</strong> ${comment.email}</p>
+                <p><strong>Project:</strong> ${comment.project}</p>
+                <p><strong>Message:</strong> ${comment.message}</p>
+                <p><strong>Date:</strong> ${new Date(comment.timestamp).toLocaleString()}</p>
+                <hr>
+            `;
+
+            commentContainer.appendChild(commentElement);
+        });
+    }
 
     // collapsing & expanding Feedback requests
         const toggleBar = document.getElementById("open-Requests");
@@ -35,17 +76,63 @@ document.addEventListener("DOMContentLoaded", function(){
             });
         });
 
-        postComment.addEventListener('click', function() {
+        postComment.addEventListener('click',async function() {
             // add to Comment Section
             // add to database
             //code goes here
+            const email = document.getElementById('commentfrom').value;
+            const project = document.getElementById('dropdown').value;
+            const message = document.getElementById('message').value;
+            const time = new Date();
+            const dateTimeString = currentDate.toLocaleString();
 
-            //close Add Comments
-            overlay.style.display = "none";
-            Comment.style.visibility = "hidden";
-            Comment.style.top = "0";
-            Comment.style.transform = "translate(-50%, -50%) scale(0.1)";
+            const commentData = {
+                "email": email,
+                "project_reference": project,
+                "description": message, 
+                "date": dateTimeString
+            };
+
+            const url = 'https://impulsewebapp.azurewebsites.net/api/feedback';
+            axios.post(url, commentData)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.error('Error:', error.message);
+            })
+
+        //     fetch('http://impulsewebapp.azurewebsites.net/api/feedback', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(commentData)
+        // })
+        // .then(function(response) {
+        //     if (response.ok) {
+        //         return response.json();
+        //     } else {
+        //         throw new Error('Network response was not ok');
+        //     }
+        // })
+        // .then(function() {
+        //     fetchComments();
+        //     document.getElementById('dropdown').value = '';
+        //     document.getElementById('message').value = '';
+
+        //     // Close the comment popup
+        //     overlay.style.display = "none";
+        //     Comment.style.visibility = "hidden";
+        //     Comment.style.top = "0";
+        //     Comment.style.transform = "translate(-50%, -50%) scale(0.1)";
+        // })
+        // .catch(function(error) {
+        //     // console.error('Error adding comment:', error.message);
+        // });
+            
         })
+
 
         cancelComment.addEventListener('click', function() {
             overlay.style.display = "none";

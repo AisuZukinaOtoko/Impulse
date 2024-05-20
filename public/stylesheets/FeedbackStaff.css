@@ -62,7 +62,7 @@ nav ul a{
 
 .content h1{
     margin: 10px;
-    font-size: 80px;
+    font-size: 20px;
     color: rgba(242,248,249,255);
     font-weight: 200;
 }
@@ -280,6 +280,14 @@ tr:nth-child(even) {
     height: fit-content;
     width: fit-content;
     background-color: white;
+}
+
+.comment {
+    background-color: rgba(239, 243, 255, 255);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    color: rgba(16, 19, 34, 255);
 }
 
 .project{
