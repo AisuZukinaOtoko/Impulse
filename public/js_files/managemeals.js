@@ -123,6 +123,32 @@ function displayReminders() {
 	}
 }
 
+function mealbookings(){
+	const eventDate=document.getElementById('eventDate').value;
+	const eventTitle=document.getElementById('eventTitle').value;
+	const eventDescription=document.getElementById('eventDescription').value;
+
+	let cols=[eventDate,eventTitle,eventDescription];
+
+	let record = {
+        "email": "susan@gmail.com",
+        "date": cols[0],
+        "task": cols[1],
+        "startTime":cols[2],
+    };
+
+    // make request to the api
+    const url = "https://impulsewebapp.azurewebsites.net/api/bookmeals";
+    axios.post(url, record)
+    .then((response) => {
+        console.log(response.data);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+      });
+}
+
+
 // Function to generate a range of 
 // years for the year select input
 function generate_year_range(start, end) {

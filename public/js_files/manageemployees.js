@@ -1,4 +1,5 @@
 //update the date
+//update the date
 function updateDate(){
     const date = new Date();
     const options = { 
@@ -20,15 +21,16 @@ setInterval(updateDate, 1000);
 
 function saveRow(){
 
-    const employee_name=document.getElementById('employeename_col').value;
-    const task=document.getElementById('task_col').value;
-    const project=document.getElementById('project_col').value;
-    const title=document.getElementById('title_col').value;
+    const date = document.getElementById('date_col').value;
+    const task = document.getElementById('task_col').value;
+    const startTime = document.getElementById('start_col').value;
+    const endTime = document.getElementById('end_col').value;
+    const manager = document.getElementById('manager_col').value;
 
-    // if(!ValidateData_Empty(date,task,startTime,endTime,manager)){
-    //     alert("One or more required fields are empty");
-    //     return;
-    // }
+    if(!ValidateData_Empty(date,task,startTime,endTime,manager)){
+        alert("One or more required fields are empty");
+        return;
+    }
     if(!ValidateData_Date(date)){
         alert("Invalid Date entered");
         return;
@@ -38,7 +40,7 @@ function saveRow(){
         return;
     }
 
-    let cols=[employee_name,task,project,title];
+    let cols=[date,task,startTime,endTime,manager];
 
  
 
@@ -64,15 +66,17 @@ function saveRow(){
     td2.appendChild(duration);
     
     document.getElementById('main_table').appendChild(row);
+    SaveTable();
     //clear afterwards
     clear();
 }
 
 function clear(){
-    document.getElementById('employeename_col').value ='';
+    document.getElementById('date_col').value ='';
     document.getElementById('task_col').value ='';
-    document.getElementById('project_col').value ='';
-    document.getElementById('title_col').value ='';
+    document.getElementById('start_col').value ='';
+    document.getElementById('end_col').value ='';
+    document.getElementById('manager_col').value ='';
 }
 
 function CalcDuration(){
@@ -86,18 +90,18 @@ function CalcDuration(){
     let durationSpan = document.getElementById('duration_col');
 
          
-        // Calculate the difference in milliseconds
-        // const durationMs = Math.abs(endDate- startDate);
-        const durationMs = endDate- startDate;
-        
-        // Convert milliseconds to hours and minutes
-        const hours = Math.floor(durationMs / (1000 * 60 * 60));
-        const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
+    // Calculate the difference in milliseconds
+    // const durationMs = Math.abs(endDate- startDate);
+    const durationMs = endDate- startDate;
+    
+    // Convert milliseconds to hours and minutes
+    const hours = Math.floor(durationMs / (1000 * 60 * 60));
+    const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
 
-        // Display the duration
-        let duration= hours +"hr(s) "+minutes+"mins";
-        
-        return duration;
+    // Display the duration
+    let duration= hours +"hr(s) "+minutes+"mins";
+    
+    return duration;
        
    
 }
@@ -113,7 +117,6 @@ function ShowSelButtons(){
     const deselButton = document.querySelector('#deselButton');
     const selRowsButton = document.querySelector('#selRows');
     const delSelRowsBtn = document.querySelector('#delSelRowsBtn');
-    const editBtn=document.querySelector('#editButton');
     for(const chkbox of checkboxes){
         chkbox.style.visibility = "visible";
         chkbox.classList.remove('hidden');
@@ -126,8 +129,6 @@ function ShowSelButtons(){
     deselButton.style.visibility = "visible";
     delSelRowsBtn.style.visibility="visible";
     delSelRowsBtn.classList.remove('hidden');
-    editBtn.style.visibility="visible";
-    editBtn.classList.remove('hidden');
 
     // if(delSelRowsBtn.style.visibility == "visible"){
     //     delSelRowsBtn.style.visibility="hidden";
@@ -161,7 +162,6 @@ function delRow(){
     const mytable = document.getElementById("main_table");  
     const selRowsButton = document.querySelector('#selRows');
     const deselButton = document.querySelector('#deselButton');
-    const editBtn=document.querySelector('#editButton');
     selRowsButton.style.visibility = "visible";
     //show select rows button and remove select all, deselect all and delSelRows
     if(selRowsButton.classList.contains('hidden')){
@@ -169,7 +169,6 @@ function delRow(){
         selButton.classList.add('hidden');
         deselButton.classList.add('hidden');
         delSelRowsBtn.classList.add('hidden');
-        editBtn.classList.add('hidden');
         const checkboxes = document.querySelectorAll(".checkboxes");
         for(const chkbox of checkboxes){
             //chkbox.style.visibility = "visible";
@@ -188,7 +187,7 @@ function delRow(){
 } 
 
 function SaveOnEnter() {
-    const inputs = document.querySelectorAll(".availableslots_col");
+    const inputs = document.querySelectorAll(".manager_col");
     inputs.forEach(function(input) {
                // Remove existing event listener for "keyup" event
                input.removeEventListener("keyup", handleKeyPress);
@@ -219,10 +218,10 @@ document.addEventListener('DOMContentLoaded', SaveOnEnter);
 
 
 //DATA VALIDATION FUNCTIONS
-function ValidateData_Empty(date, available_slots,startTime,endTime,vehicle_type,vehicle_model){
+function ValidateData_Empty(date, task,startTime,endTime,manager){
     //make sure fields are not empty
     let fieldsValid = true;
-    let cols=[date,available_slots,startTime,endTime,vehicle_type,vehicle_model];
+    let cols=[date,task,startTime,endTime,manager];
 
     for(let i=0;i<cols.length;i++){
         if(isEmpty(cols[i])){
@@ -243,8 +242,7 @@ function ValidateData_Date(date){
 
     // Format the date as desired (e.g., YYYY-MM-DD)
     const formattedDate = year + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day);
-    console.log(formattedDate); // Output: YYYY-MM-DD
-    console.log(date);
+    // Output: YYYY-MM-DD
     if(date>formattedDate){
         validDate = false;
     }
@@ -265,5 +263,35 @@ function ValidateData_Time(startTime, endTime){
     return validTime;
 }
 
+//Database things
+//get the table and display it
+function getTable(){
 
+}
 
+//saving table to the database
+function SaveTable(){
+    const date = document.getElementById('date_col').value;
+    const task = document.getElementById('task_col').value;
+    const startTime = document.getElementById('start_col').value;
+    const endTime = document.getElementById('end_col').value;
+    const manager = document.getElementById('manager_col').value;  
+    const duration = CalcDuration();
+    
+    let cols=[date,task,startTime,endTime,manager,duration];
+    //put contents of their cells into the cols array and make a json object from that
+    //then add the json object to the records array   
+    //use cols to make Json object
+    let record = {
+        "email": "susan@gmail.com",
+        "date": cols[0],
+        "task": cols[1],
+        "startTime":cols[2],
+        "endTime": cols[3],
+        "manager": cols[4],
+  
+    };
+
+    console.log(record);            
+    
+}

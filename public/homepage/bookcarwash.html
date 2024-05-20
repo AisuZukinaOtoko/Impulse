@@ -66,10 +66,18 @@
                 </article>
             </section>
         </article>   
+        <section id="ManageStaffCard" onclick="checkBooking()">
+            Manage Staff card
+          </section>
+        
+          <div id="popupLayer" class="hidden">
+            <div class="popupContent">
+              <p id="bookingMessage"></p>
+              <button onclick="confirmBooking()">Confirm</button>
+              <button onclick="cancelBooking()">Cancel</button>
+            </div>
+          </div>
 
-        <button class="addBtn" type="submit" onclick="openPopup()"> 
-           hello
-          </button>
 
         <article class="popup" id="popup">
             
