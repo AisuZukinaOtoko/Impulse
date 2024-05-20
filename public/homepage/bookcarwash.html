@@ -4,46 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../stylesheets/bookcarwash.css">
-    <title>Document</title>
+    <title>Book a car wash</title>
 </head>
 <body>
     
-    <main class="Table">
-    <section class="welcome_bar">
-        <img src="/assets/Book-a-car-wash-5-18-2024 (1).gif" alt="Image">
-        </section>
 
-        <section class="table_body">
-            <form method="POST" name="form1">
-                        <table id="add_table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Available slots</th>
-                                    <th>Start-time</th>
-                                    <th>End-time</th>
-                                    <th class="hidden">Duration</th>
-                                    <th>vehicle type</th>
-                                    <th>vehicle model</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody class="t_body">
-                                
-                               <tr>
-                                    <td ><input id="date_col" type="date"></td>
-                                    <td ><input id="availableslots_col" type="text"></td>
-                                    <td ><input id="start_col" type="time"></td>
-                                    <td ><input id="end_col" type="time" ></td>
-                                    <td><input id="vehicletype_col" class="vehicletype_col" type="text"></td>
-                                    <td><input id="vehiclemodel_col" class="vehiclemodel_col" type="text"></td>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br>
-                        <input id="saveButton" type="button" class="Button" value="Save" onclick="saveRow()">
-                    </section>
+    <nav class="horizontalNavbar">
+        <h1 id="name">impulse.</h1>
+        <article class="horNavButtons">
+            <ul>
+                <li class="navButton">Home</li>
+               <li class="navButton"><a href="bookcarwash.html">Book car wash</a></li> 
+               <li class="navButton"><a href="bookmeals.html">Book meal</a></li>
+               <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
+            </ul>
+        </article>
+    </nav>
+
+    <nav class="verticalNavbar">
+        <article>
+            <ul>
+                <li><a href="#"><img src="../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
+                <li><a href="#"><img src="../assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
+                <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
+            </ul>
+           
+        </article>
+    </nav>
+    
+    <main class="Table">
+        <article class="wrap">
+            <section class="container2">
+                <h2 class="textbox1">Tuesday 19 May</h2>
+                <article class="subcontainer2">
+                    <h3 class="subtextbox1">Pick a slot</h3>
+                    <nav class="verticaloption">
+                        <article class="vertbtn">
+                            <ul>
+                                <a > <li class="slotButton">13:00-13:59</li></a>
+                                <a ><li class="slotButton">14:00-14:59</li></a> 
+                                <a><li class="slotButton">15:00-15:59</li></a>
+                            </ul>
+                        </article>
+                    </nav>
+                </article>
+            </section>
+            
+            <section class="container3">
+                <h2 class="textbox1">Thursday 21 May</h2>
+                <article class="subcontainer2">
+                    <h3 class="subtextbox1">Pick a slot</h3>
+                    <nav class="verticaloption">
+                        <article class="vertbtn">
+                            <ul>
+                               <a> <li class="slotButton">13:00-13:59</li></a>
+                               <a ><li class="slotButton">14:00-14:59</li></a> 
+                               <a><li class="slotButton">15:00-15:59</li></a>
+                            </ul>
+                        </article>
+                    </nav>
+                </article>
+            </section>
+        </article>   
+        <section id="ManageStaffCard" onclick="checkBooking()">
+            Manage Staff card
+          </section>
+        
+          <div id="popupLayer" class="hidden">
+            <div class="popupContent">
+              <p id="bookingMessage"></p>
+              <button onclick="confirmBooking()">Confirm</button>
+              <button onclick="cancelBooking()">Cancel</button>
+            </div>
+          </div>
+
+        <button class="addBtn" type="submit" onclick="openPopup()"> 
+           hello
+          </button>
+
+        <article class="popup" id="popup">
+            
+            <article class="input-box">
+              <input id="addInput" type="text" placeholder="Staff member Username" required>
+              <i class='bx bxs-user' ></i>
+            </article>
+
+            <article class="input-box">
+              <input class="password" id="addpass" type="password" placeholder="Password" name="psw" required>
+              <i class='bx bx-lock-alt' ></i>
+            </article>
+
+            <article class="input-box">
+              <input class="project" type="text" id="addProj" placeholder="Project" name="psw" required>
+              <i class='bx bx-book-alt' ></i>
+            </article>
+              
+            <button class="add" type="button" id="addBtn" onclick="addEmployee()">Add</button><br>
+            <button class="close" type="button" id="closeBtn" onclick="closePopup()">Close</button>
+            
+          </article>
 
                     <section class="bookings">
                         <table id="main_table">

@@ -14,6 +14,39 @@ function updateDate(){
     docDate.innerText = currDate;
 }
 
+function checkBooking() {
+    // Mock booking status check
+    const hasBooking = 0.6 > 0.5; // Simulate a 50/50 chance of having a booking
+  
+    const popupLayer = document.getElementById('popupLayer');
+    const bookingMessage = document.getElementById('bookingMessage');
+  
+    if (hasBooking) {
+      bookingMessage.textContent = "You have a booking available. Do you want to confirm or cancel?";
+      document.querySelectorAll('.popupContent button').forEach(button => button.style.display = 'inline-block');
+    } else {
+      bookingMessage.textContent = "You do not have any booking available.";
+      document.querySelectorAll('.popupContent button').forEach(button => button.style.display = 'none');
+    }
+  
+    popupLayer.classList.remove('hidden');
+  }
+  
+  function confirmBooking() {
+    alert("Booking confirmed!");
+    closePopup();
+  }
+  
+  function cancelBooking() {
+    alert("Booking canceled!");
+    closePopup();
+  }
+  
+  function closePopup() {
+    const popupLayer = document.getElementById('popupLayer');
+    popupLayer.classList.add('hidden');
+  }
+
 updateDate();
 //update the date every 2 minutes
 setInterval(updateDate, 1000);
@@ -26,6 +59,7 @@ function saveRow(){
     const endTime = document.getElementById('end_col').value;
     const vehicle_type = document.getElementById('vehicletype_col').value;
     const vehicle_model = document.getElementById('vehiclemodel_col').value;
+
 
     // if(!ValidateData_Empty(date,task,startTime,endTime,manager)){
     //     alert("One or more required fields are empty");
@@ -40,7 +74,7 @@ function saveRow(){
         return;
     }
 
-    let cols=[date,available_slots,startTime,endTime,vehicle_type,vehicle_model];
+    let cols=[date,available_slots,startTime,endTime,vehicle_type,vehicle_model,];
 
  
 
@@ -264,5 +298,12 @@ function ValidateData_Time(startTime, endTime){
     return validTime;
 }
 
+let popup=document.getElementById("popup");
 
+function openPopup(){
+    popup.classList.add("open-popup");
+}
 
+function closePopup(){
+    popup.classList.remove("open-popup");
+}

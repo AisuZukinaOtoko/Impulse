@@ -1,3 +1,4 @@
+
 //update the date
 function updateDate(){
     const date = new Date();
@@ -26,10 +27,10 @@ function saveRow(){
     const endTime = document.getElementById('end_col').value;
     const manager = document.getElementById('manager_col').value;
 
-    // if(!ValidateData_Empty(date,task,startTime,endTime,manager)){
-    //     alert("One or more required fields are empty");
-    //     return;
-    // }
+    if(!ValidateData_Empty(date,task,startTime,endTime,manager)){
+        alert("One or more required fields are empty");
+        return;
+    }
     if(!ValidateData_Date(date)){
         alert("Invalid Date entered");
         return;
@@ -65,6 +66,7 @@ function saveRow(){
     td2.appendChild(duration);
     
     document.getElementById('main_table').appendChild(row);
+    SaveTable();
     //clear afterwards
     clear();
 }
@@ -88,18 +90,18 @@ function CalcDuration(){
     let durationSpan = document.getElementById('duration_col');
 
          
-        // Calculate the difference in milliseconds
-        // const durationMs = Math.abs(endDate- startDate);
-        const durationMs = endDate- startDate;
-        
-        // Convert milliseconds to hours and minutes
-        const hours = Math.floor(durationMs / (1000 * 60 * 60));
-        const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
+    // Calculate the difference in milliseconds
+    // const durationMs = Math.abs(endDate- startDate);
+    const durationMs = endDate- startDate;
+    
+    // Convert milliseconds to hours and minutes
+    const hours = Math.floor(durationMs / (1000 * 60 * 60));
+    const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
 
-        // Display the duration
-        let duration= hours +"hr(s) "+minutes+"mins";
-        
-        return duration;
+    // Display the duration
+    let duration= hours +"hr(s) "+minutes+"mins";
+    
+    return duration;
        
    
 }
@@ -240,8 +242,7 @@ function ValidateData_Date(date){
 
     // Format the date as desired (e.g., YYYY-MM-DD)
     const formattedDate = year + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day);
-    console.log(formattedDate); // Output: YYYY-MM-DD
-    console.log(date);
+    // Output: YYYY-MM-DD
     if(date>formattedDate){
         validDate = false;
     }
@@ -262,3 +263,58 @@ function ValidateData_Time(startTime, endTime){
     return validTime;
 }
 
+//Database things
+//get the table and display it
+function getTable(){
+
+}
+
+//saving table to the database
+function SaveTable(){
+    const date = document.getElementById('date_col').value;
+    const task = document.getElementById('task_col').value;
+    const startTime = document.getElementById('start_col').value;
+    const endTime = document.getElementById('end_col').value;
+    const manager = document.getElementById('manager_col').value;  
+    const duration = CalcDuration();
+    
+    let cols=[date,task,startTime,endTime,manager,duration];
+    //put contents of their cells into the cols array and make a json object from that
+    //then add the json object to the records array   
+    //use cols to make Json object
+    let record = {
+        "email": "susan@gmail.com",
+        "date": cols[0],
+        "task": cols[1],
+        "startTime":cols[2],
+        "endTime": cols[3],
+        "manager": cols[4],
+        "duration": cols[5]
+    };
+
+    // make request to the api
+    //const url = process.env.BASEURL + "/api/timesheet";
+    //const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    const url = "http://localhost:3000/api/timesheet";
+    fetch(url, { 
+        method: 'POST',
+        headers: {
+        },
+        'Content-Type': 'application/json',
+        //mode: 'no-cors',
+        body: JSON.stringify(record),
+      })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+      });
+    
+}

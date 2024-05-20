@@ -28,12 +28,37 @@
 
 
 <body>
+    <nav id="horizontalNavbar">
+        <h1 id="name">impulse.</h1>
+        <article class="horNavButtons">
+            <ul>
+                <li class="navButton">Home</li>
+                <li class="navButton"><a href="bookcarwash.html">Book car wash</a></li> 
+                <li class="navButton"><a href="bookmeals.html">Book meal</a></li>
+                <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
+            </ul>
+        </article>
+    </nav>
+
+    <nav class="verticalNavbar">
+        <article>
+            <ul>
+                <li><a href="#"><img src="../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
+                <li><a href="#"><img src="../assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
+                <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
+            </ul>
+           
+        </article>
+    </nav>
 
     <main class="Table"> 
         <section class="table_header">
-            <h1><p>Timesheet</p></h1>
+            <section id="TimesheetName">
+                <h1><p class="inline-p">Timesheet for</p> <p class="inline-p" id="empName">Emily Blunt</p></h1>
+            </section>
             <h3 id="date"></h3>
         </section>
+
         <section class="table_body">
 <form method="POST" name="form1">
             <table id="add_table">
@@ -61,7 +86,7 @@
                 </tbody>
             </table>
             <br>
-            <input id="saveButton" type="button" class="Button" value="Save" onclick="saveRow()">
+            <input id="saveButton" type="button" class="Button" value="Add" onclick="saveRow()">
             <br><br>
             <table id="main_table">
                 <thead>
@@ -89,6 +114,8 @@
             <input type = button class = "Button hidden" id="selButton" value = "Select All" onclick = selAll()> 
             <input type = button class = "Button hidden" id="deselButton" value = "Deselect All" onclick = deselAll()> 
             <button id="export-btn" class = "Button">Export as PDF</button>
+            <br>
+            
 
         </section>
         <script src="../js_files/timesheet.js"></script>
