@@ -8,18 +8,31 @@
 </head>
 <body>
     
-    <main class="Table">
+
+    <nav class="horizontalNavbar">
         <h1 id="name">impulse.</h1>
-        <nav class="verticalNavbar">
-            <article>
-                <ul>
-                    <li><a href="#"><img src="../../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
-                    <li><a href="#"><img src="/assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
-                    <li><a href="#"><img src="/assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
-                </ul>
-               
-            </article>
-        </nav>
+        <article class="horNavButtons">
+            <ul>
+                <li class="navButton">Home</li>
+               <li class="navButton"><a href="bookcarwash.html">Book car wash</a></li> 
+               <li class="navButton"><a href="bookmeals.html">Book meal</a></li>
+               <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
+            </ul>
+        </article>
+    </nav>
+
+    <nav class="verticalNavbar">
+        <article>
+            <ul>
+                <li><a href="#"><img src="../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
+                <li><a href="#"><img src="../assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
+                <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
+            </ul>
+           
+        </article>
+    </nav>
+    
+    <main class="Table">
         <article class="wrap">
             <section class="container2">
                 <h2 class="textbox1">Tuesday 19 May</h2>
@@ -28,9 +41,9 @@
                     <nav class="verticaloption">
                         <article class="vertbtn">
                             <ul>
-                                <a> <li class="navButton">13:00-13:59</li></a>
-                                <a ><li class="navButton">14:00-14:59</li></a> 
-                                <a><li class="navButton">15:00-15:59</li></a>
+                                <a > <li class="slotButton">13:00-13:59</li></a>
+                                <a ><li class="slotButton">14:00-14:59</li></a> 
+                                <a><li class="slotButton">15:00-15:59</li></a>
                             </ul>
                         </article>
                     </nav>
@@ -44,15 +57,41 @@
                     <nav class="verticaloption">
                         <article class="vertbtn">
                             <ul>
-                               <a> <li class="navButton">13:00-13:59</li></a>
-                               <a ><li class="navButton">14:00-14:59</li></a> 
-                               <a><li class="navButton">15:00-15:59</li></a>
+                               <a> <li class="slotButton">13:00-13:59</li></a>
+                               <a ><li class="slotButton">14:00-14:59</li></a> 
+                               <a><li class="slotButton">15:00-15:59</li></a>
                             </ul>
                         </article>
                     </nav>
                 </article>
             </section>
         </article>   
+
+        <button class="addBtn" type="submit" onclick="openPopup()"> 
+           hello
+          </button>
+
+        <article class="popup" id="popup">
+            
+            <article class="input-box">
+              <input id="addInput" type="text" placeholder="Staff member Username" required>
+              <i class='bx bxs-user' ></i>
+            </article>
+
+            <article class="input-box">
+              <input class="password" id="addpass" type="password" placeholder="Password" name="psw" required>
+              <i class='bx bx-lock-alt' ></i>
+            </article>
+
+            <article class="input-box">
+              <input class="project" type="text" id="addProj" placeholder="Project" name="psw" required>
+              <i class='bx bx-book-alt' ></i>
+            </article>
+              
+            <button class="add" type="button" id="addBtn" onclick="addEmployee()">Add</button><br>
+            <button class="close" type="button" id="closeBtn" onclick="closePopup()">Close</button>
+            
+          </article>
 
                     <section class="bookings">
                         <table id="main_table">
@@ -86,18 +125,6 @@
                     
 
                     </section>
-
-
-                    <nav class="horizontalNavbar">
-                        <article class="horNavButtons">
-                            <ul>
-                                <li class="navButton">Home</li>
-                               <li class="navButton"><a href="bookcarwash.html">Book car wash</a></li> 
-                               <li class="navButton"><a href="bookmeals.html">Book meal</a></li>
-                               <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
-                            </ul>
-                        </article>
-                    </nav>
 
         <script src="../js_files/bookcarwash.js"></script>
         <script src="../js_files/html2pdf.bundle.js"></script>
