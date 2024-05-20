@@ -10,10 +10,79 @@
     margin:0;
     
 }
-
+body{
+	min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#0f1322;
+    overflow: auto;
+}
 a{
 	text-decoration: none;
 }
+
+#name{
+    font-size: 50px;
+	margin-right: 500px;
+	margin-left: -800px;
+}
+.verticaloption{
+    margin-left: 79px;
+    margin-right: 395px;
+    display: flex;
+}
+input{
+	color: grey;
+}
+.vertbtn ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding:0;
+}
+.vertbtn{
+    margin-left: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+    
+}
+
+.menuButton {
+    
+    position: relative;
+    height: 50px;
+    width: 300px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-decoration: none;
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+}
+
+.menuButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.menuButton:hover{
+    background-color: #93D5E1;
+}
+
 .horNavButtons ul a{
     text-decoration: none;
 }
@@ -25,7 +94,7 @@ a{
     padding: 20px 0;
     border-radius: 50px;
     margin-left: 100px;
-	
+
     transition: all 0.5s ease;
 }
 .container1 .subcontainer1{
@@ -35,6 +104,7 @@ a{
     padding: 20px 0;
     margin-top: 550px;
     margin-left: 10px;
+	margin-right: 50px;
     border-radius: 50px;
     transition: all 0.5s ease;
 }
@@ -45,8 +115,8 @@ a{
   margin-top: 20px;
 }
 
-.container2{
-  margin-bottom: 1000px;
+.container4{
+  margin-left: 50px;
 }
 .container4 .chart{
     display: flex;
@@ -312,7 +382,8 @@ a{
  }
 
  .horizontalNavbar{
-	margin-left: 1000px;
+	margin-right: -1000px;
+	margin-top: -1100px;
     display: flex;
 }
 
