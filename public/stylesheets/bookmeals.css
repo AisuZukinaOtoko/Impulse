@@ -18,13 +18,14 @@ a{
     text-decoration: none;
 }
 .container1{
-    background: url(/assets/pexels-gabby-k-7144973.jpg);
+    background: url(../assets/pexels-gabby-k-7144973.jpg);
     background-size: cover;
     width: 500px;
     height: 980px;
     padding: 20px 0;
     border-radius: 50px;
-    margin-right: 50px;
+    margin-left: 100px;
+	
     transition: all 0.5s ease;
 }
 .container1 .subcontainer1{
@@ -307,12 +308,11 @@ a{
  h1{
     color: white;
     margin-left: 100px;
-	margin-bottom: 1200px;
+	margin-bottom: 100px;
  }
 
  .horizontalNavbar{
-    margin-top: -1200px;
-	margin-left: -500px;
+	margin-left: 1000px;
     display: flex;
 }
 
