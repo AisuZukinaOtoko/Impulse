@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports for HR</title>
+    <link rel="stylesheet" href="reportsManager.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+</head>
+<body>
+
+    <header id="header"> 
+    </header>
+
+    <nav id="sidebar"> </nav>
+
+
+    <h1> Project Reports</h1>
+<article > <h3> Project Members</h3>
+    <section id="team">
+    </section>
+
+    <section class="section">  
+        <a href="#" class="views" id="report1_btn">Staff Hours</a>
+        <a href="#" class="views" id="report2_btn"> Team hours this week</a>
+        <a href="#" class="views" id="report3_btn"> Team Contributions</a>
+        <a href="#" class="views" id="report4_btn"> Timesheets</a>
+    </section>
+
+    <section class="report-frame" id="report1" style="display: none">
+    <article id="chart"> </article>
+
+    <article id="ichart"> </article>
+    </section>
+
+    <section class="report-frame" id="report2" style="display: none">
+    <article id="pie"></article>
+    </section>
+
+    <section class="report-frame" id="report3" style="display: none">
+    <article id="gantt"></article>
+    </section>
+
+    <section class="report-frame" id="report4" style="display: none">
+        <!-- list of names  -->
+        <article id="stafflist"></article>
+
+        <article id="displaytimesheet">
+
+            <!-- cheat cheat cheat -->
+
+            <section class="table_header">
+                <h1><p>Timesheet</p></h1>
+                <h3 id="date"></h3>
+            </section>
+            <section class="table_body">
+    
+                <table id="main_table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Date</th>
+                            <th>Task</th>
+                            <th>Start-time</th>
+                            <th>End-time</th>
+                            <th>Duration</th>
+                            <th>Manager/Supervisor</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+        <td>2024-05-01</td>
+        <td>Project A</td>
+        <td>09:00 AM</td>
+        <td>11:00 AM</td>
+        <td>2 hours</td>
+        <td>John Doe</td>
+    </tr>
+    <tr>
+        <td>2024-05-02</td>
+        <td>Project B</td>
+        <td>10:00 AM</td>
+        <td>12:00 PM</td>
+        <td>2 hours</td>
+        <td>John Doe</td>
+    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+        </section>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="reportsManager.js"></script>
+</body>
+</html>                                                         

@@ -1,3 +1,6 @@
+import axios from 'https://cdn.skypack.dev/axios';
+
+var TimesheetData = {};
 
 //update the date
 function updateDate(){
@@ -15,6 +18,19 @@ function updateDate(){
     docDate.innerText = currDate;
 }
 
+function fetchData(){
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    axios.get(url)
+    .then((response) => {
+        TimesheetData = response.data;
+        console.log(TimesheetData);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+      });
+}
+
+fetchData();
 updateDate();
 //update the date every 2 minutes
 setInterval(updateDate, 1000);
@@ -70,6 +86,8 @@ function saveRow(){
     //clear afterwards
     clear();
 }
+
+document.getElementById('saveButton').addEventListener('click', saveRow);
 
 function clear(){
     document.getElementById('date_col').value ='';
@@ -293,25 +311,10 @@ function SaveTable(){
     };
 
     // make request to the api
-    //const url = process.env.BASEURL + "/api/timesheet";
-    //const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
-    const url = "http://localhost:3000/api/timesheet";
-    fetch(url, { 
-        method: 'POST',
-        headers: {
-        },
-        'Content-Type': 'application/json',
-        //mode: 'no-cors',
-        body: JSON.stringify(record),
-      })
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    axios.post(url, record)
     .then((response) => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json();
-    })
-    .then((data) => {
-        console.log(data);
+        console.log(response.data);
     })
     .catch((error) => {
         console.error('Error:', error.message); // Handle errors

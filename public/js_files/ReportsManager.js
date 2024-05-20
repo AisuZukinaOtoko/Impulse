@@ -44,3 +44,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     feather.replace();
 })
+
+
+// the reports - overall - totals(teamSize, TeamStatus) - TotalHours - tasks
