@@ -8,7 +8,7 @@
     </head>
     <body>
         <p style="display: none;" class="hidden" id="Email"><%= user.email %></p>
-        <p style="display: none;" class="hidden" id="Role"><%= user['http://impulsewebapp.azurewebsites.net/roles'][0] %></p>
+        <p style="display: none;" class="hidden" id="Role"><%= user['http://localhost:3000/roles'][0] %></p>
         <p style="display: none;" class="hidden" id="Name"><%= user.name %></p>
 
         <nav class="horizontalNavbar">
@@ -16,8 +16,8 @@
             <article class="horNavButtons">
                 <ul>
                     <li class="navButton">Home</li>
-                   <li class="navButton"><a href="bookcarwash.html">Book car wash</a></li> 
-                   <li class="navButton"><a href="bookmeals.html">Book meal</a></li>
+                   <li class="navButton"><a href="../homepage/bookcarwash.html">Book car wash</a></li> 
+                   <li class="navButton"><a href="../homepage/bookmeals.html">Book meal</a></li>
                    <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
                 </ul>
             </article>
