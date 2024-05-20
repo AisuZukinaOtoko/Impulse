@@ -16,13 +16,18 @@ const config = {
 
 var app = express();
 app.set('views', 'views');
-//app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').__express);
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
-app.use(express.static('./views'));
+// app.use(express.static('./views'));
 app.use(auth(config));
+
+app.use((req, res, next) => {
+  res.locals.user = req.oidc.user;
+  next();
+});
 
 app.use('/', indexRouter);
 

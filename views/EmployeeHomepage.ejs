@@ -3,18 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Manager</title>
-        <link rel="stylesheet" href="../stylesheets/ManagerHomepage.css">
+        <title>Employee</title>
+        <link rel="stylesheet" href="../stylesheets/EmployeeHomepage.css">
     </head>
     <body>
+        <p style="display: none;" class="hidden" id="Email"><%= user.email %></p>
+        <p style="display: none;" class="hidden" id="Role"><%= user['http://localhost:3000/roles'][0] %></p>
+        <p style="display: none;" class="hidden" id="Name"><%= user.name %></p>
 
         <nav class="horizontalNavbar">
             <h1 id="name">impulse.</h1>
             <article class="horNavButtons">
                 <ul>
-                    <li class="navButton"><a href="" >Home</a></li>
-                    <li class="navButton"><a href="" >Bookings</a></li>
-                    <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
+                    <li class="navButton">Home</li>
+                   <li class="navButton"><a href="../homepage/bookcarwash.html">Book car wash</a></li> 
+                   <li class="navButton"><a href="../homepage/bookmeals.html">Book meal</a></li>
+                   <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
                 </ul>
             </article>
         </nav>
@@ -22,9 +26,9 @@
         <nav class="verticalNavbar">
             <article>
                 <ul>
-                    <li><a href="#"><img src="/assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
-                    <li><a href="#"><img src="/assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
-                    <li><a href="#"><img src="/assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
+                    <li><a href="#"><img src="../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
+                    <li><a href="#"><img src="../assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
+                    <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
                 </ul>
                
             </article>
@@ -33,9 +37,9 @@
         <section class="NameRole">
             <section class="greeting">
                 <p>Hello, </p> 
-                <p id="nameSurname">Selena Gomez</p>
+                <p id="nameSurname"><%= user.name %></p>
             </section>
-            <p id="role">Manager</p>
+            <p id="role">Employee</p>
         </section>
 
        <article class="cards">
@@ -47,12 +51,6 @@
                     <section id="FeedbackCard">
                         post feedback card
                     </section>
-                    <section id="TeamReportsCard">
-                        view Team Reports card
-                    </section>
-                    <section id="StaffTimesheets">
-                        view StaffTimesheets card
-                    </section>
                 </article>
             </article>
 
@@ -61,6 +59,7 @@
                 <article id="NotificationCard" >notification card</article>
             </article>
        </article>
-        
+
+       <script src="../js_files/EmployeeHomepage.js"></script>
     </body>
 </html>
