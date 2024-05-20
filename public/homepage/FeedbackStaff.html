@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff - Feedback</title>
+    <link rel="stylesheet" href="../stylesheets/FeedbackStaff.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+<section class="container">
+
+    <nav>
+        <ul>
+            <a href="#" id="profile"  class="nav_items"><i class="iconss" data-feather="user"></i></a>
+            <a href="#" id="settings" class="nav_items"><i class="iconss" data-feather="settings"></i></a>
+            <a href="#" id="notifications" class="nav_items" ><i class="iconss" data-feather="bell"></i></a>
+            <a href="#" id="logout" class="nav_items"><i class="iconss" data-feather="log-out"></i></a>
+        </ul>
+    </nav>
+
+    <section class="content">
+
+        <h1> Staff Feedback</h1>
+
+        <article class="two-sections">
+
+            <section class="comment-section">
+            <a>Comment Section</a>
+
+            <article id="insert-comments">
+            <!-- javascript -->
+            </article>
+
+            <a href="#" > Add a comment <i id="add" data-feather="plus-circle"></i></a>
+
+            </section>
+
+            <section class="request-section collapsed" id="reqSection">
+                <!-- headline -->
+                    <a> Feedback Requests<i id="open-Requests" data-feather="arrow-up-right"></i></a>
+            
+                    <table>
+                        <thread>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Time</th>
+                                <th>Request Status</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            <tr>
+                                <td>Project1</td>
+                                <td>--:--</td>
+                                <td> <a href="#" > Add a comment <i class="addC" data-feather="plus-circle"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Project2</td>
+                                <td>--:--</td>
+                                <td> <a href="#" > Add a comment <i class="addC" data-feather="plus-circle"></i></a>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+
+            </section>
+
+        </article>
+
+    </section>
+
+    <section class="sidepage"></section>
+
+    <!-- overlay ... dzon worry bourrrrit-->
+    <section id="overlay" style="display: none;"></section>
+
+    <!-- hidden elements: -->
+    <!-- Add comment pop up -->
+    <article id="Comment">
+        <header>
+            <a id="commentfrom"> Staff member name</a>
+        </header>
+        <section class="project">
+            <form>
+                <label for="dropdown">Project:</label>
+                <select id="dropdown" name="dropdown">
+                    <!-- javascript to load the option values to the correct project names -->
+                    <option value="option1">Project1</option>
+                    <option value="option2">Project2</option>
+                    <option value="option3">Project3</option>
+                    <option value="option4">Project4</option>
+        </select>
+            </form>
+            
+
+        </section>
+
+        <section class="messagebox">
+            <form>
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea>
+            </form>
+        </section>
+
+        <footer >
+            <a id="post"> Post</a>
+
+            <a id="cancel"> Cancel</a>
+
+        </footer>
+    </article>
+
+</section>
+
+    <script>
+        feather.replace();
+      </script>
+
+<script src="../js_files/FeedbackStaff.js"></script>
+</body>
+</html>

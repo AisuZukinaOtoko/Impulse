@@ -113,7 +113,7 @@ function ShowSelButtons(){
     const deselButton = document.querySelector('#deselButton');
     const selRowsButton = document.querySelector('#selRows');
     const delSelRowsBtn = document.querySelector('#delSelRowsBtn');
-    const editBtn=document.querySelector('#editButton')
+    const editBtn=document.querySelector('#editButton');
     for(const chkbox of checkboxes){
         chkbox.style.visibility = "visible";
         chkbox.classList.remove('hidden');
@@ -161,6 +161,7 @@ function delRow(){
     const mytable = document.getElementById("main_table");  
     const selRowsButton = document.querySelector('#selRows');
     const deselButton = document.querySelector('#deselButton');
+    const editBtn=document.querySelector('#editButton');
     selRowsButton.style.visibility = "visible";
     //show select rows button and remove select all, deselect all and delSelRows
     if(selRowsButton.classList.contains('hidden')){
@@ -168,6 +169,7 @@ function delRow(){
         selButton.classList.add('hidden');
         deselButton.classList.add('hidden');
         delSelRowsBtn.classList.add('hidden');
+        editBtn.classList.add('hidden');
         const checkboxes = document.querySelectorAll(".checkboxes");
         for(const chkbox of checkboxes){
             //chkbox.style.visibility = "visible";
