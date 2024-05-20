@@ -5,3 +5,15 @@ function MoveToSite() {
   function MoveToFeedback() {
     window.location.href = 'http://localhost:3000/homepage/FeedbackHR.html';
   }
+
+  function MoveToReports() {
+    window.location.href = 'http://localhost:3000/homepage/reportsHr.html';
+  }
+
+  function MoveToCarwash() {
+    window.location.href = 'http://localhost:3000/homepage/managecarwash.html';
+  }
+
+  function MoveToMeals() {
+    window.location.href = 'http://localhost:3000/homepage/managemeals.html';
+  }
