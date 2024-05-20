@@ -3,96 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports for HR</title>
-    <link rel="stylesheet" href="../stylesheets/reportsHR.css">
+    <title>HR- Reports</title>
+    <link rel="stylesheet" href="../stylesheets/ReportsHR.css">
     <script src="https://unpkg.com/feather-icons"></script>
-    
 </head>
 <body>
 
-    <header id="header"> 
-    </header>
+    <section class="container">
 
-    <nav id="sidebar"> </nav>
+        <nav>
+            <ul>
+                <a href="#" id="profile"  class="nav_items"><i class="iconss" data-feather="user"></i></a>
+                <a href="#" id="settings" class="nav_items"><i class="iconss" data-feather="settings"></i></a>
+                <a href="#" id="notifications" class="nav_items" ><i class="iconss" data-feather="bell"></i></a>
+                <a href="#" id="logout" class="nav_items"><i class="iconss" data-feather="log-out"></i></a>
+            </ul>
+        </nav>
 
+        <section class="content">
+            <h1> Reports</h1>
 
-    <h1> Project Reports</h1>
-
-    <section class="section">  
-        <a href="#" class="views" id="report1_btn">Staff Hours</a>
-        <a href="#" class="views" id="report2_btn"> Team hours this week</a>
-        <a href="#" class="views" id="report3_btn"> Team Contributions</a>
-        <a href="#" class="views" id="report4_btn"> Timesheets</a>
-    </section>
-
-    <section class="report-frame" id="report1" style="display: block">
-    <article id="chart"> </article>
-
-    </section>
-
-    <section class="report-frame" id="report2" style="display: none">
-    <article id="pie"></article>
-    </section>
-
-    <section class="report-frame" id="report3" style="display: none">
-    <article id="gantt"></article>
-    </section>
-
-    <section class="report-frame" id="report4" style="display: none">
-        <!-- list of names  -->
-        <article id="stafflist"></article>
-
-        <article id="displaytimesheet">
-
-            <!-- cheat cheat cheat -->
-
-            <section class="table_header">
-                <h1><p>Timesheet</p></h1>
-                <h3 id="date"></h3>
-            </section>
-            <p> John Doe</p>
-            <section class="table_body">
-    
-                <table id="main_table">
-                    <thead>
+            <article class="lists collapsed">
+                <a class="reports" id="overall">View Overall Staff Perfmormance<i  data-feather="arrow-up-right"></i></a>
+                <section id="reportview">
+                    <!-- <h1> Staff Reports</h1> -->
+                </section>
+                <footer> 
+                    <a href="#"> Export PDF</a>
+                    <a href="#"> Export CSV</a>
+                </footer>
+            </article>
+            
+            <article class="lists collapsed">
+                <a class="reports" id="project"> View Project Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
+                <table><thread>
+                    <tr>
+                        <!-- project name -->
+                        <th></th>
+                        <!-- select to view button -->
+                        <th></th>
+                    </tr>
+                </thread>
+                <tbody>
+                    <tr>
+                        <th> Project 1</th>
+                        <th><a href="#" class="view">View</a></th>
+                    </tr>
+                </tbody>
+            </table>
+            </article>
+           
+            <article class="lists collapsed">
+                <a class="reports" id="individual">View Individual Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
+                <table>
+                    <thread>
                         <tr>
+                            <!-- staff name -->
                             <th></th>
-                            <th>Date</th>
-                            <th>Task</th>
-                            <th>Start-time</th>
-                            <th>End-time</th>
-                            <th>Duration</th>
-                            <th>Manager/Supervisor</th>
-                            
+                            <!--select to view  -->
+                            <th></th> 
                         </tr>
-                    </thead>
+                    </thread>
                     <tbody>
-                        
                         <tr>
-                            <td></td>
-        <td>2024-05-01</td>
-        <td>Project A</td>
-        <td>09:00 AM</td>
-        <td>11:00 AM</td>
-        <td>2 hours</td>
-        <td>John Doe</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>2024-05-02</td>
-        <td>Project B</td>
-        <td>10:00 AM</td>
-        <td>12:00 PM</td>
-        <td>2 hours</td>
-        <td>John Doe</td>
-    </tr>
+                            <th> Harvey Spectre</th>
+                            <th><a href="#" class="view">View</a></th>
+                        </tr>
                     </tbody>
                 </table>
-            </section>
-        </article>
+            </article>
+
         </section>
 
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="../js_files/reportsHR.js"></script>
+         <!-- overlay ... dzon worry bourrrrit-->
+    <section id="overlay" style="display: none;"></section>
+
+    <!-- hidden elements: -->
+    <!-- Add comment pop up -->
+    <article class="page" id="popup-page">
+        <section id="report-content"> </section>
+
+        <footer> 
+            <a href="#" id="pdf"> Export PDF</a>
+            <a href="#" id="csv"> Export CSV</a>
+            <a href="#" id="closereport">Close</a>
+        </footer>
+    </article>
+
+    </section>
+
+    <script>
+        feather.replace();
+      </script>
+
+<script src="../js_files/ReportsHR.js"></script>
+    
 </body>
-</html>                                                         
+</html>
