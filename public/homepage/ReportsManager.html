@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR- Reports</title>
-    <link rel="stylesheet" href="../stylesheets/ReportsHR.css">
+    <title>Manager- Reports</title>
+    <link rel="stylesheet" href="../stylesheets/ReportsManager.css">
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
@@ -24,9 +24,20 @@
             <h1> Reports</h1>
 
             <article class="lists collapsed">
-                <a class="reports" id="overall">View Overall Staff Perfmormance<i  data-feather="arrow-up-right"></i></a>
+                <a class="reports" id="overall">View Overall Team Perfmormance<i  data-feather="arrow-up-right"></i></a>
                 <section id="reportview">
-                    <!-- <h1> Staff Reports</h1> -->
+                    <p> Team overall Perfmormance</p>
+
+                    <article class="totals">
+                         <!-- js  -->
+                        <section id="teamSize"></section>
+
+                        <section id="projectStatus"></section>
+                    </article>
+
+                    <article class="TotalHours"></article>
+
+                    <article class="tasks"></article>
                 </section>
                 <footer> 
                     <a href="#"> Export PDF</a>
@@ -34,27 +45,9 @@
                 </footer>
             </article>
             
-            <article class="lists collapsed">
-                <a class="reports" id="project"> View Project Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
-                <table><thread>
-                    <tr>
-                        <!-- project name -->
-                        <th></th>
-                        <!-- select to view button -->
-                        <th></th>
-                    </tr>
-                </thread>
-                <tbody>
-                    <tr>
-                        <th> Project 1</th>
-                        <th><a href="#" class="view">View</a></th>
-                    </tr>
-                </tbody>
-            </table>
-            </article>
            
             <article class="lists collapsed">
-                <a class="reports" id="individual">View Individual Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
+                <a class="reports" id="individual">View Staff Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
                 <table>
                     <thread>
                         <tr>
@@ -96,7 +89,7 @@
         feather.replace();
       </script>
 
-<script src="../js_files/ReportsHR.js"></script>
+<script src="../js_files/ReportsManager.js"></script>
     
 </body>
 </html>

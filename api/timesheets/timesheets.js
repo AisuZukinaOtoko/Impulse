@@ -13,11 +13,23 @@ router.get('/timesheet', (req, res) =>{
 
 router.post('/timesheet', (req, res) =>{
     const {date, startTime, endTime, duration, manager, task, email} = req.body;
+    
 
-    if (!date || !startTime || !endTime || !duration || !manager || !task || !email){
-        res.status(400).send("An error occured.");
+    console.log(req.body);
+
+    if (!date || !startTime || !endTime){
+        res.status(401).send("An error occured.");
         return;
     }
+    if (!duration || !manager){
+      res.status(402).send("An error occured.");
+      return;
+    }
+    if (!task || !email){
+      res.status(403).send("An error occured.");
+      return;
+    }
+
 
     let query = "INSERT INTO dbo.timesheet VALUES (NEWID(), '" + date + "', '" + startTime + "', '" + endTime + "', '" + duration + "', '" + manager + "','" + task + "','" + email + "')";
 

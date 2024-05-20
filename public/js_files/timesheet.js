@@ -1,3 +1,7 @@
+import axios from 'https://cdn.skypack.dev/axios';
+
+var TimesheetData = {};
+
 //update the date
 function updateDate(){
     const date = new Date();
@@ -14,6 +18,19 @@ function updateDate(){
     docDate.innerText = currDate;
 }
 
+function fetchData(){
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    axios.get(url)
+    .then((response) => {
+        TimesheetData = response.data;
+        console.log(TimesheetData);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+      });
+}
+
+fetchData();
 updateDate();
 //update the date every 2 minutes
 setInterval(updateDate, 1000);
@@ -69,6 +86,8 @@ function saveRow(){
     //clear afterwards
     clear();
 }
+
+document.getElementById('saveButton').addEventListener('click', saveRow);
 
 function clear(){
     document.getElementById('date_col').value ='';
@@ -291,6 +310,14 @@ function SaveTable(){
         "duration": cols[5]
     };
 
-    console.log(record);            
+    // make request to the api
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    axios.post(url, record)
+    .then((response) => {
+        console.log(response.data);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+      });
     
 }
