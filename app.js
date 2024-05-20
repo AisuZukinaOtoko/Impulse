@@ -1,6 +1,7 @@
 var express = require('express');
 var indexRouter = require("./routes/index.js");
 const { auth } = require('express-openid-connect');
+const cors = require('cors');
 require('dotenv').config()
 const port = process.env.PORT || 3000;
 
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors());
 app.use('/', indexRouter);
 app.use('/api', require("./api/users/users.js"));
 app.use('/api', require("./api/timesheets/timesheets.js"));

@@ -78,6 +78,7 @@ nav ul a{
     justify-content: center;
 }
 
+
 .reports {
     width: 300px;
     height: 50px;
@@ -156,6 +157,24 @@ table{
     justify-content: center;
     background-color: rgba(16,19,34,255) ;
     border: 2px solid white;
+    color: white;
+}
+
+.totals{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    width: 95%;
+    height: fit-content;
+    padding: 20px;
+    margin: 20px;
+}
+
+.totals section{
+    width: 40%;
+    height: 95%;
+
 }
 
 th, td{
