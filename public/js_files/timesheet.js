@@ -1,3 +1,4 @@
+
 //update the date
 function updateDate(){
     const date = new Date();
@@ -291,6 +292,29 @@ function SaveTable(){
         "duration": cols[5]
     };
 
-    console.log(record);            
+    // make request to the api
+    //const url = process.env.BASEURL + "/api/timesheet";
+    //const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    const url = "http://localhost:3000/api/timesheet";
+    fetch(url, { 
+        method: 'POST',
+        headers: {
+        },
+        'Content-Type': 'application/json',
+        //mode: 'no-cors',
+        body: JSON.stringify(record),
+      })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+      });
     
 }
