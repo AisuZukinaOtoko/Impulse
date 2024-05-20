@@ -22,11 +22,11 @@ updateDate();
 //update the date every 2 minutes
 setInterval(updateDate, 1000);
 
-//get email from homepage
-window.onload = function() {
-    const email = localStorage.getItem('email');
-    document.getElementById('empName').innerText = email;
-};
+// //get email from homepage
+// window.onload = function() {
+//     const email = localStorage.getItem('email');
+//     document.getElementById('empName').innerText = email;
+// };
 
 function createRow(object){
     const date = object.date;
