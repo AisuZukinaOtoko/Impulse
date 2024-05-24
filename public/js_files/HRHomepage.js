@@ -3,18 +3,18 @@ function MoveToSite() {
   }
 
   function MoveToFeedback() {
-    window.location.href = 'https://impulsewebapp.azurewebsites.net/homepage/FeedbackHR.html';
+    window.location.href = 'http://localhost:3000/homepage/FeedbackHR.html';
   }
 
   function MoveToReports() {
-    window.location.href = 'https://impulsewebapp.azurewebsites.net/homepage/reportsHr.html';
+    window.location.href = 'http://localhost:3000/homepage/reportsHr.html';
   }
 
   function MoveToCarwash() {
-    window.location.href = 'https://impulsewebapp.azurewebsites.net/homepage/managecarwash.html';
+    window.location.href = 'http://localhost:3000/homepage/managecarwash.html';
   }
 
   function MoveToMeals() {
-    window.location.href = 'https://impulsewebapp.azurewebsites.net/homepage/managemeals.html';
+    window.location.href = 'http://localhost:3000/homepage/managemeals.html';
   }
 

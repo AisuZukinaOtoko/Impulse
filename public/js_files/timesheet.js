@@ -71,6 +71,7 @@ function fetchData(){
         let index = 0;
         for (const object of TimesheetData){
             //check the email
+            
             timesheetIDS.push(object.id);
             createRow(object);
             console.log(object);
