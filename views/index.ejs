@@ -3,66 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <title>Impulse| Login</title>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <title>Login</title>
 </head>
 <body>
-    <% if (isAuthenticated && user['http://localhost:3000/roles'][0] === "Manager ") { %>
+    <% if (isAuthenticated && user['https://impulsewebapp.azurewebsites.net/roles'][0] === "Manager ") { %>
         <script>
             window.onload = function() {
-                window.location.href = 'http://localhost:3000/ManagerHomepage.ejs';
+                window.location.href = 'https://impulsewebapp.azurewebsites.net/ManagerHomepage.ejs';
             };
         </script>
     <% } %>
-    <% if (isAuthenticated && user['http://localhost:3000/roles'][0] === "Employee") { %>
+    <% if (isAuthenticated && user['https://impulsewebapp.azurewebsites.net/roles'][0] === "Employee") { %>
         <script>
             window.onload = function() {
-                window.location.href = 'http://localhost:3000/EmployeeHomepage.ejs';
+                window.location.href = 'https://impulsewebapp.azurewebsites.net/EmployeeHomepage.ejs';
             };
         </script>
     <% } %>
-    <% if (isAuthenticated && user['http://localhost:3000/roles'][0] === "Human Resources") { %>
+    <% if (isAuthenticated && user['https://impulsewebapp.azurewebsites.net/roles'][0] === "Human Resources") { %>
         <script>
             window.onload = function() {
-                window.location.href = 'http://localhost:3000/HRHomepage.ejs';
+                window.location.href = 'https://impulsewebapp.azurewebsites.net/HRHomepage.ejs';
             };
         </script>
     <% } %>
         
-        
-    <article class="wrapper">
-
-        <article class="welcome-border">
-
-            <section class="welcome-text">
-                <h1>Welcome </h1>
-                <h1 id="logo">Impulse</h1>
-            </section>
-                
-        </article>
-
-        <article class="sign-in">
-          
-            <button class="sign-in-btn" id="loginBtn"><a href="/login/">Login</a></button>  
-            <button class="sign-in-btn" id="loginBtn"><a href="/logout/">Logout</a></button>   
-            
-            
-            
-
-
-
-            <!-- <script>
-                window.userData = JSON.stringify(user,null,2);
-                console.log( window.userData);
-            </script> -->
-            
-        </article>
-
-    </article>
-    <!-- <script src="../public/js_files/ejs_script.js"></script> -->
-    <script src="../js_files/getUsers.js"></script>
+    <section class="background-container"></section>
+    <img class="logo" src="../assets/impulse-5-20-2024.png" alt="Logo" width="250" height="70">
+    <section class="slogan">
+        <!-- <img class="unite" src="../assets/unite-5-20-2024 (1).png" alt="unite" width="450" height="70">
+        <img class="collaborate" src="../assets/collaborate-5-20-2024 (1).png" alt="collaborate" width="950" height="70">
+        <img class="achieve" src="../assets/achieve-5-20-2024 (1).png" alt="achieve" width="700" height="70"> -->
+        <p class="unite">unite.</p>
+        <p class="collaborate">collaborate.</p>
+        <p class="achieve">achieve.</p>
+    </section>
+    <button class="signIn"><a href="/login/">Login</button>
 </body>
 </html>

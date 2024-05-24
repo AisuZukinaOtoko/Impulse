@@ -57,5 +57,5 @@ document.getElementById('book_car_wash').addEventListener('click', function() {
 });
 
 function MoveToFeedback() {
-    window.location.href = 'http://localhost:3000/homepage/FeedbackStaff.html';
+    window.location.href = 'https://impulsewebapp.azurewebsites.net/homepage/FeedbackStaff.html';
   }

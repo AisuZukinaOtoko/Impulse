@@ -8,7 +8,7 @@
     </head>
     <body>
         <p style="display: none;" class="hidden" id="Email"><%= user.email %></p>
-        <p style="display: none;" class="hidden" id="Role"><%= user['http://localhost:3000/roles'][0] %></p>
+        <p style="display: none;" class="hidden" id="Role"><%= user['https://impulsewebapp.azurewebsites.net/roles'][0] %></p>
         <p style="display: none;" class="hidden" id="Name"><%= user.name %></p>
    
 
@@ -49,7 +49,7 @@
                 <article id="PersonalCard">Personal card</article>
                 
                 <article id="MoreCards">
-                    <section id="ReportsCard">
+                    <section id="ReportsCard" onclick="MoveToReports()">
                         View Reports
                     </section>
                     <section id="ManageStaffCard" onclick="MoveToSite()">
@@ -58,8 +58,11 @@
                     <section id="RequestFeedbackCard" onclick="MoveToFeedback()">
                         Request Feedback card
                     </section>
-                    <section id="ManageBookingsCard">
-                        Manage Bookings(Carwash and Meals) card
+                    <section id="ManageBookingsCard" onclick="MoveToCarwash()">
+                        Manage Carwash Bookings
+                    </section>
+                    <section id="ManageBookingsCard2" onclick="MoveToMeals()">
+                        Manage Meal Bookings
                     </section>
                 </article>
             </article>

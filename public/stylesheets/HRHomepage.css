@@ -186,8 +186,6 @@ body{
     width:100%;
     padding: 30px 20px;
     margin-bottom: 10px;
-    cursor:pointer;
-    font-size: 200%;
 }
 #RequestFeedbackCard{
     background-color:#444857 ;
@@ -199,6 +197,15 @@ body{
 }
 #ManageBookingsCard{
     background-color:#93D5E1 ;
+    border-radius: 30px;
+    min-height: 150px;
+    width:100%;
+    padding: 30px 20px;
+    margin-bottom: 10px;
+}
+
+#ManageBookingsCard2{
+    background-color:#BEC2D1  ;
     border-radius: 30px;
     min-height: 150px;
     width:100%;
