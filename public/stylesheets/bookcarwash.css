@@ -351,36 +351,7 @@ tbody{
 button span { 
     color: #464646; 
 }
-
-
-
-@page {
-    size: A4; /* or Letter, Legal, etc. */
-    margin: 1cm; /* adjust margins as needed */
-  }
   
-
-  .staffli{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    z-index: 1000;
-
-    background-color: rgba(191,194,209,255);
-    /* margin: 500px; */
-    width: 70%;
-    height: 90%;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
-    /* text-align: center; */
-    padding: 0 30px 30px;
-    border: 1px solid rgba(16,19,34,255);
-    border-radius: 20px;
-    visibility: hidden;
-    transition: transform 0.4s, top 0.4s;
-}
 
 
 .horizontalNavbar{
@@ -388,6 +359,7 @@ button span {
 	margin-top: -1100px;
     margin-bottom: 100px;
     display: flex;
+    position: relative;
 }
 
 .horNavButtons ul {
@@ -562,4 +534,66 @@ button span {
     visibility: visible;
     top: 50%;
     transform: translate(-50%,-50%) scale(1);
+}
+
+
+@page {
+    size: A4; /* or Letter, Legal, etc. */
+    margin: 1cm; /* adjust margins as needed */
+  }
+
+
+  @media screen and (min-width:300px) and (max-width:767px){
+
+    .verticalNavbar{
+        height:100%;
+    }
+
+    .horizontalNavbar{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        height: 90%;
+    }
+    .horNavButtons{
+        background-color:#0F1322;
+
+    }
+    .horNavButtons ul{
+        flex-wrap: wrap;
+    }
+     .wrap .container2 .subcontainer2{
+
+        height: 90%;
+        width: 90%;
+
+     }
+
+     .wrap .container3 .subcontainer2{
+
+        height: 90%;
+        width: 90%;
+
+     }
+
+
+
+}
+
+
+
+@media screen and (min-width:768px) and (max-width:1020px){
+    .horizontalNavbar{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+    }
+    .horNavButtons{
+        background-color:#0F1322;
+
+    }
+    .horNavButtons ul{
+        flex-wrap: wrap;
+    }
+}
+@media screen and (min-width:1600px) {
+
 }

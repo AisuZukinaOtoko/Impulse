@@ -1,389 +1,370 @@
-/* styles.css */
-
-/* General styling for the entire page */
-
-*{
-    font-family: 'Heebo' ,'Tahoma', sans-serif;
+* {
+    font-family: 'Heebo', 'Tahoma', sans-serif;
     color: white;
     box-sizing: border-box;
-    padding:0;
-    margin:0;
-    
+    padding: 0;
+    margin: 0;
 }
-body{
-	min-height: 100vh;
+
+body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#0f1322;
+    background-color: #0f1322;
     overflow: auto;
 }
-a{
-	text-decoration: none;
+
+a {
+    text-decoration: none;
 }
 
-#name{
+#name {
     font-size: 50px;
-	margin-right: 500px;
-	margin-left: 800px;
+    margin-right: 500px;
+
 }
-.verticaloption{
+
+.verticaloption {
     margin-left: 79px;
     margin-right: 395px;
     display: flex;
 }
-input{
-	color: grey;
+
+input {
+    color: grey;
 }
+
 .vertbtn ul {
     border: none;
     background: none;
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    padding:0;
+    padding: 0;
 }
-.vertbtn{
+
+.vertbtn {
     margin-left: auto;
     margin-top: 15px;
     border-radius: 8px;
     padding-block: 6px;
     height: fit-content;
     flex-wrap: wrap;
-    
 }
 
 .menuButton {
-    
     position: relative;
     height: 50px;
     width: 300px;
     margin-top: 40px;
-    padding-bottom: 20px;
     border: 2px solid transparent;
     margin-inline: 15px;
-    padding-top: 10px;
-    padding-bottom: 2px;
+    padding: 10px 15px 2px;
     letter-spacing: 2px;
     font-size: 14px;
     text-decoration: none;
-    padding-inline: 15px;
-    cursor: pointer;  
+    cursor: pointer;
     background-color: #444857;
     border-radius: 6px;
     color: white;
     text-align: center;
 }
 
-.menuButton:active{
+.menuButton:active {
     transform: scale(0.9);
     background-color: #93D5E1;
 }
-.menuButton:hover{
+
+.menuButton:hover {
     background-color: #93D5E1;
 }
 
-.horNavButtons ul a{
+.horNavButtons ul a {
     text-decoration: none;
 }
-.container1{
-    background: url(../assets/pexels-gabby-k-7144973.jpg);
-    background-size: cover;
+
+.container1 {
+    background: url('../assets/pexels-gabby-k-7144973.jpg') no-repeat center center/cover;
     width: 500px;
     height: 980px;
     padding: 20px 0;
     border-radius: 50px;
     margin-left: 100px;
-
     transition: all 0.5s ease;
 }
-.container1 .subcontainer1{
+
+.container1 .subcontainer1 {
     background: #0f1322;
     width: 480px;
     height: 400px;
     padding: 20px 0;
     margin-top: 550px;
     margin-left: 10px;
-	margin-right: 50px;
+    margin-right: 50px;
     border-radius: 50px;
     transition: all 0.5s ease;
 }
 
-.subtextbox3{
-  color:white;
-  margin-left:155px;
-  margin-top: 20px;
+.subtextbox3 {
+    color: white;
+    margin-left: 155px;
+    margin-top: 20px;
 }
 
-.container4{
-  margin-left: 50px;
+.container4 {
+    margin-left: 50px;
 }
-.container4 .chart{
+
+.container4 .chart {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40vh;
     width: 35vh;
     margin-left: 10px;
-    background-color:#353948 ;
-  }
+    background-color: #353948;
+}
 
 .wrapper {
-	max-width: 600px;
-	margin-top: 50px;
+    max-width: 600px;
+    margin-top: 50px;
     color: white;
     background-color: #1a1d29;
 }
 
-
-
 /* Calendar container */
 .container-calendar {
-	background: #1a1d29;
-	padding: 15px;
-	max-width: 900px;
-	margin: 0 auto;
-	overflow: auto;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	display: flex;
-	justify-content: space-between;
+    background: #1a1d29;
+    padding: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
 }
-.calendar-body{
+
+.calendar-body {
     background-color: #1a1d29;
 }
+
 /* Event section styling */
 #event-section {
-	padding: 10px;
-	background: #1a1d29;
-	margin: 20px 0;
-	border: 1px solid #1a1d29;
+    padding: 10px;
+    background: #1a1d29;
+    margin: 20px 0;
+    border: 1px solid #1a1d29;
 }
 
 .container-calendar #left h1 {
-	color: #93d5e1;
-	text-align: center;
-	background-color: #1a1d29;
-	margin: 0;
-	padding: 10px 0;
+    color: #93d5e1;
+    text-align: center;
+    background-color: #1a1d29;
+    margin: 0;
+    padding: 10px 0;
 }
 
 #event-section h3 {
-	color: #93d5e1;
-	font-size: 18px;
-	margin: 0;
+    color: #93d5e1;
+    font-size: 18px;
+    margin: 0;
 }
 
 #event-section input[type="date"],
 #event-section input[type="text"] {
-	margin: 10px 0;
-	padding: 5px;
-	width: 80%;
+    margin: 10px 0;
+    padding: 5px;
+    width: 80%;
 }
 
 #event-section button {
-	background: #93d5e1;
-	color: #1a1d29;
-	border: none;
-	padding: 5px 10px;
-	cursor: pointer;
+    background: #93d5e1;
+    color: #1a1d29;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
 }
 
 .event-marker {
-	position: relative;
+    position: relative;
 }
 
 .event-marker::after {
-	content: '';
-	display: block;
-	width: 6px;
-	height: 6px;
-	background-color: red;
-	border-radius: 50%;
-	position: absolute;
-	bottom: 0;
-	left: 0;
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
-/* event tooltip styling */
+/* Event tooltip styling */
 .event-tooltip {
-	position: absolute;
-	background-color: #1a1d29;
-	color: black;
-	padding: 10px;
-	border-radius: 4px;
-	bottom: 20px;
-	left: 50%;
-	transform: translateX(-50%);
-	display: none;
-	transition: all 0.3s;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	z-index: 1;
+    position: absolute;
+    background-color: #1a1d29;
+    color: black;
+    padding: 10px;
+    border-radius: 4px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 .event-marker:hover .event-tooltip {
-	display: block;
+    display: block;
 }
 
 /* Reminder section styling */
 #reminder-section {
-	padding: 10px;
-	background: #1a1d29;
-	margin: 20px 0;
-	border: 1px solid #ccc;
+    padding: 10px;
+    background: #1a1d29;
+    margin: 20px 0;
+    border: 1px solid #ccc;
 }
 
 #reminder-section h3 {
-	color: #93d5e1;
-	font-size: 18px;
-	margin: 0;
+    color: #93d5e1;
+    font-size: 18px;
+    margin: 0;
 }
 
 #reminderList {
-	list-style: none;
-	padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 #reminderList li {
-	margin: 5px 0;
-	font-size: 16px;
+    margin: 5px 0;
+    font-size: 16px;
 }
 
 /* Style for the delete buttons */
 .delete-event {
-	background: rgb(237, 19, 19);
-	color: white;
-	border: none;
-	padding: 5px 10px;
-	cursor: pointer;
-	margin-left: 10px;
-	align-items: right;
+    background: rgb(237, 19, 19);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    align-items: right;
 }
 
 /* Buttons in the calendar */
 .button-container-calendar button {
-	cursor: pointer;
-	background: #93d5e1;
-	color: #1a1d29;
-	border: 1px solid #93d5e1;
-	border-radius: 4px;
-	padding: 5px 10px;
+    cursor: pointer;
+    background: #93d5e1;
+    color: #1a1d29;
+    border: 1px solid #93d5e1;
+    border-radius: 4px;
+    padding: 5px 10px;
 }
 
 /* Calendar table */
 .table-calendar {
-	border-collapse: collapse;
-	width: 100%;
+    border-collapse: collapse;
+    width: 100%;
 }
 
 .table-calendar td,
 .table-calendar th {
-	padding: 5px;
-	border: 1px solid #1a1d29;
-	text-align: center;
-	vertical-align: top;
+    padding: 5px;
+    border: 1px solid #1a1d29;
+    text-align: center;
+    vertical-align: top;
 }
 
 /* Date picker */
 .date-picker.selected {
-	background-color: #93d5e1;
-	font-weight: bold;
-	outline: 1px dashed #00BCD4;
+    background-color: #93d5e1;
+    font-weight: bold;
+    outline: 1px dashed #00BCD4;
 }
 
 .date-picker.selected span {
-	border-bottom: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
 }
 
 /* Day-specific styling */
 .date-picker:nth-child(1) {
-	color: #1a1d29;
-	/* Sunday */
+    color: #1a1d29;
+    /* Sunday */
 }
 
-
-
-.date-picker:nth-child(2) {
-	color: #5d838f;
-	/* Sunday */
-}
-.date-picker:nth-child(3) {
-	color: #5d838f;
-	/* Sunday */
-}
-.date-picker:nth-child(4) {
-	color: #5d838f;
-	/* Sunday */
-}
-.date-picker:nth-child(5) {
-	color: #5d838f;
-	/* Sunday */
-}
-.date-picker:nth-child(6) {
-	color: #1a1d29;
-	/* Sunday */
-}
-
+.date-picker:nth-child(2),
+.date-picker:nth-child(3),
+.date-picker:nth-child(4),
+.date-picker:nth-child(5),
 .date-picker:nth-child(7) {
-	color: #5d838f;
-	/* Friday */
+    color: #5d838f;
+}
+
+.date-picker:nth-child(6) {
+    color: #1a1d29;
+    /* Saturday */
 }
 
 /* Hover effect for date cells */
 .date-picker:hover {
-	background-color: #93d5e1;
-	color: white;
-	cursor: pointer;
+    background-color: #93d5e1;
+    color: white;
+    cursor: pointer;
 }
 
 /* Header for month and year */
 #monthAndYear {
-	text-align: center;
-	margin-top: 0;
+    text-align: center;
+    margin-top: 0;
 }
 
 /* Navigation buttons */
 .button-container-calendar {
-	position: relative;
-	margin-bottom: 1em;
-	overflow: hidden;
-	clear: both;
+    position: relative;
+    margin-bottom: 1em;
+    overflow: hidden;
+    clear: both;
 }
 
 #previous {
-	float: left;
+    float: left;
 }
 
 #next {
-	float: right;
+    float: right;
 }
 
 /* Footer styling */
 .footer-container-calendar {
-	margin-top: 1em;
-	border-top: 1px solid #93d5e1;
-	padding: 10px 0;
+    margin-top: 1em;
+    border-top: 1px solid #93d5e1;
+    padding: 10px 0;
 }
 
 .footer-container-calendar select {
-	cursor: pointer;
-	background: #ffffff;
-	color: #585858;
-	border: 1px solid #bfc5c5;
-	border-radius: 3px;
-	padding: 5px 1em;
+    cursor: pointer;
+    background: #ffffff;
+    color: #585858;
+    border: 1px solid #bfc5c5;
+    border-radius: 3px;
+    padding: 5px 1em;
 }
 
-
-
- h1{
+h1 {
     color: white;
     margin-left: 100px;
-	margin-bottom: 100px;
- }
+    margin-bottom: 100px;
+}
 
- .horizontalNavbar{
-	margin-right: -1000px;
-	margin-top: -1100px;
+.horizontalNavbar {
+    margin-right: -1000px;
+    margin-top: -1100px;
     display: flex;
 }
 
@@ -392,12 +373,14 @@ input{
     background: none;
     list-style-type: none;
     display: flex;
-    padding:0;
+    padding: 0;
 }
-.horNavButtons ul a{
+
+.horNavButtons ul a {
     text-decoration: none;
 }
-.horNavButtons{
+
+.horNavButtons {
     margin-left: auto;
     margin-top: 15px;
     background-color: #353948;
@@ -405,53 +388,53 @@ input{
     padding-block: 6px;
     height: fit-content;
     flex-wrap: wrap;
-    
 }
 
 .navButton {
     display: block;
     position: relative;
-    padding-bottom: 20px;
     border: 2px solid transparent;
     margin-inline: 15px;
-    padding-bottom: 2px;
+    padding: 10px 15px 2px;
     letter-spacing: 2px;
     font-size: 14px;
     text-decoration: none;
-    padding-inline: 15px;
-    cursor: pointer;  
+    cursor: pointer;
     background-color: #444857;
     border-radius: 6px;
 }
 
-.navButton:active{
+.navButton:active {
     transform: scale(0.9);
     background-color: #93D5E1;
 }
-.navButton:hover{
+
+.navButton:hover {
     background-color: #93D5E1;
 }
 
-.verticalNavbar{
+.verticalNavbar {
     position: fixed;
     height: 100vh;
     width: 40px;
     top: 0;
     left: 0;
     z-index: 999;
-    background-color: 100%;
+    background-color: #100f22;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    border-right: 2px solid white ;
+    border-right: 2px solid white;
 }
-.verticalNavbar ul{
+
+.verticalNavbar ul {
     width: 100%;
     height: 100%;
 }
-.verticalNavbar li{
+
+.verticalNavbar li {
     display: flex;
     margin-left: 5px;
     align-items: center;
@@ -459,21 +442,81 @@ input{
     text-align: center;
     padding: 10px 0;
 }
-.verticalNavbar a{
+
+.verticalNavbar a {
     align-items: center;
     width: 100%;
     height: 100%;
 }
-.verticalNavbar a:hover{
+
+.verticalNavbar a:hover {
     cursor: pointer;
 }
 
-.verticalNavbar li:last-child{
+.verticalNavbar li:last-child {
     position: absolute;
     bottom: 0;
     width: 80%;
-    height:5%;
+    height: 5%;
     margin-inline: auto;
     margin-bottom: 10px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .verticalNavbar {
+        height: 100%;
+    }
+    .horNavButtons {
+        background-color: #0F1322;
+    }
+    .horNavButtons ul {
+        flex-wrap: wrap;
+    }
+    .horNavButtons ul li {
+        margin-block: 2px;
+    }
+    .horizontalNavbar {
+        flex-wrap: wrap;
+    }
+
+    .container1{
+        width: 90%;
+        height: 90%;
+    }
+    .container4{
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1020px) {
+    .horizontalNavbar {
+        flex-wrap: wrap;
+    }
+    .horNavButtons {
+        background-color: #0F1322;
+    }
+    .horNavButtons ul {
+        flex-wrap: wrap;
+    }
+    .container1{
+        width: 90%;
+        height: 90%;
+    }
+    .container4{
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .container1{
+        width: 90%;
+        height: 90%;
+    }
+    .container4{
+        width: 90%;
+        height: 90%;
+    }
 }
 
