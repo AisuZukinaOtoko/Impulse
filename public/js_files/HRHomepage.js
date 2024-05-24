@@ -17,3 +17,4 @@ function MoveToSite() {
   function MoveToMeals() {
     window.location.href = 'https://impulsewebapp.azurewebsites.net/homepage/managemeals.html';
   }
+
