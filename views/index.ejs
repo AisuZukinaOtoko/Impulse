@@ -7,24 +7,24 @@
     <title>Login</title>
 </head>
 <body>
-    <% if (isAuthenticated && user['https://impulsewebapp.azurewebsites.net/roles'][0] === "Manager ") { %>
+    <% if (isAuthenticated && user['http://localhost:3000/roles'][0] === "Manager ") { %>
         <script>
             window.onload = function() {
-                window.location.href = 'https://impulsewebapp.azurewebsites.net/ManagerHomepage.ejs';
+                window.location.href = 'http://localhost:3000/ManagerHomepage.ejs';
             };
         </script>
     <% } %>
-    <% if (isAuthenticated && user['https://impulsewebapp.azurewebsites.net/roles'][0] === "Employee") { %>
+    <% if (isAuthenticated && user['http://localhost:3000/roles'][0] === "Employee") { %>
         <script>
             window.onload = function() {
-                window.location.href = 'https://impulsewebapp.azurewebsites.net/EmployeeHomepage.ejs';
+                window.location.href = 'http://localhost:3000/EmployeeHomepage.ejs';
             };
         </script>
     <% } %>
-    <% if (isAuthenticated && user['https://impulsewebapp.azurewebsites.net/roles'][0] === "Human Resources") { %>
+    <% if (isAuthenticated && user['http://localhost:3000/roles'][0] === "Human Resources") { %>
         <script>
             window.onload = function() {
-                window.location.href = 'https://impulsewebapp.azurewebsites.net/HRHomepage.ejs';
+                window.location.href = 'http://localhost:3000/HRHomepage.ejs';
             };
         </script>
     <% } %>
