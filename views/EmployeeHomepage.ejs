@@ -9,7 +9,7 @@
     </head>
     <body>
         <p style="display: none;" class="hidden" id="Email"><%= user.email %></p>
-        <p style="display: none;" class="hidden" id="Role"><%= user['http://impulsewebapp.azurewebsites.net/roles'][0] %></p>
+        <p style="display: none;" class="hidden" id="Role"><%= user['https://impulsewebapp.azurewebsites.net/roles'][0] %></p>
         <p style="display: none;" class="hidden" id="Name"><%= user.name %></p>
 
         <nav class="horizontalNavbar">
@@ -48,7 +48,7 @@
                 <article id="PersonalCard"><h2 class="ppp">Personal card</h2></article>
                 
                 <article id="MoreCards">
-                    <section id="FeedbackCard">
+                    <section id="FeedbackCard" onclick="MoveToFeedback()">
                         post feedback card
                     </section>
                 </article>

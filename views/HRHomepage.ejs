@@ -8,16 +8,17 @@
     </head>
     <body>
         <p style="display: none;" class="hidden" id="Email"><%= user.email %></p>
-        <p style="display: none;" class="hidden" id="Role"><%= user['http://impulsewebapp.azurewebsites.net/roles'][0] %></p>
+        <p style="display: none;" class="hidden" id="Role"><%= user['https://impulsewebapp.azurewebsites.net/roles'][0] %></p>
         <p style="display: none;" class="hidden" id="Name"><%= user.name %></p>
+   
 
         <nav class="horizontalNavbar">
             <h1 id="name">impulse.</h1>
             <article class="horNavButtons">
                 <ul>
                     <li class="navButton">Home</li>
-                   <li class="navButton"><a href="bookcarwash.html">Book car wash</a></li> 
-                   <li class="navButton"><a href="bookmeals.html">Book meal</a></li>
+                   <li class="navButton"><a href="../homepage/bookcarwash.html">Book car wash</a></li> 
+                   <li class="navButton"><a href="../homepage/bookmeals.html">Book meal</a></li>
                    <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
                 </ul>
             </article>
@@ -48,17 +49,20 @@
                 <article id="PersonalCard">Personal card</article>
                 
                 <article id="MoreCards">
-                    <section id="ReportsCard">
+                    <section id="ReportsCard" onclick="MoveToReports()">
                         View Reports
                     </section>
                     <section id="ManageStaffCard" onclick="MoveToSite()">
                         Manage Staff card
                     </section>
-                    <section id="RequestFeedbackCard">
+                    <section id="RequestFeedbackCard" onclick="MoveToFeedback()">
                         Request Feedback card
                     </section>
-                    <section id="ManageBookingsCard">
-                        Manage Bookings(Carwash and Meals) card
+                    <section id="ManageBookingsCard" onclick="MoveToCarwash()">
+                        Manage Carwash Bookings
+                    </section>
+                    <section id="ManageBookingsCard2" onclick="MoveToMeals()">
+                        Manage Meal Bookings
                     </section>
                 </article>
             </article>

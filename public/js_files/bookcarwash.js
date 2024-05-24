@@ -14,38 +14,6 @@ function updateDate(){
     docDate.innerText = currDate;
 }
 
-function checkBooking() {
-    // Mock booking status check
-    const hasBooking = 0.6 > 0.5; // Simulate a 50/50 chance of having a booking
-  
-    const popupLayer = document.getElementById('popupLayer');
-    const bookingMessage = document.getElementById('bookingMessage');
-  
-    if (hasBooking) {
-      bookingMessage.textContent = "You have a booking available. Do you want to confirm or cancel?";
-      document.querySelectorAll('.popupContent button').forEach(button => button.style.display = 'inline-block');
-    } else {
-      bookingMessage.textContent = "You do not have any booking available.";
-      document.querySelectorAll('.popupContent button').forEach(button => button.style.display = 'none');
-    }
-  
-    popupLayer.classList.remove('hidden');
-  }
-  
-  function confirmBooking() {
-    alert("Booking confirmed!");
-    closePopup();
-  }
-  
-  function cancelBooking() {
-    alert("Booking canceled!");
-    closePopup();
-  }
-  
-  function closePopup() {
-    const popupLayer = document.getElementById('popupLayer');
-    popupLayer.classList.add('hidden');
-  }
 
 updateDate();
 //update the date every 2 minutes
