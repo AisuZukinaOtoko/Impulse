@@ -3,30 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timesheet Table</title>
+    <title>Manage employees</title>
     <link rel="stylesheet" href="../stylesheets/manageemployees.css">
-
-     <!--EXCEL export library links-->
-  
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script> -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
 </head>
-
-
 <body>
     <nav id="horizontalNavbar">
         <h1 id="name">impulse.</h1>
@@ -35,53 +14,41 @@
                 <li class="navButton">Home</li>
                 <li class="navButton"><a href="bookcarwash.html">Book car wash</a></li> 
                 <li class="navButton"><a href="bookmeals.html">Book meal</a></li>
-                <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
+                <li class="navButton"><a href="../homepage/timesheet.html">Timesheet</a></li>
             </ul>
         </article>
     </nav>
-
     <nav class="verticalNavbar">
         <article>
             <ul>
-                <li><a href="#"><img src="../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
-                <li><a href="#"><img src="../assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
-                <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
+                <li><a href="#"><img src="../assets/ProfileIcon.svg" alt="Profile Icon"></a></li>
+                <li><a href="#"><img src="../assets/SettingsIcon.svg" alt="Settings Icon"></a></li>
+                <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="Logout Icon"></a></li>
             </ul>
-           
         </article>
     </nav>
-
     <main class="Table"> 
         <section class="table_header">
-            <section id="TimesheetName">
-                <h1><p class="inline-p">Manage employees</p></h1>
+            <section id="Name">
+                <h1><p class="inline-p">Manage employees</p></h1> 
             </section>
-            <h3 id="date"></h3>
         </section>
-
         <section class="table_body">
-<form method="POST" name="form1">
             <table id="add_table">
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Employee name</th>
-                        <th>task</th>
-                        <th>project</th>
-                        
-                        <th>Manager/Supervisor</th>
-                        
+                        <th>Employee Name</th>
+                        <th>Role</th>
+                        <th>Project</th>
+                        <th>Task</th>
                     </tr>
                 </thead>
                 <tbody class="t_body">
-                    
-                   <tr>
-                        <td ><input id="date_col" type="date"></td>
-                        <td ><input id="task_col" type="text"></td>
-                        <td ><input id="start_col" type="text"></td>
-                        <td ><input id="end_col" type="text" ></td>
-                        <td><input id="manager_col" class="manager_col" type="text"></td>
-                        
+                    <tr>
+                        <td><input id="employeeN_col" type="text"></td>
+                        <td><input id="role_col" type="text"></td>
+                        <td><input id="project_col" type="text"></td>
+                        <td><input id="task_col" class="task_col" type="text"></td>
                     </tr>
                 </tbody>
             </table>
@@ -92,62 +59,23 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Date</th>
+                        <th>Employee Name</th>
+                        <th>Role</th>
+                        <th>Project</th>
                         <th>Task</th>
-                        <th>Start-time</th>
-                        <th>End-time</th>
-                        <th>Manager/Supervisor</th>
-                      
-                        
                     </tr>
                 </thead>
-
                 <tbody class="main_tbody">
                     <!-- inputs must be stored here -->
                 </tbody>
-
             </table>
-        </form>
             <br>  
-            <input type = button class = "Button" id="selRows" value = "Select Rows" onclick = ShowSelButtons()>  
-            <input type = button class = "Button hidden" id="delSelRowsBtn" value = "Delete selected rows" onclick = delRow()> 
-            <input type = button class = "Button hidden" id="selButton" value = "Select All" onclick = selAll()> 
-            <input type = button class = "Button hidden" id="deselButton" value = "Deselect All" onclick = deselAll()> 
-            <button id="export-btn" class = "Button">Export as PDF</button>
+            <input type="button" class="Button" id="selRows" value="Select Rows" onclick="ShowSelButtons()">  
+            <input type="button" class="Button hidden" id="delSelRowsBtn" value="Delete selected rows" onclick="delRow()"> 
+            <input type="button" class="Button hidden" id="selButton" value="Select All" onclick="selAll()"> 
+            <input type="button" class="Button hidden" id="deselButton" value="Deselect All" onclick="deselAll()"> 
             <br>
-            
-
         </section>
-        <script src="../js_files/timesheet.js"></script>
-        <script src="../js_files/html2pdf.bundle.js"></script>
-        <script type="text/javascript">
-
-            document.getElementById('export-btn').onclick = function(){
-            const element = document.getElementById('main_table');
-
-            const opt = {
-                margin: 0.5,
-                filename: 'Timesheet',
-                image: {type: 'jpeg', quality: 0.98 },
-                html2pdfcanvas: {scale: 2},
-                jsPDF: {unit: 'in', format:'letter', orientation: 'portrait'}
-            };
-
-            html2pdf().from(element).set(opt).save();
-
-            };
-        </script>
+        <script type="module" src="../js_files/manageemployees.js"></script>
 </body>
-
-
-<!-- <script>
-    $(document).ready(function() {
-        $('#main_table').DataTable({
-            dom: 'Blfrtip',
-            buttons: [
-                'excel', 'pdf'
-            ]
-        });
-    });
-    </script> -->
 </html>

@@ -17,7 +17,7 @@ body{
 #name{
     font-size: 50px;
 }
-.TimesheetName{
+.Name{
     white-space: nowrap;
 }
 .inline-p{
