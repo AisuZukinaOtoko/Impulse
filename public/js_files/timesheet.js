@@ -335,9 +335,7 @@ function ValidateData_Time(startTime, endTime){
 
 //Database things
 //get the table and display it
-function getTable(){
 
-}
 
 //saving table to the database
 function SaveTable(){

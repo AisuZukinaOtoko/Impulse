@@ -23,3 +23,4 @@ function MoveToSite() {
   function MoveToMeals() {
     window.location.href = 'http://localhost:3000/homepage/managemeals.html';
   }
+
