@@ -353,7 +353,7 @@ function SaveTable(){
     //then add the json object to the records array   
     //use cols to make Json object
     let record = {
-        "email": "susan@gmail.com",
+        "email": localStorage.getItem('storedData'),
         "date": cols[0],
         "task": cols[1],
         "startTime":cols[2],
@@ -373,3 +373,4 @@ function SaveTable(){
       });
     
 }
+

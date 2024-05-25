@@ -8,7 +8,7 @@
     </head>
     <body>
         <p style="display: none;" class="hidden" id="Email"><%= user.email %></p>
-        <p style="display: none;" class="hidden" id="Role"><%= user['https://impulsewebapp.azurewebsites.net/roles'][0] %></p>
+        <p style="display: none;" class="hidden" id="Role"><%= user['http://localhost:3000/roles'][0] %></p>
         <p style="display: none;" class="hidden" id="Name"><%= user.name %></p>
 
         <nav class="horizontalNavbar">
@@ -72,5 +72,22 @@
             </article>
        </article>
        <script src="../js_files/HRHomepage.js"></script>
+       <script src="../js_files/bookcarwash.js"></script>
+       <script src="../js_files/bookmeals.js"></script>
+       <script src="../js_files/timesheet.js"></script>
+
+       <script src="../js_files/reportsHR.js"></script>
+       <script src="../js_files/manageemployees.js"></script>
+       <script src="../js_files/FeedbackHR.js"></script>
+       <script src="../js_files/managecarwash.js"></script>
+       <script src="../js_files/managemeals.js"></script>
+
+       <script>
+        window.onload = function() {
+            let paragraphElement = document.getElementById('Email');
+            let paragraphText = paragraphElement.textContent;
+            localStorage.setItem('storedData', paragraphText);
+        }
+   </script>
     </body>
 </html>

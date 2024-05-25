@@ -1,3 +1,9 @@
+window.onload = function() {
+    let paragraphElement = document.getElementById('Email');
+    let paragraphText = paragraphElement.textContent;
+    console.log(paragraphText);
+  }
+
 function storeData() {
             localStorage.setItem('email', document.getElementById('Email').value);
             
@@ -11,9 +17,9 @@ function storeData() {
   currentDate = document.querySelector(".current-date"),
   prevNextIcon = document.querySelectorAll(".icons span");
   // getting new date, current year and month
-  let date = new Date(),
-  currYear = date.getFullYear(),
-  currMonth = date.getMonth();
+  let date1 = new Date(),
+  currYear = date1.getFullYear(),
+  currMonth = date1.getMonth();
   // storing full name of all months in array
   const months = ["January", "February", "March", "April", "May", "June", "July",
                 "August", "September", "October", "November", "December"];
@@ -28,7 +34,7 @@ function storeData() {
       }
       for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
           // adding active class to li if the current day, month, and year matched
-          let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
+          let isToday = i === date1.getDate() && currMonth === new Date().getMonth() 
                        && currYear === new Date().getFullYear() ? "active" : "";
           liTag += `<li class="${isToday}">${i}</li>`;
       }
@@ -45,11 +51,11 @@ function storeData() {
           currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
           if(currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
               // creating a new date of current year & month and pass it as date value
-              date = new Date(currYear, currMonth, new Date().getDate());
-              currYear = date.getFullYear(); // updating current year with new date year
-              currMonth = date.getMonth(); // updating current month with new date month
+              date1 = new Date(currYear, currMonth, new Date().getDate());
+              currYear = date1.getFullYear(); // updating current year with new date year
+              currMonth = date1.getMonth(); // updating current month with new date month
           } else {
-              date = new Date(); // pass the current date as date value
+              date1 = new Date(); // pass the current date as date value
           }
           renderCalendar(); // calling renderCalendar function
       });
@@ -60,5 +66,5 @@ document.getElementById('book_car_wash').addEventListener('click', function() {
 });
 
 function MoveToFeedback() {
-    window.location.href = 'https://impulsewebapp.azurewebsites.net/homepage/FeedbackStaff.html';
+    window.location.href = 'http://localhost:3000/homepage/FeedbackStaff.html';
   }
