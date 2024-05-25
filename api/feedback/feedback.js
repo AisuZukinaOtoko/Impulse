@@ -11,6 +11,22 @@ router.get('/feedback', (req, res) =>{
 });
 
 
+router.get('/feedback/:email', (req, res) =>{
+  const {email} = req.params;
+  if (!email){
+    res.status(400).send("An error occured.");
+    return;
+  }
+
+  let query = "SELECT * FROM dbo.feedbacks WHERE email = '" + email + "'";
+  dbRequest(query)
+.then((data) => {
+  
+  res.json(data);
+})
+});
+
+
 router.post('/feedback', (req, res) =>{
     const {project_reference, description, email, date} = req.body;
 
