@@ -274,3 +274,50 @@ input{
     background-color: #f2f2f2;
     color: grey;
 }
+
+@media screen and (max-width:400px) {
+
+    .verticalNavbar{
+        height:100%;
+    }
+    .horNavButtons{
+        background-color:#0F1322;
+
+    }
+    .horNavButtons ul{
+        flex-wrap: wrap;
+    }
+    .horNavButtons ul li{
+        margin-block: 2px;
+    }
+    .horizontalNavbar{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+    }
+
+    .container1{
+        width: 50%;
+        flex-wrap: wrap;
+        margin-block: 2px;
+    }
+
+    .container1 .subcontainer1{
+        width: 100%;
+    }
+    
+    .container1 .subcontainer1 .menu{
+        width: 100%;
+    }
+
+    ul{
+        width: 100%;
+    }
+    .menuButton{
+        width: 50%;
+    }
+
+    .subtextbox1{
+       margin-left: auto;
+    }
+
+}
