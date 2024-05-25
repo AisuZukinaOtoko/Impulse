@@ -11,6 +11,22 @@ router.get('/project', (req, res) =>{
 });
 
 
+router.get('/project/member/:id', (req, res) =>{
+  const {id} = req.params;
+  if (!id){
+    res.status(400).send("An error occured.");
+    return;
+}
+
+let query = "SELECT members FROM dbo.projects WHERE id = CONVERT(uniqueidentifier, '" + id + "')";
+
+  dbRequest(query)
+.then((data) => {
+  res.json(data);
+})
+});
+
+
 router.post('/project', (req, res) =>{
     const {name, description, members, manager, status} = req.body;
 
