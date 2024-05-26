@@ -66,10 +66,11 @@ describe('Users API', () => {
 
         it('should return 400 if email is not provided', async () => {
             // Act
-            const response = await request(app).delete('/api/users/delete/'); // No email provided
+            const response = await request(app).delete('/api/users/delete'); // No email provided
 
             // Assert
-            expect(response.status).toBe(404); // Change this to 400 if your route handler is updated to return 400 for missing parameters
+            expect(response.status).toBe(400); // Ensure the status code aligns with your route handler
+            expect(response.text).toBe('Email parameter is missing.');
         });
     });
 });
