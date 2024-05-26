@@ -76,16 +76,46 @@ function fetchUserData() {
 
 //popup- with corresponding timesheets
 function viewStaff(){
+    console.log('Data:', ThisStaff);
     const popup = document.getElementById("popup-page");
     const overlay = document.getElementById("overlay");
-    // const viewReport = document.querySelectorAll('.view-project');
+   
+    // const viewReport = document.querySelectorAll('.view-project'); 
+
+    //okay, fetch the elements, innit
+    const infoHeader = document.getElementById("info-header");
+    infoHeader.innerHTML = '';
+
+    let NameElement = document.createElement('h1');
+    NameElement.id = 'Name';
+    NameElement.textContent = ThisStaff.name ; // You can set this to any desired text
+    
+    
+    let EmailElement = document.createElement('h1');
+    EmailElement.id = 'role';
+    EmailElement.textContent = ThisStaff.email;
+
+    let RoleElement = document.createElement('h1');
+    RoleElement.id = 'role';
+    RoleElement.textContent = ThisStaff.role;
+
+    infoHeader.appendChild(NameElement);
+    infoHeader.appendChild(RoleElement);
+    infoHeader.appendChild(EmailElement);
+
+    //timesheet come in here, well.. it should
+    const theMiddle = document.getElementById("the-middle");
+    theMiddle.innerHTML = '';
+    const theGraphs = document.getElementById("the-graphs");
+    theGraphs.innerHTML = '';
+
+
 
     //this is where we fetch all the timesheets and stuff, the popup is meant to display the performance report of the clicked staff member yeah
     // do your thing before displaying the popup, which is the 
 
-
             //displaying the popup after loading the correct information
-           overlay.style.display = "block";
+            overlay.style.display = "block";
             popup.style.visibility = "visible";
             popup.style.top = "50%";
             popup.style.transform = "translate(-50%, -50%) scale(1)";
@@ -147,7 +177,7 @@ function createStaffRow(staffData) {
 
     anchor.addEventListener('click', function(event) {
         event.preventDefault();
-        viewStaff(staffName); // Pass the project name to the viewProjects function
+        viewStaff(staffData); // Pass the project name to the viewProjects function
     });
 
     const staffCell = document.createElement('td');
