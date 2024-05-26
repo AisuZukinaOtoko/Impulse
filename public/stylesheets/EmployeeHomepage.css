@@ -325,6 +325,9 @@ a {
         margin-inline:auto;
         width:1300px;
     }
+    .SideCards{
+        width: 45%;
+    }
 }
 .wrapper{
     width: 110%;

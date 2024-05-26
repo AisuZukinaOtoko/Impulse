@@ -143,7 +143,7 @@ table{
     font-size: 1em;
     font-family: 'Arial', sans-serif;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+   
 }
 
 #reportview{
@@ -155,10 +155,9 @@ table{
     align-items: center;
     justify-content: center;
     background-color: rgba(16,19,34,255) ;
-    border: 2px solid white;
 }
 
-th, td{
+th, td {
     padding: 12px 15px;
     border: 1px solid #ddd;
     text-align: left;
@@ -167,7 +166,8 @@ th, td{
 th {
     background-color: #f4f4f4;
 }
-tr:nth-child(even) {
+
+tr {
     background-color: #f9f9f9;
 }
 
@@ -233,6 +233,7 @@ tr:nth-child(even) {
     display: none; /* Initially hidden */
 }
 
+
 .page{
     display: flex;
     flex-direction: column;
@@ -262,4 +263,55 @@ tr:nth-child(even) {
     height: fit-content;
     border: 2px solid white;
     margin: 20px;
+}
+
+#info-header{
+    width: 100%;
+    height: fit-content;
+    border-bottom: 2px solid white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#info-header h1{
+    color: white;
+    font-size: 20px;
+}
+
+#the-middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#the-graphs{
+    display: block;
+    width: 100%;
+    height: fit-content;
+
+}
+
+#managedBy{
+    border-radius: 20px;
+    background-color: white;
+    color: rgba(21,25,37,255);
+    
+
+
+
+}
+
+#groupmembers{
+
+}
+
+#projectdesc{
+
+}
+/* TIMESHEETS */
+.hidden{
+    display: none;
+    visibility: hidden;
 }
