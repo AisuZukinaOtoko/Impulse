@@ -13,11 +13,7 @@
 
         <nav>
             <ul>
-                <!-- <a href="#" id="profile"  class="nav_items"><i class="iconss" data-feather="user"></i></a>
-                <a href="#" id="settings" class="nav_items"><i class="iconss" data-feather="settings"></i></a>
-                <a href="#" id="notifications" class="nav_items" ><i class="iconss" data-feather="bell"></i></a>
-                <a href="#" id="logout" class="nav_items"><i class="iconss" data-feather="log-out"></i></a> -->
-            </ul>
+               </ul>
         </nav>
 
         <section class="content">
@@ -49,19 +45,16 @@
             <article class="lists collapsed">
                 <a class="reports" id="individual">View Staff Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
                 <table>
-                    <thread>
+                    <thead>
                         <tr>
                             <!-- staff name -->
                             <th></th>
                             <!--select to view  -->
                             <th></th> 
                         </tr>
-                    </thread>
-                    <tbody>
-                        <tr>
-                            <th> Harvey Spectre</th>
-                            <th><a href="#" class="view">View</a></th>
-                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        
                     </tbody>
                 </table>
             </article>
@@ -74,7 +67,9 @@
     <!-- hidden elements: -->
     <!-- Add comment pop up -->
     <article class="page" id="popup-page">
-        <section id="report-content"> </section>
+        <section id="report-content">
+            <!-- report data is added here, dynamically -->
+        </section>
 
         <footer> 
             <a href="#" id="pdf"> Export PDF</a>
@@ -89,7 +84,7 @@
         feather.replace();
       </script>
 
-<script src="../js_files/ReportsManager.js"></script>
+<script type="module" src="../js_files/ReportsManager.js"></script>
     
 </body>
 </html>
