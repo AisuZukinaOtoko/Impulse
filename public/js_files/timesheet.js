@@ -477,3 +477,17 @@ function DeleteRowDB(id){
 }
 
 
+module.exports = {
+    updateDate,
+    Export,
+    saveRow,
+    clear,
+    CalcDuration,
+    ShowSelButtons,
+    selAll,
+    deselAll,
+    delRow,
+    ValidateData_Empty,
+    ValidateData_Date,
+    ValidateData_Time,
+  };
