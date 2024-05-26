@@ -36,18 +36,17 @@
             
             <article class="lists collapsed">
                 <a class="reports" id="project"> View Project Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
-                <table><thread>
+                <table><thead>
                     <tr>
                         <!-- project name -->
                         <th></th>
                         <!-- select to view button -->
                         <th></th>
                     </tr>
-                </thread>
-                <tbody>
+                </thead>
+                <tbody id="project-body">
                     <tr>
-                        <th> Project 1</th>
-                        <th><a href="#" class="view">View</a></th>
+                        
                     </tr>
                 </tbody>
             </table>
@@ -56,18 +55,18 @@
             <article class="lists collapsed">
                 <a class="reports" id="individual">View Individual Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
                 <table>
-                    <thread>
+                    <thead>
                         <tr>
                             <!-- staff name -->
                             <th></th>
                             <!--select to view  -->
                             <th></th> 
                         </tr>
-                    </thread>
-                    <tbody>
+                    </thead>
+                    <tbody id="staff-body">
                         <tr>
-                            <th> Harvey Spectre</th>
-                            <th><a href="#" class="view">View</a></th>
+                            <!-- <th> Harvey Spectre</th>
+                            <th><a href="#" class="view">View</a></th> -->
                         </tr>
                     </tbody>
                 </table>
@@ -82,7 +81,7 @@
     <!-- Add comment pop up -->
     <article class="page" id="popup-page">
         <section id="report-content"> </section>
-
+<!-- report data is added here, dynamically -->
         <footer> 
             <a href="#" id="pdf"> Export PDF</a>
             <a href="#" id="csv"> Export CSV</a>
@@ -96,7 +95,7 @@
         feather.replace();
       </script>
 
-<script src="../js_files/reportsHR.js"></script>
+<script type="module" src="../js_files/reportsHR.js"></script>
 
 </body>
 </html>
