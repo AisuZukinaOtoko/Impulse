@@ -48,7 +48,8 @@ router.delete('/users/delete/:email', (req, res) =>{
         return;
     }
 
-    let query = "DELETE * FROM dbo.userTable WHERE email = '" + email + "'";
+    let query = "DELETE FROM dbo.userTable WHERE email = '" + email + "'";
+    console.log(query);
     dbRequest(query)
   .then((response) => {
     res.status(200).json(response);
