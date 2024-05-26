@@ -1,17 +1,21 @@
 import axios from 'https://cdn.skypack.dev/axios';
 
+//store array of objects
+// const Timesheets = [];
+// const Staffmembers =[];
+// const ProjectList = [];
+// const feedback = [];
+
+
 
 //tried to put this into a logical for better understanding... hope thats the case
 document.addEventListener("DOMContentLoaded", function() {
-    initializeApp();
-});
 
-function initializeApp() {
     fetchData();
     initializeReportLinks();
     initializePopup();
     feather.replace();
-}
+
 
 //fetch all necessary data
 function fetchData() {
@@ -100,10 +104,76 @@ function fetchUserData() {
 }
 
 
-function viewProjects(){
+function viewProjects(projectData){
+    console.log('Data:', projectData);
+    
     const popup = document.getElementById("popup-page");
     const overlay = document.getElementById("overlay");
     // const viewReport = document.querySelectorAll('.view-project');
+
+    //okay, fetch the elements, innit
+    const infoHeader = document.getElementById("info-header");
+    infoHeader.innerHTML = '';
+    
+    
+    let groupNameElement = document.createElement('h1');
+    groupNameElement.id = 'groupname';
+    groupNameElement.textContent = projectData.name ; // You can set this to any desired text
+    
+    // Create the h1 element for project status
+    let projStatusElement = document.createElement('h1');
+    projStatusElement.id = 'projStatus';
+    projStatusElement.textContent = projectData.status;
+        
+        infoHeader.appendChild(groupNameElement);
+        infoHeader.appendChild(projStatusElement);
+     
+
+    //show team members
+    const theMiddle = document.getElementById("the-middle");
+    theMiddle.innerHTML = '';
+
+     // Create label and h1 for "Manager By"
+     let managerByLabel = document.createElement('label');
+     managerByLabel.setAttribute('for', 'managedby');
+     managerByLabel.textContent = 'Manager By: ';
+ 
+     let managedByElement = document.createElement('a');
+     managedByElement.id = 'managedby';
+ 
+     // Append label and h1 for "Manager By"
+     theMiddle.appendChild(managerByLabel);
+    theMiddle.appendChild(managedByElement);
+ 
+     // Create label and article for "Group Members"
+     let groupMembersLabel = document.createElement('label');
+     groupMembersLabel.setAttribute('for', 'groupmembers');
+     groupMembersLabel.textContent = 'Group Members: ';
+ 
+     let groupMembersArticle = document.createElement('article');
+     groupMembersArticle.id = 'groupmembers';
+ 
+     // Append label and article for "Group Members"
+     theMiddle.appendChild(groupMembersLabel);
+     theMiddle.appendChild(groupMembersArticle);
+ 
+     // Create label and article for "Project Description"
+     let projectDescLabel = document.createElement('label');
+     projectDescLabel.setAttribute('for', 'projectdesc');
+     projectDescLabel.textContent = 'Project Description: ';
+ 
+     let projectDescArticle = document.createElement('article');
+     projectDescArticle.id = 'projectdesc';
+ 
+     // Append label and article for "Project Description"
+     theMiddle.appendChild(projectDescLabel);
+     theMiddle.appendChild(projectDescArticle);
+
+
+    const theGraphs = document.getElementById("the-graphs");
+    theGraphs.innerHTML = '';
+
+
 
             //code for contents in the report according to report type
             overlay.style.display = "block";
@@ -114,10 +184,41 @@ function viewProjects(){
 }
 
 //popup- with corresponding timesheets
-function viewStaff(){
+function viewStaff(ThisStaff){
+    console.log('Data:', ThisStaff);
     const popup = document.getElementById("popup-page");
     const overlay = document.getElementById("overlay");
+   
     // const viewReport = document.querySelectorAll('.view-project'); 
+
+    //okay, fetch the elements, innit
+    const infoHeader = document.getElementById("info-header");
+    infoHeader.innerHTML = '';
+
+    let NameElement = document.createElement('h1');
+    NameElement.id = 'Name';
+    NameElement.textContent = ThisStaff.name ; // You can set this to any desired text
+    
+    
+    let EmailElement = document.createElement('h1');
+    EmailElement.id = 'role';
+    EmailElement.textContent = ThisStaff.email;
+
+    let RoleElement = document.createElement('h1');
+    RoleElement.id = 'role';
+    RoleElement.textContent = ThisStaff.role;
+
+    infoHeader.appendChild(NameElement);
+    infoHeader.appendChild(RoleElement);
+    infoHeader.appendChild(EmailElement);
+
+    //timesheet come in here, well.. it should
+    const theMiddle = document.getElementById("the-middle");
+    theMiddle.innerHTML = '';
+    const theGraphs = document.getElementById("the-graphs");
+    theGraphs.innerHTML = '';
+
+
 
     //this is where we fetch all the timesheets and stuff, the popup is meant to display the performance report of the clicked staff member yeah
     // do your thing before displaying the popup, which is the 
@@ -186,7 +287,7 @@ function createProjectRow(projectData) {
 
     anchor.addEventListener('click', function(event) {
         event.preventDefault();
-        viewProjects(projectName); // Pass the project name to the viewProjects function
+        viewProjects(projectData); // Pass the project name to the viewProjects function
     });
 
     const projectCell = document.createElement('td');
@@ -213,7 +314,7 @@ function createStaffRow(staffData) {
 
     anchor.addEventListener('click', function(event) {
         event.preventDefault();
-        viewStaff(staffName); // Pass the project name to the viewProjects function
+        viewStaff(staffData); // Pass the project name to the viewProjects function
     });
 
     const staffCell = document.createElement('td');
@@ -259,3 +360,4 @@ function createTimesheetRow(object) {
 
     document.getElementById('main_table').appendChild(row);
 }
+});
