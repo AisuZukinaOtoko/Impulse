@@ -15,7 +15,7 @@ let reminderList =
 
 // Counter to generate unique event IDs
 let eventIdCounter = 1;
-
+fetchData();
 // Function to add events
 function addEvent() {
 	let date = eventDateInput.value;
@@ -293,36 +293,21 @@ showCalendar(currentMonth, currentYear);
 
 
 //saving table to the database
-function SaveTable(){
-    const date = document.getElementById('date_col').value;
-    const slot = document.getElementById('task_col').value;
-    const startTime = document.getElementById('start_col').value;
-    const endTime = document.getElementById('end_col').value;
-    const ma = document.getElementById('manager_col').value;  
-    const duration = CalcDuration();
-    
-    let cols=[date,task,startTime,endTime,manager,duration];
-    //put contents of their cells into the cols array and make a json object from that
-    //then add the json object to the records array   
-    //use cols to make Json object
-    let record = {
-        "email": "susan@gmail.com",
-        "date": cols[0],
-        "task": cols[1],
-        "startTime":cols[2],
-        "endTime": cols[3],
-        "manager": cols[4],
-        "duration": cols[5]
-    };
-
-    // make request to the api
-    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
-    axios.post(url, record)
+function fetchData(){
+    const url = "https://impulsewebapp.azurewebsites.net/api/carwash";
+    axios.get(url)
     .then((response) => {
-        console.log(response.data);
+        carwashData = response.data.recordset;
+        
+        let index = 0;
+        for (const object of carwashData){
+            //check the email
+            carwashIDS.push(object.id);
+            createRow(object);
+            index += 1;
+        }
     })
     .catch((error) => {
         console.error('Error:', error.message); // Handle errors
       });
-    
 }
