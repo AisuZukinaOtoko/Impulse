@@ -22,15 +22,88 @@ updateDate();
 //update the date every 2 minutes
 setInterval(updateDate, 1000);
 
-// //get email from homepage
-// window.onload = function() {
-//     const email = localStorage.getItem('email');
-//     document.getElementById('empName').innerText = email;
-// };
-
-
-
+//get and display existing table
 fetchData();
+
+//get name from homepage
+const userName = localStorage.getItem('storedName');
+document.getElementById('empName').innerText=userName;
+
+//for exporting as PDF
+function Export() {
+ 
+    const mytable = document.getElementById("main_table"); 
+    const { jsPDF } = window.jspdf;
+
+    // Set PDF dimensions
+    const pdfWidth = 300; // in mm
+    const pdfHeight = 297; // in mm
+
+    // Create a new jsPDF instance
+    const pdf = new jsPDF('p', 'mm', [pdfWidth, pdfHeight]);
+
+    // Define table properties
+    const startX = 5; // X-coordinate for the starting position of the table
+    const startY = 10; // Y-coordinate for the starting position of the table
+    const cellPadding = 5; // Padding between cells
+    const lineHeight = 10; // Height of each line (adjust based on font size)
+    
+    //get HTML table
+    const table = document.getElementById('main_table');
+  
+    // Define column widths
+    const numColumns = table.rows[0].cells.length;
+    const tableWidth = table.offsetWidth;
+    const columnWidth = (pdfWidth - startX * 2) / numColumns;
+
+    //set headerRow font to bold
+    pdf.setFont('helvetica', 'bold');
+    const headerRow = table.rows[0];
+    //iterate through each cell of header row
+    for(let k =0;k<headerRow.cells.length;k++){
+        const cell = headerRow.cells[k];
+        const cellContent = cell.textContent.trim(); // Get the content of the cell
+
+
+        // Calculate the position of the cell
+        const x = startX + k * columnWidth +cellPadding;
+        const y = startY + 10+(lineHeight * (1)); // Start from the second row
+
+        // Draw the cell content in the PDF
+        pdf.text(x , y, cellContent, null, null, 'center');
+    }
+
+    // Set font style to normal
+    pdf.setFont('helvetica', 'normal');
+    
+    // Iterate through each row of the HTML table
+    for (let i = 1; i < table.rows.length; i++) {
+        const row = table.rows[i];
+        
+        // Iterate through each cell of the row
+        for (let j = 0; j < row.cells.length; j++) {
+            const cell = row.cells[j];
+            const cellContent = cell.textContent.trim(); // Get the content of the cell
+
+
+            // Calculate the position of the cell
+            const x = startX + j * columnWidth +cellPadding;
+            const y = startY + 10+(lineHeight * (i + 1)); // Start from the second row
+
+            // Draw the cell content in the PDF
+            pdf.text(x , y, cellContent, null, null, 'center');
+        }
+    }
+
+
+    // Save the PDF
+    pdf.save('Timesheet.pdf');
+ 
+}
+
+document.getElementById('export-btn').addEventListener('click', Export);
+
+
 
 
 function saveRow(){
@@ -336,18 +409,17 @@ function fetchData(){
     axios.get(url)
     .then((response) => {
         TimesheetData = response.data.recordset;
-        
         let index = 0;
         for (const object of TimesheetData){
-            //check the email
-            
-            timesheetIDS.push(object.id);
-            createRow(object);
-            //console.log(object);
+            //check the email, only show if the emails match
+            if(object.email === localStorage.getItem('storedData')){
+                timesheetIDS.push(object.id);
+                createRow(object);
+            }
+         
             index += 1;
         }
 
-        //console.log(timesheetIDS);
     })
     .catch((error) => {
         console.error('Error:', error.message); // Handle errors
@@ -377,6 +449,7 @@ function SaveTable(){
         "duration": cols[5]
     };
 
+    
     // make request to the api
     const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
     axios.post(url, record)
