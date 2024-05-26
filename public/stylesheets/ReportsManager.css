@@ -282,3 +282,30 @@ tr:nth-child(even) {
     border: 2px solid white;
     margin: 20px;
 }
+
+#info-header{
+    width: 100%;
+    height: fit-content;
+    border-bottom: 2px solid white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+#info-header h1{
+    color: white;
+    font-size: 20px;
+}
+
+#the-middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#the-graphs{
+    display: block;
+    width: 100%;
+    height: fit-content;
+
+}
