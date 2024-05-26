@@ -8,6 +8,10 @@
     margin:0;
     
 }
+
+#role {
+    padding-bottom: 50px;
+}
 body{
     background: #0F1322 ; 
     z-index: 000;
@@ -21,9 +25,11 @@ a {
 }
 .horizontalNavbar{
     margin-left: 75px;
-    margin-right: 395px;
+    margin-right: 0px;
     margin-top: 10px;
     display: flex;
+    flex-direction: row;
+    
 }
 
 .horNavButtons ul {
@@ -128,6 +134,9 @@ a {
 }
 .greeting{
     display: flex;
+    border-radius: 100px;
+    padding-block: 0px;
+
 }
 #role{
     font-size: 16px;
@@ -170,6 +179,7 @@ a {
 .cards{
     display:flex;
     flex-direction: row;
+    padding-bottom: 900px;
 }
 .MainCards{
     margin-top: 70px;
@@ -213,8 +223,6 @@ a {
     /* hide the card */
     display: none;
     visibility: hidden;
-
-
 }
 
 
@@ -276,8 +284,9 @@ a {
         flex-wrap: wrap;
     }
     .NameRole{
+        display: flex;
         margin-top: 50px;
-        margin-left: 80px;
+        margin-left: 40px;
     }
 }
 

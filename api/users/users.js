@@ -34,12 +34,12 @@ router.delete('/users/delete/:email', async (req, res) => {
         return res.status(400).send('Email parameter is missing.');
     }
 
-    try {
-        const result = await dbRequest(); // Assuming dbRequest deletes a user
-        res.status(200).send(result);
-    } catch (error) {
-        res.status(500).send('An error occurred.');
-    }
+    let query = "DELETE FROM dbo.userTable WHERE email = '" + email + "'";
+    console.log(query);
+    dbRequest(query)
+  .then((response) => {
+    res.status(200).json(response);
+})
 });
 
 module.exports = router;

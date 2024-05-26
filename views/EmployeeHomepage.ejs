@@ -23,6 +23,13 @@
                    <li class="navButton" onclick="storeData()"><a href="../homepage/timesheet.html" >Timesheet</a></li>
                 </ul>
             </article>
+            <article class="NameRole">
+                <section class="greeting">
+                    <p>Hello, </p> 
+                    <p id="nameSurname"><%= user.name %></p>
+                </section>
+                <!-- <p id="role">Employee</p> -->
+            </article>
         </nav>
 
         <nav class="verticalNavbar">
@@ -35,13 +42,6 @@
             </article>
         </nav>
         
-        <section class="NameRole">
-            <section class="greeting">
-                <p>Hello, </p> 
-                <p id="nameSurname"><%= user.name %></p>
-            </section>
-            <p id="role">Employee</p>
-        </section>
 
        <article class="cards">
             <article class="MainCards" >
@@ -91,7 +91,8 @@
         <script src="../js_files/bookcarwash.js"></script>
        <script src="../js_files/bookmeals.js"></script>
        <script src="../js_files/timesheet.js"></script>
-       <script src="../js_files/feedback.js"></script>
+       <script src="../js_files/FeedbackStaff.js"></script>
+       <script src="../js_files/getUsers.js"></script>
        
        <script>
             window.onload = function() {

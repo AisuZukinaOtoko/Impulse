@@ -21,7 +21,7 @@ fetchData();
 
 // Counter to generate unique event IDs
 let eventIdCounter = 1;
-
+fetchData();
 // Function to add events
 function addEvent() {
 	let date = eventDateInput.value;
