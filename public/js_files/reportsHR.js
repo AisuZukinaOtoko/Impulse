@@ -1,11 +1,11 @@
-import axios from 'https://cdn.skypack.dev/axios';
+// import axios from 'https://cdn.skypack.dev/axios';
 
 //store array of objects
 // const Timesheets = [];
 // const Staffmembers =[];
 // const ProjectList = [];
 // const feedback = [];
-
+let timesheetData = {};
 
 
 //tried to put this into a logical for better understanding... hope thats the case
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initializeReportLinks();
     initializePopup();
     feather.replace();
-
+});
 
 //fetch all necessary data
 function fetchData() {
@@ -26,23 +26,9 @@ function fetchData() {
     fetchUserData();
 }
 
-// Fetch timesheet data and populate table, P's code
-function fetchTimesheetData() {
-    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
-    axios.get(url)
-        .then((response) => {
-            const timesheetData = response.data.recordset;
-            timesheetData.forEach(object => {
-                if (object.email === localStorage.getItem('storedData')) {
-                    timesheetIDS.push(object.id);
-                    createTimesheetRow(object);
-                }
-            });
-        })
-        .catch((error) => {
-            console.error('Error:', error.message);
-        });
-}
+
+
+
 
 // Fetch feedback data
 function fetchFeedbackData() {
@@ -214,7 +200,10 @@ function viewStaff(ThisStaff){
 
     //timesheet come in here, well.. it should
     const theMiddle = document.getElementById("the-middle");
+  
     theMiddle.innerHTML = '';
+    theMiddle.appendChild(makeTimesheetTable(ThisStaff));
+
     const theGraphs = document.getElementById("the-graphs");
     theGraphs.innerHTML = '';
 
@@ -332,8 +321,8 @@ function createStaffRow(staffData) {
     return row;
 }
 
-// Create a timesheet row
-function createTimesheetRow(object) {
+
+function createTimeRow(object){
     const date = object.date;
     const task = object.task;
     const startTime = object.startTime;
@@ -341,23 +330,63 @@ function createTimesheetRow(object) {
     const manager = object.manager;
     const duration = object.duration;
 
-    const cols = [date, task, startTime, endTime, manager, duration];
+    let cols=[date,task,startTime,endTime,manager,duration];
 
-    const row = document.createElement('tr');
-    row.classList.add('main_tbody');
-
-    const chk = document.createElement('input');
-    chk.classList.add('checkboxes', 'hidden');
-    chk.type = 'checkbox';
-    const td = row.appendChild(document.createElement('td'));
-    td.appendChild(chk);
-
-    cols.forEach(col => {
-        const cell = document.createElement('td');
-        cell.innerText = col;
-        row.appendChild(cell);
-    });
-
-    document.getElementById('main_table').appendChild(row);
+    let row = document.createElement('tr');
+    row.classList.add('timesheet_tbody');    
+    //number of columns
+    const cols_len = cols.length;
+    for(let i =0;i<cols_len;i++){
+        const cell = row.appendChild(document.createElement('td'));
+        cell.innerText = cols[i];
+    }
+    
+    document.getElementById('timesheet_table').appendChild(row);
 }
-});
+
+// Fetch timesheet data and populate table, P's code
+function fetchTimesheetData(ThisStaff) {
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    axios.get(url)
+    .then((response) => {
+        timesheetData = response.data.recordset;
+        let index = 0;
+        for (const object of timesheetData){
+            //check email, show if it matches ThisStaff.email
+            if(object.email ===ThisStaff.email){
+                createTimeRow(object);
+            }
+                index += 1;
+        }
+
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+      });
+}
+
+function makeTimesheetTable(ThisStaff){
+    let timesheet_table = document.createElement('table');
+    timesheet_table.id='timesheet_table';
+    let timesheet_thead= document.createElement('thead');
+    let thead_row = document.createElement('tr');
+
+    let cols=["Date","Task","Start-Time","End-Time","Manager","Duration"];
+    //make the header row...
+        //number of columns
+        const cols_len = cols.length;
+        for(let i =0;i<cols_len;i++){
+            const cell = thead_row.appendChild(document.createElement('th'));
+            cell.innerText = cols[i];
+        }
+    let timesheet_tbody = document.createElement('tbody');
+    timesheet_tbody.classList.add('timesheet_tbody');
+    //get the data and append it to the body of the table
+    fetchTimesheetData(ThisStaff);
+
+    timesheet_thead.appendChild(thead_row);
+    timesheet_table.appendChild(timesheet_thead);
+
+    return timesheet_table;
+}
+

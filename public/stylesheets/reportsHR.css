@@ -310,3 +310,8 @@ tr {
 #projectdesc{
 
 }
+/* TIMESHEETS */
+.hidden{
+    display: none;
+    visibility: hidden;
+}
