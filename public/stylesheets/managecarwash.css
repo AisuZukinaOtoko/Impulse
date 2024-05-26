@@ -1,12 +1,21 @@
 /* styles.css */
 
 /* General styling for the entire page */
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	overflow: auto;
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
+*{
+    font-family: 'Heebo' ,'Tahoma', sans-serif;
+    color: white;
+    box-sizing: border-box;
+    padding:0;
+    margin:0; 
 }
 
+body{
+    background: #0F1322 ; 
+    z-index: 000;
+    overflow: auto;
+}
 .wrapper {
 	max-width: 1100px;
 	margin-top: 90px;
@@ -248,4 +257,40 @@ body {
 	border: 1px solid #bfc5c5;
 	border-radius: 3px;
 	padding: 5px 1em;
+}
+
+/* Button Styles */
+.Button {
+
+    min-width: 130px;
+    min-height: 40px;
+    font-weight: bold;
+    color: #0f1322;
+    padding:10px 20px;
+    text-align: center;
+    cursor: pointer;
+    
+    background-color:#bfcfee;
+
+    border: none;
+    border-radius: 30px;
+    transition: .3s ease;
+    display:center;
+}
+
+/* Hover State */
+.Button:hover {
+    
+    background-color: #fffb;
+    
+}
+
+/* Active State */
+.Button:active {
+    background-color: #fffb;
+    border-color: #fffb;
+    transform: scale(0.95);  
+}
+#main_table{
+	margin-top: 2%
 }

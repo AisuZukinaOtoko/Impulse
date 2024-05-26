@@ -58,7 +58,29 @@
             </article>
 
             <article class="SideCards">
-                <article id="CalendarCard">calendar card</article>
+                <article id="CalendarCard">
+                    <section class="wrapper">
+                        <header>
+                          <p class="current-date"></p>
+                          <article class="icons">
+                            <span id="prev" class="material-symbols-rounded" ><img src="../assets/arrow_back.svg"/></span>
+                            <span id="next" class="material-symbols-rounded"><img src="../assets/arrow_forward.svg" /></span>
+                          </article>
+                        </header>
+                        <article class="calendar">
+                          <ul class="weeks">
+                            <li>S</li>
+                            <li>M</li>
+                            <li>T</li>
+                            <li>W</li>
+                            <li>T</li>
+                            <li>F</li>
+                            <li>S</li>
+                          </ul>
+                          <ul class="days"></ul>
+                        </article>
+                      </section>
+                </article>
                 <article id="NotificationCard" >notification card</article>
             </article>
        </article>
@@ -75,6 +97,11 @@
             let paragraphElement = document.getElementById('Email');
             let paragraphText = paragraphElement.textContent;
             localStorage.setItem('storedData', paragraphText);
+        
+            let pElement = document.getElementById('Name');
+            let pText = pElement.textContent;
+            localStorage.setItem('storedName', pText);
+
         }
    </script>
     </body>

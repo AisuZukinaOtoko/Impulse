@@ -1,455 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
 *{
     font-family: 'Heebo' ,'Tahoma', sans-serif;
     color: white;
     box-sizing: border-box;
     padding:0;
-    margin:0;
-
+    margin:0; 
 }
 
-.tuesday {
-    text-align: center;
+body{
+    background: #0F1322 ; 
+    z-index: 000;
+    overflow: auto;
 }
-.thursday {
-    text-align: center;
-}
-
-  
-/* popup css */
-.popup{
-    width: 400px;
-    background: #0f1322;
-    border-radius: 6px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%,-50%) scale(0.1);    
-    text-align: center;
-    padding: 0 30px 30px;
-    visibility: hidden;
-    transition: transform 0.4s, top 0.4s;
-}
-.popup1{
-    width: 400px;
-    background: #0f1322;
-    border-radius: 6px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%,-50%) scale(0.1);    
-    text-align: center;
-    padding: 0 30px 30px;
-    visibility: hidden;
-    transition: transform 0.4s, top 0.4s;
-}
-
-.popup h2 {
-    color: #fff; /* Change 'blue' to whatever color you prefer */
-}
-
-.popup1 h2 {
-    color: #fff; /* Change 'blue' to whatever color you prefer */
-}
-
-.popup button{
-    width: 100%;
-    margin-top: 50px;
-    padding:10px 0;
-    background: #93D5E1;
-    color: #fff;
-    border: 0;
-    outline: none;
-    font-size: 19px;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-}
-
-input{
-    margin-top: 50px;
-    display: block;
-    width: 100%;
-    padding:10px 0;
-    border: 1px solid gray;
-    border-radius: 4px;
-    font-size: 19px;
-    color: black;
-}
-
-.popup1 button{
-    width: 100%;
-    margin-top: 50px;
-    padding:10px 0;
-    background: #93D5E1;
-    color: #fff;
-    border: 0;
-    outline: none;
-    font-size: 19px;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-}
-.open-popup{
-    visibility: visible;
-    top: 50%;
-    transform: translate(-50%,-50%) scale(1); 
-}
-
 a {
     text-decoration: none;
 }
-body{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:#0f1322;
-    overflow: auto;
-}
-
-.wrap{
-    display: flex;
-    margin-top: 100px;
-}
-.textbox1{
-    color: white;
-    margin-left: 120px;
-    margin-top: 10px;
-}
-.subtextbox1{
-    margin-left: 180px;
-}
-.container2{
-    background: #353948;
-    background-size: cover;
-    width: 500px;
-    height: 580px;
-    padding: 20px 0;
-    border-radius: 50px;
-    margin-right: 50px;
-    margin-left: 200px;
-    margin-bottom: 50px;
-    transition: all 0.5s ease;
-}
-.container3{
-    background: #353948;
-    background-size: cover;
-    width: 500px;
-    height: 580px;
-    padding: 20px 0;
-    border-radius: 50px;
-    margin-left: 200px;
-    transition: all 0.5s ease;
-}
-
-.container2 .subcontainer2{
-    background: #93d5e1;
-    width: 480px;
-    height: 450px;
-    padding: 20px 0;
-    margin-top: 50px;
-    margin-left: 10px;
-    border-radius: 50px;
-    transition: all 0.5s ease;
-}
-
-.container3 .subcontainer2{
-    background: #93d5e1;
-    width: 480px;
-    height: 450px;
-    padding: 20px 0;
-    margin-top: 50px;
-    margin-left: 10px;
-    border-radius: 50px;
-    transition: all 0.5s ease;
+.tuesday, .thursday {
+    text-align: center;
 }
 #name{
     font-size: 50px;
-    margin-right: 200px;
 }
-.verticaloption{
-    margin-left: 79px;
-    margin-right: 395px;
-    display: flex;
-}
-
-.vertbtn ul {
-    border: none;
-    background: none;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    padding:0;
-}
-.vertbtn{
-    margin-left: auto;
-    margin-top: 15px;
-    border-radius: 8px;
-    padding-block: 6px;
-    height: fit-content;
-    flex-wrap: wrap;
-    
-}
-
-Button{
-    color: black;
-}
-
-.slotButton1 {
-    
-    position: relative;
-    height: 50px;
-    width: 300px;
-    margin-top: 40px;
-    padding-bottom: 20px;
-    border: 2px solid transparent;
-    margin-inline: 15px;
-    padding-top: 10px;
-    padding-bottom: 2px;
-    letter-spacing: 2px;
-    font-size: 14px;
-    text-decoration: none;
-    padding-inline: 15px;
-    cursor: pointer;  
-    background-color: #444857;
-    border-radius: 6px;
-    color: white;
-    text-align: center;
-}
-
-.slotButton1:active{
-    transform: scale(0.9);
-    background-color: #93D5E1;
-}
-.slotButton1:hover{
-    background-color: #93D5E1;
-}
-
-.slotButton2 {
-    
-    position: relative;
-    height: 50px;
-    width: 300px;
-    margin-top: 40px;
-    padding-bottom: 20px;
-    border: 2px solid transparent;
-    margin-inline: 15px;
-    padding-top: 10px;
-    padding-bottom: 2px;
-    letter-spacing: 2px;
-    font-size: 14px;
-    text-decoration: none;
-    padding-inline: 15px;
-    cursor: pointer;  
-    background-color: #444857;
-    border-radius: 6px;
-    color: white;
-    text-align: center;
-}
-
-.slotButton2:active{
-    transform: scale(0.9);
-    background-color: #93D5E1;
-}
-.slotButton2:hover{
-    background-color: #93D5E1;
-}
-
-.hidden{
-    display: none;
-    visibility: hidden;
-}
-table, th, td {
-    padding: 1rem;
-    color: black;
-    border-collapse: collapse;
-    border: solid;
-    border-width: 0.05rem;
-    
-
-}
-
-
-/* td {
-    background: #bfcfee;
-} */
-
-
-#add_table{
-    background-color: #fffb;
-    margin-top: 2rem;
-    width: 90%;
-    margin-left: 45px;
-    
-}
-.Table{
-    width: 87vw;
-    height: 90vh;
-    border-radius: .8rem;
-}
-
-.table_body{
-    max-width: 100%;
-    height: 220px;
-    background-color: #353948;
-    margin-bottom: 50px;
-    border-radius: .6rem;
-    overflow: auto;
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding-left: 1.5rem;
-}
-
-.table_body::-webkit-scrollbar{
-    width: 0.5rem;
-    height: 0.5rem;
-}
-
-.table_body::-webkit-scrollbar-thumb{
-    border-radius: .5rem;
-    background-color: #0004;
-    visibility: hidden;
-}
-
-.table_body:hover::-webkit-scrollbar-thumb{
-    visibility: visible;
-}
-
-
-#main_table{
-    margin-top: 2rem;
-    width: 90%;
-    margin-left: 45px;
-}
-
-#main_table td td{
-    border: none;
-    padding: 0;
-}
-#main_table td{
-    padding: 0.5rem;
-    text-align: left;
-}
-
-.bookings{
-    max-width: 100%;
-    height: 220px;
-    background-color: #bec2d1;
-    border-radius: .6rem;
-    overflow: auto;
-    margin-top: 10px;
-    margin-left: 200px;
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding-left: 1.5rem;
-}
-
-.bookings::-webkit-scrollbar{
-    width: 0.5rem;
-    height: 0.5rem;
-}
-
-.bookings::-webkit-scrollbar-thumb{
-    border-radius: .5rem;
-    background-color: #0004;
-    visibility: hidden;
-}
-
-.bookings:hover::-webkit-scrollbar-thumb{
-    visibility: visible;
-}
-
-.booklist{
-    max-width: 100%;
-    height: 220px;
-    background-color: #bec2d1;
-    border-radius: .6rem;
-    overflow: auto;
-    margin-top: 100px;
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding-left: 1.5rem;
-}
-
-.booklist::-webkit-scrollbar{
-    width: 0.5rem;
-    height: 0.5rem;
-}
-
-.booklist::-webkit-scrollbar-thumb{
-    border-radius: .5rem;
-    background-color: #0004;
-    visibility: hidden;
-}
-
-.booklist:hover::-webkit-scrollbar-thumb{
-    visibility: visible;
-}
-/* Button Styles */
-.Button {
-
-    min-width: 130px;
-    min-height: 40px;
-    font-weight: bold;
-    padding:10px 20px;
-    text-align: center;
-    margin-left: 45px;
-    background: #fff; 
-
-    transition: all 0.1s linear; 
-    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1); 
-    border-radius: 2em;
-}
-
-/* Hover State */
-.Button:hover {
- 
-    background: #fffb;
-}
-
-/* Active State */
-.Button:active {
-    background-color: #fffb;
-    border-color: #fffb;
-    transform: scale(0.98);  
-}
-
-button span { 
-    color: #464646; 
-}
-
-
-
-@page {
-    size: A4; /* or Letter, Legal, etc. */
-    margin: 1cm; /* adjust margins as needed */
-  }
-  
-
-  .staffli{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    z-index: 1000;
-
-    background-color: rgba(191,194,209,255);
-    /* margin: 500px; */
-    width: 70%;
-    height: 90%;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
-    /* text-align: center; */
-    padding: 0 30px 30px;
-    border: 1px solid rgba(16,19,34,255);
-    border-radius: 20px;
-    visibility: hidden;
-    transition: transform 0.4s, top 0.4s;
-}
-
-
 .horizontalNavbar{
-	margin-right: -1000px;
-	margin-top: -1100px;
-    margin-bottom: 100px;
+    margin-left: 75px;
+    margin-right: 100px;
+    margin-top: 10px;
     display: flex;
 }
 
@@ -484,7 +60,6 @@ button span {
     letter-spacing: 2px;
     font-size: 14px;
     text-decoration: none;
-    color: white;
     padding-inline: 15px;
     cursor: pointer;  
     background-color: #444857;
@@ -518,6 +93,9 @@ button span {
     width: 100%;
     height: 100%;
 }
+ul{
+    list-style: none;
+}
 .verticalNavbar li{
     display: flex;
     margin-left: 5px;
@@ -543,4 +121,251 @@ button span {
     margin-inline: auto;
     margin-bottom: 10px;
 }
+.Table{
+    width: 80%;
+    height: fit-content;
+    margin-inline: auto;
+    margin-top: 3%;
+    border-radius: .8rem;
+    padding-inline: 3%;
+    padding-block: 2%;
+}
+.wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.container2, .container3{
+    background: #353948;
+    padding: 3% 3%;
+    width: 40%;
+    height: fit-content;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+}
+.subcontainer2{
+    background: #93d5e1;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+    padding: 3% 3%;
+    margin-block: 5px;
+}
+.subtextbox1{
+   margin-inline: 35%;
+   text-align: center;
+   
+}
 
+
+
+
+.slotButton1, .slotButton2 {
+    
+    position: relative;
+    height: 60%;
+    width: 70%;
+    margin-top: 10%;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: auto;
+    padding: 5% 5%;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-decoration: none;
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color:#444857;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+}
+
+.slotButton1:active, .slotButton2:active {
+    transform: scale(0.9);
+    background-color:#0F1322;
+}
+.slotButton1:hover, .slotButton2:hover{
+    background-color: #0F1322;
+}
+
+.hidden{
+    display: none;
+    visibility: hidden;
+}
+
+/* POPUPS */
+.popup, .popup1{
+    width: 400px;
+    background: #0f1322;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);    
+    text-align: center;
+    padding: 0 30px 30px;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.popup h2,.popup1 h2  {
+    color: #fff; /* Change 'blue' to whatever color you prefer */
+}
+
+.popup button, .popup1 button{
+    width: 100%;
+    margin-top: 50px;
+    padding:10px 0;
+    background: #93D5E1;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 19px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+input{
+    margin-top: 50px;
+    display: block;
+    width: 100%;
+    padding:10px 0;
+    border: 1px solid gray;
+    border-radius: 4px;
+    font-size: 19px;
+    color: black;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1); 
+}
+
+
+
+
+
+/* table css */
+table, th, td {
+    padding: 1rem;
+    color: white;
+    border-collapse: collapse;
+    border: solid;
+    border-width: 0.05rem;
+}
+table{
+    width: 100%;
+    margin-top:5%;
+    margin-inline:auto;
+}
+.main_tbody{
+    height: fit-content;
+}
+#main_table{
+    margin-top: 1.5%
+}
+#MyBookings{
+    margin-top: 2%
+}
+.bookings{
+    width: 100%;
+    height: 20%;
+    background-color: #0F1322;
+    border-radius: .6rem;
+    margin-top: 10px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-inline: 1.5rem;
+}
+
+.bookings::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.bookings::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.bookings:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #444857;
+    visibility: hidden;
+}
+
+body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+
+/* SCALING */
+@page {
+    size: A4; /* or Letter, Legal, etc. */
+    margin: 1cm; /* adjust margins as needed */
+  }
+
+
+  @media screen and (min-width:300px) and (max-width:767px){
+
+    .verticalNavbar{
+        height:100%;
+    }
+
+    .horizontalNavbar{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        height: 90%;
+    }
+    .horNavButtons{
+        background-color:#0F1322;
+
+    }
+    .horNavButtons ul{
+        flex-wrap: wrap;
+    }
+     .wrap .container2 .subcontainer2{
+
+        height: 90%;
+        width: 90%;
+
+     }
+
+     .wrap .container3 .subcontainer2{
+
+        height: 90%;
+        width: 90%;
+
+     }
+
+
+
+}
+
+
+
+@media screen and (min-width:768px) and (max-width:1020px){
+    .horizontalNavbar{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+    }
+    .horNavButtons{
+        background-color:#0F1322;
+
+    }
+    .horNavButtons ul{
+        flex-wrap: wrap;
+    }
+}
+@media screen and (min-width:1600px) {
+
+}
