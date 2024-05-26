@@ -23,7 +23,7 @@ This installation guide assumes you have node installed already on your system.
 - Uhone Nndwamato (2543080)
 - Lethabo Letsoalo (2604849)
 - Wiendy Maboa (2541693)
-- Vanessa Tlemo (2492100)
+- Vanessa Ntlemo (2492100)
 
 ## Project Status
 Currently, the project is in the late development stage. Keep a close eye for any new updates.
