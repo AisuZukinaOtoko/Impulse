@@ -21,7 +21,7 @@ describe('Users API', () => {
 
             // Assert
             expect(response.status).toBe(200);
-            expect(response.body).toEqual(mockData);
+            expect(response.body).toEqual(mockData.recordset);
         });
     });
 
@@ -46,7 +46,7 @@ describe('Users API', () => {
 
             // Assert
             expect(response.status).toBe(400);
-            expect(response.text).toBe("An error occured.");
+            expect(response.text).toBe('An error occurred.');
         });
     });
 
@@ -69,7 +69,7 @@ describe('Users API', () => {
             const response = await request(app).delete('/api/users/delete/'); // No email provided
 
             // Assert
-            expect(response.status).toBe(404); 
+            expect(response.status).toBe(404); // Change this to 400 if your route handler is updated to return 400 for missing parameters
         });
     });
 });

@@ -143,7 +143,7 @@ table{
     font-size: 1em;
     font-family: 'Arial', sans-serif;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+   
 }
 
 #reportview{
@@ -155,10 +155,9 @@ table{
     align-items: center;
     justify-content: center;
     background-color: rgba(16,19,34,255) ;
-    border: 2px solid white;
 }
 
-th, td{
+th, td {
     padding: 12px 15px;
     border: 1px solid #ddd;
     text-align: left;
@@ -167,7 +166,8 @@ th, td{
 th {
     background-color: #f4f4f4;
 }
-tr:nth-child(even) {
+
+tr {
     background-color: #f9f9f9;
 }
 
@@ -232,6 +232,7 @@ tr:nth-child(even) {
     z-index: 999; /* Ensure the overlay is above other content */
     display: none; /* Initially hidden */
 }
+
 
 .page{
     display: flex;

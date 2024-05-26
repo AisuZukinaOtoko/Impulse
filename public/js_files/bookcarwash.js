@@ -167,3 +167,13 @@ function closePopup(){
 function closePopup1(){
     popup1.classList.remove("open-popup");
 }
+module.exports = {
+  checkAvail,
+  getNextTuesdayDate,
+  getNextThursdayDate,
+  confirmBooking,
+  createRow,
+  fetchData,
+  closePopup,
+  closePopup1
+};
