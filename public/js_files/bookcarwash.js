@@ -20,7 +20,7 @@ async function checkAvail(event) {
     buttonId = event.target.id;
     buttonClass = event.target.className;
 
-    let response = await fetch('http://localhost:3000/run-python');
+    let response = await fetch('https://impulsewebapp.azurewebsites.net/run-python');
     let data = await response.json();
     let carCount = data.carCount;
     console.log(carCount);

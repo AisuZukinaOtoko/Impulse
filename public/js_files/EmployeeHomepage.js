@@ -73,5 +73,5 @@ getCalendar();
 
 
 function MoveToFeedback() {
-    window.location.href = 'http://localhost:3000/homepage/FeedbackStaff.html';
+    window.location.href = 'https://impulsewebapp.azurewebsites.net/FeedbackStaff.html';
   }
