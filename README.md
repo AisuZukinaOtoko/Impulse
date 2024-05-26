@@ -29,4 +29,4 @@ This installation guide assumes you have node installed already on your system.
 Currently, the project is in the late development stage. Keep a close eye for any new updates.
 
 ## Additional Resources
-- [YouTube Tutorial](link)
+- [YouTube Tutorial](https://youtu.be/nmdQ2MNL33A)
