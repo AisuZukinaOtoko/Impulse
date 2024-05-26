@@ -62,6 +62,20 @@
                 <article id="NotificationCard" >notification card</article>
             </article>
        </article>
+
        <script src="../js_files/ManagerHomepage.js"></script>
+        <script src="../js_files/bookcarwash.js"></script>
+       <script src="../js_files/bookmeals.js"></script>
+       <script src="../js_files/timesheet.js"></script>
+       <script src="../js_files/feedback.js"></script>
+       <script src="../js_files/ReportsManager.js"></script>
+
+       <script>
+        window.onload = function() {
+            let paragraphElement = document.getElementById('Email');
+            let paragraphText = paragraphElement.textContent;
+            localStorage.setItem('storedData', paragraphText);
+        }
+   </script>
     </body>
 </html>

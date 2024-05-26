@@ -11,6 +11,16 @@ router.get('/timesheet', (req, res) =>{
 });
 
 
+router.get('/timesheet/:email', (req, res) =>{
+  const {email} = req.params;
+  let query = "SELECT * FROM dbo.timesheet WHERE email = '" + email + "'";
+  dbRequest(query)
+.then((data) => {
+  res.json(data);
+})
+});
+
+
 router.post('/timesheet', (req, res) =>{
     const {date, startTime, endTime, duration, manager, task, email} = req.body;
     

@@ -1,3 +1,9 @@
+window.onload = function() {
+  let paragraphElement = document.getElementById('Email');
+  let paragraphText = paragraphElement.textContent;
+  console.log(paragraphText);
+}
+
 function MoveToSite() {
     window.location.href = 'https://manage.auth0.com/dashboard/us/dev-kpk2hlg2oudfcpev/users';
   }

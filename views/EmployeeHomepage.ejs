@@ -6,6 +6,7 @@
         <title>Employee</title>
         <link rel="stylesheet" href="../stylesheets/EmployeeHomepage.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     <body>
         <p style="display: none;" class="hidden" id="Email"><%= user.email %></p>
@@ -83,6 +84,18 @@
         </article>
       </section>
 
-       <script src="../js_files/EmployeeHomepage.js"></script>
+        <script src="../js_files/EmployeeHomepage.js"></script>
+        <script src="../js_files/bookcarwash.js"></script>
+       <script src="../js_files/bookmeals.js"></script>
+       <script src="../js_files/timesheet.js"></script>
+       <script src="../js_files/feedback.js"></script>
+       
+       <script>
+            window.onload = function() {
+                let paragraphElement = document.getElementById('Email');
+                let paragraphText = paragraphElement.textContent;
+                localStorage.setItem('storedData', paragraphText);
+            }
+       </script>
     </body>
 </html>

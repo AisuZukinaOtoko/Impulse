@@ -1,3 +1,8 @@
+window.onload = function() {
+    let paragraphElement = document.getElementById('Email');
+    let paragraphText = paragraphElement.textContent;
+    console.log(paragraphText);
+  }
 
 
 
