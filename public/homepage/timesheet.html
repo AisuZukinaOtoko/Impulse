@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timesheet Table</title>
     <link rel="stylesheet" href="../stylesheets/timesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
      <!--EXCEL export library links-->
   
@@ -109,6 +110,7 @@
 
             </table>
         </form>
+        <script type="module" src="../js_files/timesheet.js"></script>
             <br>  
             <input type = button class = "Button" id="selRows" value = "Select Rows" onclick = ShowSelButtons()>  
             <input type = button class = "Button hidden" id="delSelRowsBtn" value = "Delete selected rows" onclick = delRow()> 
@@ -119,7 +121,7 @@
             
 
         </section>
-        <script type="module" src="../js_files/timesheet.js"></script>
+        
         <script src="../js_files/html2pdf.bundle.js"></script>
         <script type="text/javascript">
 
