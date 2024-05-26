@@ -1,4 +1,4 @@
-import axios from 'https://cdn.skypack.dev/axios';
+// import axios from 'https://cdn.skypack.dev/axios';
 
 var TimesheetData = {};
 var timesheetIDS = [];
@@ -22,69 +22,89 @@ updateDate();
 //update the date every 2 minutes
 setInterval(updateDate, 1000);
 
-// //get email from homepage
-// window.onload = function() {
-//     const email = localStorage.getItem('email');
-//     document.getElementById('empName').innerText = email;
-// };
 
-function createRow(object){
-    const date = object.date;
-    const task = object.task;
-    const startTime = object.startTime;
-    const endTime = object.endTime;
-    const manager = object.manager;
+//get name from homepage
+const userName = localStorage.getItem('storedName');
+document.getElementById('empName').innerText=userName;
 
-    
-    const duration = object.duration;
-
-    let cols=[date,task,startTime,endTime,manager,duration];
-
- 
-
-    let row = document.createElement('tr');
-    row.classList.add('main_tbody');
-    //add checkbox first
-    const chk = document.createElement('input');
-    chk.classList.add('checkboxes');
-    chk.classList.add('hidden');
-    chk.type = 'checkbox';
-    const td = row.appendChild(document.createElement('td'));
-    td.appendChild(chk);
-    
-    //number of columns
-    const cols_len = cols.length;
-    for(let i =0;i<cols_len;i++){
-        const cell = row.appendChild(document.createElement('td'));
-        cell.innerText = cols[i];
-    }
-    
-    document.getElementById('main_table').appendChild(row);
-}
-
-function fetchData(){
-    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
-    axios.get(url)
-    .then((response) => {
-        TimesheetData = response.data.recordset;
-        
-        let index = 0;
-        for (const object of TimesheetData){
-            //check the email
-            timesheetIDS.push(object.id);
-            createRow(object);
-            console.log(object);
-            index += 1;
-        }
-
-        console.log(timesheetIDS);
-    })
-    .catch((error) => {
-        console.error('Error:', error.message); // Handle errors
-      });
-}
-
+//get and display existing table
 fetchData();
+
+//for exporting as PDF
+function Export() {
+ 
+    const mytable = document.getElementById("main_table"); 
+    const { jsPDF } = window.jspdf;
+
+    // Set PDF dimensions
+    const pdfWidth = 300; // in mm
+    const pdfHeight = 297; // in mm
+
+    // Create a new jsPDF instance
+    const pdf = new jsPDF('p', 'mm', [pdfWidth, pdfHeight]);
+
+    // Define table properties
+    const startX = 5; // X-coordinate for the starting position of the table
+    const startY = 10; // Y-coordinate for the starting position of the table
+    const cellPadding = 5; // Padding between cells
+    const lineHeight = 10; // Height of each line (adjust based on font size)
+    
+    //get HTML table
+    const table = document.getElementById('main_table');
+  
+    // Define column widths
+    const numColumns = table.rows[0].cells.length;
+    const tableWidth = table.offsetWidth;
+    const columnWidth = (pdfWidth - startX * 2) / numColumns;
+
+    //set headerRow font to bold
+    pdf.setFont('helvetica', 'bold');
+    const headerRow = table.rows[0];
+    //iterate through each cell of header row
+    for(let k =0;k<headerRow.cells.length;k++){
+        const cell = headerRow.cells[k];
+        const cellContent = cell.textContent.trim(); // Get the content of the cell
+
+
+        // Calculate the position of the cell
+        const x = startX + k * columnWidth +cellPadding;
+        const y = startY + 10+(lineHeight * (1)); // Start from the second row
+
+        // Draw the cell content in the PDF
+        pdf.text(x , y, cellContent, null, null, 'center');
+    }
+
+    // Set font style to normal
+    pdf.setFont('helvetica', 'normal');
+    
+    // Iterate through each row of the HTML table
+    for (let i = 1; i < table.rows.length; i++) {
+        const row = table.rows[i];
+        
+        // Iterate through each cell of the row
+        for (let j = 0; j < row.cells.length; j++) {
+            const cell = row.cells[j];
+            const cellContent = cell.textContent.trim(); // Get the content of the cell
+
+
+            // Calculate the position of the cell
+            const x = startX + j * columnWidth +cellPadding;
+            const y = startY + 10+(lineHeight * (i + 1)); // Start from the second row
+
+            // Draw the cell content in the PDF
+            pdf.text(x , y, cellContent, null, null, 'center');
+        }
+    }
+
+
+    // Save the PDF
+    pdf.save('Timesheet.pdf');
+ 
+}
+
+document.getElementById('export-btn').addEventListener('click', Export);
+
+
 
 
 function saveRow(){
@@ -180,6 +200,7 @@ function isEmpty(value) {
     return value.trim() === '';
 }
 
+//ShowSelButtons()
 //show select all and deselect all
 function ShowSelButtons(){
     const checkboxes = document.querySelectorAll(".checkboxes");
@@ -205,6 +226,9 @@ function ShowSelButtons(){
     //     delSelRowsBtn.classList.add('hidden');
     // }
 }
+
+document.getElementById('selRows').addEventListener('click', ShowSelButtons);
+
 function selAll(){
     const mytable = document.getElementById("main_table"); 
     const ele=mytable.getElementsByTagName('input'); 
@@ -217,6 +241,8 @@ function selAll(){
                 } 
       
 }
+document.getElementById('selButton').addEventListener('click', selAll);
+
 function deselAll(){
     const mytable = document.getElementById("main_table"); 
     const ele=mytable.getElementsByTagName('input');  
@@ -228,6 +254,8 @@ function deselAll(){
                 } 
   
 }
+document.getElementById('deselButton').addEventListener('click', deselAll);
+
 function delRow(){  
     const mytable = document.getElementById("main_table");  
     const selRowsButton = document.querySelector('#selRows');
@@ -250,11 +278,20 @@ function delRow(){
     {  
         if(mytable.rows[i].cells[0].children[0].checked)  
         {  
+
+            //delete from database
+            DeleteRowDB(timesheetIDS[i-1]);
+            //remove that id from timesheetIDS
+            if(i-1>-1){ //i-1 is the index
+                timesheetIDS.splice(i-1,1);
+            }
             mytable.deleteRow(i);  
         }  
     } 
     
 } 
+
+document.getElementById('delSelRowsBtn').addEventListener('click', delRow);
 
 function SaveOnEnter() {
     const inputs = document.querySelectorAll(".manager_col");
@@ -335,7 +372,60 @@ function ValidateData_Time(startTime, endTime){
 
 //Database things
 //get the table and display it
+function createRow(object){
+    const date = object.date;
+    const task = object.task;
+    const startTime = object.startTime;
+    const endTime = object.endTime;
+    const manager = object.manager;
 
+    
+    const duration = object.duration;
+
+    let cols=[date,task,startTime,endTime,manager,duration];
+
+    let row = document.createElement('tr');
+    row.classList.add('main_tbody');
+    //add checkbox first
+    const chk = document.createElement('input');
+    chk.classList.add('checkboxes');
+    chk.classList.add('hidden');
+    chk.type = 'checkbox';
+    const td = row.appendChild(document.createElement('td'));
+    td.appendChild(chk);
+    
+    //number of columns
+    const cols_len = cols.length;
+    for(let i =0;i<cols_len;i++){
+        const cell = row.appendChild(document.createElement('td'));
+        cell.innerText = cols[i];
+    }
+    
+    document.getElementById('main_table').appendChild(row);
+}
+
+//getting data from database
+function fetchData(){
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
+    axios.get(url)
+    .then((response) => {
+        TimesheetData = response.data.recordset;
+        let index = 0;
+        for (const object of TimesheetData){
+            //check the email, only show if the emails match
+            if(object.email === localStorage.getItem('storedData')){
+                timesheetIDS.push(object.id);
+                createRow(object);
+            }
+         
+            index += 1;
+        }
+
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+      });
+}
 
 //saving table to the database
 function SaveTable(){
@@ -360,6 +450,7 @@ function SaveTable(){
         "duration": cols[5]
     };
 
+    
     // make request to the api
     const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
     axios.post(url, record)
@@ -368,7 +459,36 @@ function SaveTable(){
     })
     .catch((error) => {
         console.error('Error:', error.message); // Handle errors
-      });
+    });
     
 }
 
+
+//deleting a row in the database
+function DeleteRowDB(id){
+    //send request to delete id
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet/delete/"+id;
+    axios.delete(url)
+    .then((response) => {
+        console.log(response.data);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+    });
+}
+
+
+module.exports = {
+    updateDate,
+    Export,
+    saveRow,
+    clear,
+    CalcDuration,
+    ShowSelButtons,
+    selAll,
+    deselAll,
+    delRow,
+    ValidateData_Empty,
+    ValidateData_Date,
+    ValidateData_Time,
+  };
