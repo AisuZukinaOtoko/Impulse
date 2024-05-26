@@ -10,6 +10,7 @@ Welcome to Impulse, the solution to all your software problems. This is the offi
 1. [Installation](#installation)
 2. [Authors and Acknowledgments](#authors-and-acknowledgments)
 3. [Project Status](#project-status)
+4. [Additional Resources](#additional-resources)
 
 ## Installation
 This installation guide assumes you have node installed already on your system. 
@@ -26,3 +27,6 @@ This installation guide assumes you have node installed already on your system.
 
 ## Project Status
 Currently, the project is in the late development stage. Keep a close eye for any new updates.
+
+## Additional Resources
+- [YouTube Tutorial](link)
