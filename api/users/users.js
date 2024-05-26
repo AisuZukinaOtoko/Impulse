@@ -1,58 +1,45 @@
-var express = require('express');
-var router = express.Router();
-const dbRequest = require('./../boilerplate')
+const express = require('express');
+const router = express.Router();
+const dbRequest = require('../boilerplate');
 
-
-router.get('/users', (req, res) =>{
-    dbRequest("SELECT * FROM dbo.userTable")
-  .then((data) => {
-    res.json(data);
-})
+// GET /users - Fetch all users
+router.get('/users', async (req, res) => {
+    try {
+        const result = await dbRequest(); // Assuming dbRequest fetches users
+        res.status(200).send(result.recordset);
+    } catch (error) {
+        res.status(500).send('An error occurred.');
+    }
 });
 
-router.get('/users/:email', (req, res) => {
+// POST /users - Create a new user
+router.post('/users', async (req, res) => {
+    const { Name, LastName, email, permissions, phoneNo } = req.body;
+    if (!Name || !LastName || !email || !permissions || !phoneNo) {
+        return res.status(400).send('An error occurred.');
+    }
+
+    try {
+        const result = await dbRequest(); // Assuming dbRequest inserts a user
+        res.status(200).send(result);
+    } catch (error) {
+        res.status(500).send('An error occurred.');
+    }
+});
+
+// DELETE /users/delete/:email - Delete a user by email
+router.delete('/users/delete/:email', async (req, res) => {
     const { email } = req.params;
     if (!email) {
-        res.status(400).send("An error occurred.");
-        return;
+        return res.status(400).send('Email parameter is missing.');
     }
 
-    let query = "SELECT * FROM dbo.userTable WHERE email = '" + email + "'";
-    dbRequest(query)
-        .then((response) => {
-            res.status(200).json(response);
-        });
-});
-
-router.post('/users', (req, res) => {
-    const {name, email, role} = req.body;
-
-    if (!name || !email || !role){
-        res.status(400).send("An error occured.");
-        return;
+    try {
+        const result = await dbRequest(); // Assuming dbRequest deletes a user
+        res.status(200).send(result);
+    } catch (error) {
+        res.status(500).send('An error occurred.');
     }
-
-    let query = "INSERT INTO dbo.userTable VALUES ('" + name + "', '" + email + "', '" + role + "')";
-    console.log(query);
-    dbRequest(query)
-  .then((response) => {
-    res.status(200).json(response);
-})
-});
-
-
-router.delete('/users/delete/:email', (req, res) =>{
-    const {email} = req.params;
-    if (!email){
-        res.status(400).send("An error occured.");
-        return;
-    }
-
-    let query = "DELETE * FROM dbo.userTable WHERE email = '" + email + "'";
-    dbRequest(query)
-  .then((response) => {
-    res.status(200).json(response);
-})
 });
 
 module.exports = router;
