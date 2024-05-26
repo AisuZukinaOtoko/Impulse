@@ -98,3 +98,5 @@ function fetchData(){
 }
 
 fetchData();
+
+module.exports = { addRow, mealbookings, fetchData };
