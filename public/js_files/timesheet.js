@@ -1,4 +1,4 @@
-import axios from 'https://cdn.skypack.dev/axios';
+// import axios from 'https://cdn.skypack.dev/axios';
 
 var TimesheetData = {};
 var timesheetIDS = [];
@@ -152,6 +152,9 @@ function ShowSelButtons(){
     //     delSelRowsBtn.classList.add('hidden');
     // }
 }
+
+document.getElementById('selRows').addEventListener('click', ShowSelButtons);
+
 function selAll(){
     const mytable = document.getElementById("main_table"); 
     const ele=mytable.getElementsByTagName('input'); 
@@ -164,6 +167,8 @@ function selAll(){
                 } 
       
 }
+document.getElementById('selButton').addEventListener('click', selAll);
+
 function deselAll(){
     const mytable = document.getElementById("main_table"); 
     const ele=mytable.getElementsByTagName('input');  
@@ -175,6 +180,8 @@ function deselAll(){
                 } 
   
 }
+document.getElementById('deselButton').addEventListener('click', deselAll);
+
 function delRow(){  
     const mytable = document.getElementById("main_table");  
     const selRowsButton = document.querySelector('#selRows');
@@ -197,11 +204,20 @@ function delRow(){
     {  
         if(mytable.rows[i].cells[0].children[0].checked)  
         {  
+
+            //delete from database
+            DeleteRowDB(timesheetIDS[i-1]);
+            //remove that id from timesheetIDS
+            if(i-1>-1){ //i-1 is the index
+                timesheetIDS.splice(i-1,1);
+            }
             mytable.deleteRow(i);  
         }  
     } 
     
 } 
+
+document.getElementById('delSelRowsBtn').addEventListener('click', delRow);
 
 function SaveOnEnter() {
     const inputs = document.querySelectorAll(".manager_col");
@@ -294,8 +310,6 @@ function createRow(object){
 
     let cols=[date,task,startTime,endTime,manager,duration];
 
- 
-
     let row = document.createElement('tr');
     row.classList.add('main_tbody');
     //add checkbox first
@@ -316,6 +330,7 @@ function createRow(object){
     document.getElementById('main_table').appendChild(row);
 }
 
+//getting data from database
 function fetchData(){
     const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
     axios.get(url)
@@ -332,7 +347,7 @@ function fetchData(){
             index += 1;
         }
 
-        console.log(timesheetIDS);
+        //console.log(timesheetIDS);
     })
     .catch((error) => {
         console.error('Error:', error.message); // Handle errors
@@ -370,6 +385,22 @@ function SaveTable(){
     })
     .catch((error) => {
         console.error('Error:', error.message); // Handle errors
-      });
+    });
     
 }
+
+
+//deleting a row in the database
+function DeleteRowDB(id){
+    //send request to delete id
+    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet/delete/"+id;
+    axios.delete(url)
+    .then((response) => {
+        console.log(response.data);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+    });
+}
+
+
