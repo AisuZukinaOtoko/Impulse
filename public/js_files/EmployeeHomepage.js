@@ -1,9 +1,20 @@
-window.onload = function() {
-    let paragraphElement = document.getElementById('Email');
-    let paragraphText = paragraphElement.textContent;
-    console.log(paragraphText);
-  }
 
+
+
+function getFeedback(){
+    //get email from homepage
+    const userEmail = localStorage.getItem('storedData');
+    const url = "https://impulsewebapp.azurewebsites.net/api/feedback/" + userEmail;
+    axios.get(url)
+    .then((response) => {
+        console.log(response.data);
+    })
+    .catch((error) => {
+        console.error('Error:', error.message); // Handle errors
+    });
+}
+
+getFeedback();
 
 
 

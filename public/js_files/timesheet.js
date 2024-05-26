@@ -23,12 +23,28 @@ updateDate();
 setInterval(updateDate, 1000);
 
 
-//get name from homepage
+//get name and role from homepage
 const userName = localStorage.getItem('storedName');
 document.getElementById('empName').innerText=userName;
+const userRole = localStorage.getItem('storedRole');//E or M or H
+
 
 //get and display existing table
 fetchData();
+
+
+// //moving to the right homepage
+// if(userRole==='H'){ // go to HR
+    
+// }
+// else if(userRole ==='M'){//go to Manager
+
+// }
+// else if(userRole==='E'){//go to Employee
+//     window.location.href = '../../views/EmployeeHomepage.ejs'
+
+// }
+
 
 //for exporting as PDF
 function Export() {

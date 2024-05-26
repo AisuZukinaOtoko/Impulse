@@ -51,7 +51,8 @@
                 <article id="MoreCards">
                     <section id="FeedbackCard" onclick="MoveToFeedback()">
                        
-                        <a href="../homepage/bookmeals.html"> post feedback card</a>
+                        <a href="../homepage/bookmeals.html">Feedback</a>
+                        <p>Helloo</p>
                     </section>
                 </article>
             </article>
@@ -101,6 +102,10 @@
                 let pElement = document.getElementById('Name');
                 let pText = pElement.textContent;
                 localStorage.setItem('storedName', pText);
+
+                let paragraphElem = document.getElementById('Role');
+                let paragraphT = paragraphElem.textContent;
+                localStorage.setItem('storedRole', paragraphT);
 
             }
        </script>
