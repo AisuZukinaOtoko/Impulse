@@ -34,13 +34,14 @@
             </section>
         </section>
         <section class="table_body">
+            <form method="POST" name="form1">
             <table id="add_table">
                 <thead>
                     <tr>
-                        <th>Employee Name</th>
-                        <th>Role</th>
-                        <th>Project</th>
-                        <th>Task</th>
+                        <th>Name</th>
+                        <th>Last name</th>
+                        <th>Permission</th>
+                        <th>Phone Number</th>
                     </tr>
                 </thead>
                 <tbody class="t_body">
@@ -48,7 +49,7 @@
                         <td><input id="employeeN_col" type="text"></td>
                         <td><input id="role_col" type="text"></td>
                         <td><input id="project_col" type="text"></td>
-                        <td><input id="task_col" class="task_col" type="text"></td>
+                        <td><input id="task_col" class="task_col" type="tel" pattern="[0-9]{10}" required></td>
                     </tr>
                 </tbody>
             </table>
@@ -59,16 +60,18 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Employee Name</th>
-                        <th>Role</th>
-                        <th>Project</th>
-                        <th>Task</th>
+                        <th>Name</th>
+                        <th>Last name</th>
+                        <th>Permission</th>
+                        <th>Phone</th>
                     </tr>
                 </thead>
                 <tbody class="main_tbody">
                     <!-- inputs must be stored here -->
                 </tbody>
             </table>
+            </form>
+            <script type="module" src="../js_files/manageemployees.js"></script>
             <br>  
             <input type="button" class="Button" id="selRows" value="Select Rows" onclick="ShowSelButtons()">  
             <input type="button" class="Button hidden" id="delSelRowsBtn" value="Delete selected rows" onclick="delRow()"> 
@@ -76,6 +79,5 @@
             <input type="button" class="Button hidden" id="deselButton" value="Deselect All" onclick="deselAll()"> 
             <br>
         </section>
-        <script type="module" src="../js_files/manageemployees.js"></script>
 </body>
 </html>
