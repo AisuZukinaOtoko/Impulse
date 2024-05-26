@@ -70,9 +70,6 @@ button:active {
     transform: scale(0.95);
 }
    
-button span {
-    color: #464646;
-}
 
 button .border {
     position: absolute;
@@ -105,4 +102,19 @@ button:hover .border {
 .signIn{
 
     margin-left: 80%;
+}
+
+footer{
+    background-color: #0f1322;
+    font-family: 'amznFont';
+    font-weight: 300;
+    color: #fff;
+    position:fixed;
+    padding-block: 5px;
+    left:0px;
+    bottom:0px;
+    height:fit-content;
+    width:100%;
+    text-align: center;
+
 }
