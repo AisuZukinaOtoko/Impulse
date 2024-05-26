@@ -1,5 +1,8 @@
 // script.js
 
+//for requests to the api
+var carwashData = {};
+var carwashIDS = [];
 // Define an array to store events
 let events = [];
 
@@ -12,6 +15,9 @@ let eventDescriptionInput =
 	document.getElementById("eventDescription");
 let reminderList =
 	document.getElementById("reminderList");
+
+//fetch data from database
+fetchData();
 
 // Counter to generate unique event IDs
 let eventIdCounter = 1;
@@ -292,37 +298,43 @@ function daysInMonth(iMonth, iYear) {
 showCalendar(currentMonth, currentYear);
 
 
-//saving table to the database
-function SaveTable(){
-    const date = document.getElementById('date_col').value;
-    const slot = document.getElementById('task_col').value;
-    const startTime = document.getElementById('start_col').value;
-    const endTime = document.getElementById('end_col').value;
-    const ma = document.getElementById('manager_col').value;  
-    const duration = CalcDuration();
-    
-    let cols=[date,task,startTime,endTime,manager,duration];
-    //put contents of their cells into the cols array and make a json object from that
-    //then add the json object to the records array   
-    //use cols to make Json object
-    let record = {
-        "email": "susan@gmail.com",
-        "date": cols[0],
-        "task": cols[1],
-        "startTime":cols[2],
-        "endTime": cols[3],
-        "manager": cols[4],
-        "duration": cols[5]
-    };
 
-    // make request to the api
-    const url = "https://impulsewebapp.azurewebsites.net/api/timesheet";
-    axios.post(url, record)
+//showing bookings
+function createRow(object){
+    const slot = object.slot;
+    const date = object.date;
+    const email = object.email;
+    const model = object.carModel;
+
+    const booking=[email, date,slot,model];
+
+    //making it show on the table
+    let row = document.createElement('tr');
+    row.classList.add('main_tbody');
+
+    const cols_len = booking.length;
+    for(let i =0;i<cols_len;i++){
+        const cell = row.appendChild(document.createElement('td'));
+        cell.innerText = booking[i];
+    }
+    document.getElementById('main_table').appendChild(row);
+}
+
+//getting bookings from database
+function fetchData(){
+    const url = "https://impulsewebapp.azurewebsites.net/api/carwash";
+    axios.get(url)
     .then((response) => {
-        console.log(response.data);
+        carwashData = response.data.recordset;
+        
+        let index = 0;
+        for (const object of carwashData){
+                carwashIDS.push(object.id);
+                createRow(object);
+            index += 1;
+        }
     })
     .catch((error) => {
         console.error('Error:', error.message); // Handle errors
       });
-    
 }

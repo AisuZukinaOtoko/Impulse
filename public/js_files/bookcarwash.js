@@ -147,9 +147,11 @@ function fetchData(){
         
         let index = 0;
         for (const object of carwashData){
-            //check the email
-            carwashIDS.push(object.id);
-            createRow(object);
+            //check the email, only show if the emails match
+            if(object.email === localStorage.getItem('storedData')){
+                carwashIDS.push(object.id);
+                createRow(object);
+            }
             index += 1;
         }
     })

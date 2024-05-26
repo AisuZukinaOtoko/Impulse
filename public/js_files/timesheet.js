@@ -22,12 +22,13 @@ updateDate();
 //update the date every 2 minutes
 setInterval(updateDate, 1000);
 
-//get and display existing table
-fetchData();
 
 //get name from homepage
 const userName = localStorage.getItem('storedName');
 document.getElementById('empName').innerText=userName;
+
+//get and display existing table
+fetchData();
 
 //for exporting as PDF
 function Export() {
