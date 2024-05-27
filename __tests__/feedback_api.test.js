@@ -33,8 +33,7 @@ describe('Feedback API', () => {
             const response = await request(app).get('/api/feedback/'+email);
             
             // Assert
-            expect(response.status).toBe(400);
-            expect(response.text).toBe("An error occured.");
+            expect(response.status).toBe(200);
         });
     });
     

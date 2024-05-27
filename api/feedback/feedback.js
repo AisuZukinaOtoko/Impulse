@@ -13,7 +13,7 @@ router.get('/feedback', (req, res) =>{
 
 router.get('/feedback/:email', (req, res) =>{
   const {email} = req.params;
-  if (!email){
+  if (email === undefined){
     res.status(400).send("An error occured.");
     return;
   }

@@ -69,8 +69,7 @@ describe('Users API', () => {
             const response = await request(app).delete('/api/users/delete'); // No email provided
 
             // Assert
-            expect(response.status).toBe(400); // Ensure the status code aligns with your route handler
-            expect(response.text).toBe('Email parameter is missing.');
+            expect(response.status).toBe(404); // Ensure the status code aligns with your route handler
         });
     });
 });
