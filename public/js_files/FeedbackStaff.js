@@ -90,9 +90,18 @@ document.addEventListener("DOMContentLoaded", function(){
             // add to Comment Section
             // add to database
             //code goes here
-            const email = document.getElementById('commentfrom').value;
-            const project = document.getElementById('dropdown').value;
-            const message = document.getElementById('message').value;
+            const isValid = true;
+            console.log(email);
+            console.log(project);
+
+
+            if (!message) {
+                showError(messageInput, "Message is required");
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
             const time = new Date();
             const dateTimeString = time.toLocaleString();
 
