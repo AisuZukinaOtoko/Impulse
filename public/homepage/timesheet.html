@@ -4,36 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timesheet Table</title>
-    <link rel="stylesheet" href="timesheet2.css">
+    <link rel="stylesheet" href="../stylesheets/timesheet.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-     <!--EXCEL export library links-->
-  
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script> -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 
 <body>
+    <nav id="horizontalNavbar">
+        <h1 id="name">impulse.</h1>
+        <article class="horNavButtons">
+            <ul>
+                <li class="navButton" onclick="MoveToHome()">Home</li>
+                <li class="navButton"><a href="bookcarwash.html">Book car wash</a></li> 
+                <li class="navButton"><a href="bookmeals.html">Book meal</a></li>
+                <li class="navButton"><a href="../homepage/timesheet.html" >Timesheet</a></li>
+            </ul>
+        </article>
+    </nav>
+
+    <nav class="verticalNavbar">
+        <article>
+            <ul>
+                <li><a href="#"><img src="../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
+                <li><a href="#"><img src="../assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
+                <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
+            </ul>
+           
+        </article>
+    </nav>
 
     <main class="Table"> 
         <section class="table_header">
-            <h1><p>Timesheet</p></h1>
+            <section id="TimesheetName">
+                <h1><p class="inline-p" id="empName"></p><p class="inline-p">'s timesheet</p> </h1>
+            </section>
             <h3 id="date"></h3>
         </section>
+
         <section class="table_body">
 <form method="POST" name="form1">
             <table id="add_table">
@@ -44,7 +55,7 @@
                         <th>Start-time</th>
                         <th>End-time</th>
                         <th class="hidden">Duration</th>
-                        <th>Manager/Supervisor</th>
+                        <th>Manager</th>
                         
                     </tr>
                 </thead>
@@ -61,7 +72,7 @@
                 </tbody>
             </table>
             <br>
-            <input id="saveButton" type="button" class="Button" value="Save" onclick="saveRow()">
+            <input id="saveButton" type="button" class="Button" value="Add" onclick="saveRow()">
             <br><br>
             <table id="main_table">
                 <thead>
@@ -71,7 +82,7 @@
                         <th>Task</th>
                         <th>Start-time</th>
                         <th>End-time</th>
-                        <th>Manager/Supervisor</th>
+                        <th>Manager</th>
                         <th>Duration</th>
                         
                     </tr>
@@ -83,44 +94,18 @@
 
             </table>
         </form>
+        <script type="module" src="../js_files/timesheet.js"></script>
             <br>  
             <input type = button class = "Button" id="selRows" value = "Select Rows" onclick = ShowSelButtons()>  
             <input type = button class = "Button hidden" id="delSelRowsBtn" value = "Delete selected rows" onclick = delRow()> 
             <input type = button class = "Button hidden" id="selButton" value = "Select All" onclick = selAll()> 
             <input type = button class = "Button hidden" id="deselButton" value = "Deselect All" onclick = deselAll()> 
             <button id="export-btn" class = "Button">Export as PDF</button>
+            <br>
+            
 
         </section>
-        <script src="timesheet2.js"></script>
-        <script src="html2pdf.bundle.js"></script>
-        <script type="text/javascript">
+    
 
-            document.getElementById('export-btn').onclick = function(){
-            const element = document.getElementById('main_table');
-
-            const opt = {
-                margin: 0.5,
-                filename: 'Timesheet',
-                image: {type: 'jpeg', quality: 0.98 },
-                html2pdfcanvas: {scale: 2},
-                jsPDF: {unit: 'in', format:'letter', orientation: 'portrait'}
-            };
-
-            html2pdf().from(element).set(opt).save();
-
-            };
-        </script>
 </body>
-
-
-<!-- <script>
-    $(document).ready(function() {
-        $('#main_table').DataTable({
-            dom: 'Blfrtip',
-            buttons: [
-                'excel', 'pdf'
-            ]
-        });
-    });
-    </script> -->
 </html>

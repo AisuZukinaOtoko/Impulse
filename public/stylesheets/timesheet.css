@@ -1,30 +1,136 @@
 *{
     margin: 0;
     padding: 0;
-
+    color: white;
     box-sizing: border-box;
-    font-family: 'Lucida Sans', Arial, sans-serif
+    font-family: 'Heebo' ,'Tahoma', sans-serif;
 
 }
 
 body{
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color:#bfcfee;
+    background-color:#0F1322;
+}
+#name{
+    font-size: 50px;
+}
+.TimesheetName{
+    white-space: nowrap;
+}
+.inline-p{
+    display: inline-block;
 }
 .hidden{
     display: none;
     visibility: hidden;
 }
+#horizontalNavbar{
+    margin-left: 75px;
+    margin-right: 0px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.horNavButtons ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    padding:0;
+    
+}
+.horNavButtons ul a{
+    text-decoration: none;
+}
+.horNavButtons{
+    margin-left: auto;
+    margin-right: 75px;
+    margin-top: 15px;
+    background-color: #353948;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+}
+
+.navButton {
+    display: block;
+    position: relative;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+}
+
+.navButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.navButton:hover{
+    background-color: #93D5E1;
+}
+
+.verticalNavbar{
+    position: fixed;
+    height: 100vh;
+    width: 40px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: 100%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-right: 2px solid white ;
+}
+.verticalNavbar ul{
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar li{
+    display: flex;
+    margin-left: 5px;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+.verticalNavbar a{
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar a:hover{
+    cursor: pointer;
+}
+
+.verticalNavbar li:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height:5%;
+    margin-inline: auto;
+    margin-bottom: 10px;
+}
+
 table, th, td {
     padding: 1rem;
     border-collapse: collapse;
     border: solid;
     border-width: 0.05rem;
-    
-
 }
 
 
@@ -37,19 +143,15 @@ table, th, td {
     text-align: left;
 }
 
-/* td {
-    background: #bfcfee;
-} */
 
 tbody input{
-    /* width: 100%; */
-    background-color: none;
+    background-color: #353948;
     border: none;
+    color: white;
 }
 
 tbody{
-    /* width: 100%; */
-    background-color: #fffb;
+    background-color: transparent;
     border-radius: .6rem;
     
 }
@@ -61,20 +163,23 @@ tbody{
     width: 82vw;
     height: 90vh;
     border-radius: .8rem;
-    overflow: hidden;
+    overflow: auto;
+    margin-inline: 80px;
+    margin-block: 40px;
 }
 .table_header{
     width: 100%;
     height: 7%;
-    /* background-color: #fff4; */
+    margin-left: 75px;
     padding: .8rem 1rem;
 }
 
 .table_body{
-    max-width: 80%;
+    max-width: 100%;
     height: calc(89% - 1.6rem);
-    background-color: #fffb;
+    background-color: #353948;
     margin: 1.5rem 1rem;
+    margin-inline: 75px;
     border-radius: .6rem;
     overflow: auto;
     overflow-y: auto; /* Enable vertical scrolling */
@@ -102,29 +207,34 @@ tbody{
     min-width: 130px;
     min-height: 40px;
     font-weight: bold;
+    color: #0f1322;
     padding:10px 20px;
     text-align: center;
+    cursor: pointer;
     
     background-color:#bfcfee;
 
     border: none;
     border-radius: 30px;
-    cursor: pointer;
     transition: .3s ease;
     display:center;
+}
+#SaveTableBtn{
+    margin-block: 20px;
 }
 
 /* Hover State */
 .Button:hover {
- 
-    background: #fffb;
+    
+    background-color: #fffb;
+    
 }
 
 /* Active State */
 .Button:active {
     background-color: #fffb;
     border-color: #fffb;
-    transform: scale(0.98);  
+    transform: scale(0.95);  
 }
 
 @page {

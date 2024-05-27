@@ -1,3 +1,14 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+<<<<<<< HEAD
+    "appService.defaultWebAppToDeploy": "/subscriptions/76a10c30-0ce9-4994-94f7-f047d76e0545/resourceGroups/Impulse2/providers/Microsoft.Web/sites/impulseWebApp",
+    "appService.deploySubpath": "."
+=======
+    "azureFunctions.deploySubpath": "api",
+    "azureFunctions.postDeployTask": "npm install (functions)",
+    "azureFunctions.projectLanguage": "JavaScript",
+    "azureFunctions.projectRuntime": "~4",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "npm prune (functions)"
+>>>>>>> cd2b221ed6c4a23e6f4cc56b4abd1f6d4886a240
 }

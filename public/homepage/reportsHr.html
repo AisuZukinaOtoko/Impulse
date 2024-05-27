@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR- Reports</title>
+    <link rel="stylesheet" href="../stylesheets/ReportsHR.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+    <section class="container">
+
+        <nav>
+            <ul>
+                <!-- <a href="#" id="profile"  class="nav_items"><i class="iconss" data-feather="user"></i></a>
+                <a href="#" id="settings" class="nav_items"><i class="iconss" data-feather="settings"></i></a>
+                <a href="#" id="notifications" class="nav_items" ><i class="iconss" data-feather="bell"></i></a>
+                <a href="#" id="logout" class="nav_items"><i class="iconss" data-feather="log-out"></i></a> -->
+            </ul>
+        </nav>
+
+        <section class="content">
+            <h1> Reports</h1>
+
+            
+            <article class="lists collapsed">
+                <a class="reports" id="project"> View Project Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
+                <table><thead>
+                    <tr>
+                        <!-- project name -->
+                        <th></th>
+                        <!-- select to view button -->
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="project-body">
+                    <tr>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            </article>
+           
+            <article class="lists collapsed">
+                <a class="reports" id="individual">View Individual Reports<i class="toggles" data-feather="arrow-up-right"></i></a>
+                <table>
+                    <thead>
+                        <tr>
+                            <!-- staff name -->
+                            <th></th>
+                            <!--select to view  -->
+                            <th></th> 
+                        </tr>
+                    </thead>
+                    <tbody id="staff-body">
+                        <tr>
+                            <!-- <th> Harvey Spectre</th>
+                            <th><a href="#" class="view">View</a></th> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+        </section>
+
+         <!-- overlay ... dzon worry bourrrrit-->
+    <section id="overlay" style="display: none;"></section>
+
+    <!-- hidden elements: -->
+    <!-- Add comment pop up -->
+    <article class="page" id="popup-page">
+        <section id="report-content"> 
+            <article id="info-header">
+
+            </article>
+        
+            <article id="the-middle">
+                    <!-- make timesheet table -->
+                    
+
+            </article>
+            <article id="the-graphs">
+        
+            </article>
+        </section>
+<!-- report data is added here, dynamically -->
+   
+        <footer> 
+            <a href="#" id="pdf"> Export PDF</a>
+          
+            <a href="#" id="closereport">Close</a>
+        </footer>
+    </article>
+
+    </section>
+
+    <script>
+        feather.replace();
+      </script>
+
+<script type="module" src="../js_files/reportsHR.js"></script>
+
+</body>
+</html>

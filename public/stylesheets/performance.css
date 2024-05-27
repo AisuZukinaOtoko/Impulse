@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+*{
+    font-family: 'Poppins' , sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding:0;
+
+}
+
+.grid-container{
+ display: grid;
+ /* grid-template-columns: 50px 1fr 1fr 1fr;
+ grid-template-rows: 0.2fr 3fr;
+ grid-template-areas: "nav header header header"
+ "nav main main main"; */
+ height: 100%;
+}
+
+#header{
+    /* grid-area: header; */
+    height: 70px;
+    background-color: #333d51 ;
+
+}
+
+#sidebar{
+    /* grid-area: nav; */
+    height: 100%;
+    background-color:#cbd0d8 ;
+}
+
+#main-page{
+    /* grid-area: main; */
+    background-color: #333d51;
+    display: block;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#heading{
+    background-color: #f4f3ea;
+    background-image: linear-gradient(to top,#f4f3ea 0%, #f4f3ea 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-decoration: underline;
+    font-size:30px;
+    margin-left: 20px;
+
+}
+
+.Reports{
+ background-color: #cbd0d8;
+ margin: 20px;
+ display:block;
+ align-items: center;
+ justify-content: center;
+ overflow: hidden;
+ height: fit-content;
+ cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.collaspible{
+    padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #cbd0d8;
+}
+
+#ichart {
+    max-width: 650px;
+    margin: 35px auto;
+    background-color: #cbd0d8;
+    z-index: 100;
+  }
+
+  p{
+    margin-left: 30px;
+  }
+.timeline {
+    margin-top: 0%;
+    margin: 30px;
+    width: 70%;
+    height: 20px;
+    background-color: darkgray;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.3s ease;
+}
+
+table {
+
+    margin: 30px;
+    width: 70%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+
+.icons{
+    color: #333d51;
+}
+
+.report-heading{
+    color: #333d51;
+    background-color: #cbd0d8;
+    height: 40px;
+    width: 100%;
+    align-items:center ;
+    margin-bottom: 20px;
+}
+
+.Task{
+    width: auto;
+    height: auto;
+    background-color: #333d51;
+    display: block;
+}
+
+h2{
+    margin: 30px;
+}
+
+#hourChart{
+    height: 350px;
+    width: 100%,
+
+}

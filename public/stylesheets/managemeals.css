@@ -1,0 +1,323 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    box-sizing: border-box;
+    font-family: 'Heebo' ,'Tahoma', sans-serif;
+
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color:#0F1322;
+}
+textarea{
+    color: black;
+}
+#name{
+    font-size: 50px;
+}
+#horizontalNavbar{
+    margin-left: 75px;
+    margin-right: 0px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.horNavButtons ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    padding:0;
+    
+}
+.horNavButtons ul a{
+    text-decoration: none;
+}
+.horNavButtons{
+    margin-left: auto;
+    margin-right: 75px;
+    margin-top: 15px;
+    background-color: #353948;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+}
+
+.navButton {
+    display: block;
+    position: relative;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+}
+
+.navButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.navButton:hover{
+    background-color: #93D5E1;
+}
+
+.verticalNavbar{
+    position: fixed;
+    height: 100vh;
+    width: 40px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: 100%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-right: 2px solid white ;
+}
+.verticalNavbar ul{
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar li{
+    display: flex;
+    margin-left: 5px;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+.verticalNavbar a{
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar a:hover{
+    cursor: pointer;
+}
+
+.verticalNavbar li:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height:5%;
+    margin-inline: auto;
+    margin-bottom: 10px;
+}
+.mainContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.container1{
+    background: url(../assets/pexels-gabby-k-7144973.jpg);
+    background-size: cover;
+    max-width: 500px;
+    height: 980px;
+    padding: 20px 0;
+    border-radius: 50px;
+    margin-left: 100px;
+    flex: 1;
+    transition: all 0.5s ease;
+}
+
+.container1 .subcontainer1{
+    background: #0f1322;
+    width: 480px;
+    height: 400px;
+    padding: 20px 0;
+    margin-top: 550px;
+    margin-left: 10px;
+	margin-right: 50px;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+}
+
+.subtextbox1{
+    color:white;
+    margin-left:155px;
+    margin-top: 20px;
+  }
+
+.menu{
+    margin-left: 79px;
+    margin-right: 395px;
+    display: flex;
+}
+
+.menubtn ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding:0;
+}
+.menubtn{
+    margin-left: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+    
+}
+
+.menuButton {
+    
+    position: relative;
+    height: 50px;
+    width: 300px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-decoration: none;
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+}
+
+.menuButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.menuButton:hover{
+    background-color: #93D5E1;
+}
+
+
+
+.formContainer {
+    display: relative;
+    max-height: 1200px; /* Set a maximum width */
+    margin: 0 auto;
+    padding: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border: 1px solid #353948;
+    border-radius: 30px;
+    background-color: #353948;
+    height: 650px;
+}
+
+.formContainer h3 {
+    margin-bottom: 15px;
+}
+
+.formContainer label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.formContainer input, 
+.formContainer textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.formContainer button {
+    padding: 10px 15px;
+    background-color: #0F1322;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.formContainer button:hover {
+    background-color: #0056b3;
+}
+
+input{
+    color: black;
+}
+
+#mealTable {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#mealTable th, #mealTable td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+#mealTable th {
+    background-color: #f2f2f2;
+    color: grey;
+}
+
+@media screen and (max-width:400px) {
+
+    .verticalNavbar{
+        height:100%;
+    }
+    .horNavButtons{
+        background-color:#0F1322;
+
+    }
+    .horNavButtons ul{
+        flex-wrap: wrap;
+    }
+    .horNavButtons ul li{
+        margin-block: 2px;
+    }
+    .horizontalNavbar{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+    }
+
+    .container1{
+        width: 50%;
+        flex-wrap: wrap;
+        margin-block: 2px;
+    }
+
+    .container1 .subcontainer1{
+        width: 100%;
+    }
+    
+    .container1 .subcontainer1 .menu{
+        width: 100%;
+    }
+
+    ul{
+        width: 100%;
+    }
+    .menuButton{
+        width: 50%;
+    }
+
+    .subtextbox1{
+       margin-left: auto;
+    }
+
+}

@@ -3,58 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <title>Impulse| Login</title>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Login</title>
 </head>
 <body>
-    <article class="wrapper">
-
-        <article class="welcome-border">
-
-            <section class="welcome-text">
-                <h1>Welcome </h1>
-                <h1>to</h1>
-                <h1 id="logo"> <%= title %> </h1>
-            </section>
-                
-        </article>
-
-        <article class="sign-in">
-            <form>
-                <h3>Login Here</h3>
-                <label for="username">Username</label>
-                <input type="text" placeholder="Email" id="username">
-                <label for="password">Password</label>
-                <input type="password" placeholder="Password" id="password">
-                <button href="/login/">Log In</button>
-
-            </form>
-
-
-
-            
-                <% if(!isAuthenticated) { %>
-                    <button class="sign-in-btn" id="loginBtn"><a href="/login/">Login</a></button>
-                <% } else { %>
-                    <button class="sign-in-btn" id="loginBtn"><a href="/logout/">Logout</a></button>
-                <% } %>
-
-               
-
-                    
-
-        </article>
+    <% if (isAuthenticated && user['https://impulsewebapp.azurewebsites.net/roles'][0] === "Manager ") { %>
         <script>
-          
-                if (<%= isAuthenticated %>) {
-                    window.location.href = "index_copy";
-                   // window.location.href = "/html_files/index2.html";
-                } 
-            
+            window.onload = function() {
+                window.location.href = 'https://impulsewebapp.azurewebsites.net/ManagerHomepage.ejs';
+            };
         </script>
-    </article>
+    <% } %>
+    <% if (isAuthenticated && user['https://impulsewebapp.azurewebsites.net/roles'][0] === "Employee") { %>
+        <script>
+            window.onload = function() {
+                window.location.href = 'https://impulsewebapp.azurewebsites.net/EmployeeHomepage.ejs';
+            };
+        </script>
+    <% } %>
+    <% if (isAuthenticated && user['https://impulsewebapp.azurewebsites.net/roles'][0] === "Human Resources") { %>
+        <script>
+            window.onload = function() {
+                window.location.href = 'https://impulsewebapp.azurewebsites.net/HRHomepage.ejs';
+            };
+        </script>
+    <% } %>
+        
+    <section class="background-container"></section>
+    <img class="logo" src="../assets/impulse-5-20-2024.png" alt="Logo" width="250" height="70">
+    <section class="slogan">
+
+        <p class="unite">unite.</p>
+        <p class="collaborate">collaborate.</p>
+        <p class="achieve">achieve.</p>
+    </section>
+    <button class="signIn"><a href="/login/">Login</button>
+        <script src="../js_files/getUsers.js"></script>
 </body>
+
+<footer> impulse. est. 2024&trade;</footer>
 </html>

@@ -1,0 +1,314 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Heebo' ,'Tahoma', sans-serif;
+}
+
+html, body{
+    margin:0;
+    padding:0;
+    height: 100%;
+    width: 100%;
+    overflow: scroll; 
+    /* body grows and prevents horizontal overflow */
+}
+
+.container{
+    display: flex;
+    flex: nowrap;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    overflow: hidden;
+    
+}
+
+/* NAVIGATION */
+nav{
+    left: 0; /*align to left side*/
+    top: 0; /*align to the top of the screen*/
+    width: 60px;
+    height: 100%; /*cover the entire screen*/
+    background-color: rgba(16,19,34,255);
+    padding-top: 5px;
+    z-index: 10;
+    border-right: 2px solid white;
+    /* border: 2px solid black; */
+    
+    transition: 0.5s ease;
+}
+
+nav ul a{
+    display: block;
+    color: rgba(242,248,249,255);
+    text-decoration: none;
+    padding: 20px;
+    background-color:rgba(16,19,34,255);
+}
+
+
+/* Content */
+
+.content{
+    /* position: absolute;
+    top: 0; */
+    background-color: rgba(16,19,34,255);
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+}
+
+.content h1{
+    margin: 10px;
+    font-size: 20px;
+    color: rgba(242,248,249,255);
+    font-weight: 200;
+}
+
+.expanded{
+    /* height: calc(100% - 40px); */
+    height: fit-content;
+    width: fit-content;
+}
+
+.collapsed{
+    height: 90px;
+}
+
+
+.comment-section{
+    background-color:rgba(147,213,225,255);
+    margin: 10px;
+    padding: 5px;
+    width: 55%;
+    height: calc(100% - 40px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position:relative;
+}
+
+.comment-section a{
+    /* margin: 10px; */
+    width: fit-content;
+    height: fit-content;
+    background-color:rgba(16,19,34,255) ;
+    color:rgba(239,243,255,255) ;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#insert-comments{
+     background-image: url('../../assets/background2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 10px;
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+    overflow: scroll;
+
+}
+
+/* request section */
+.request-section a{
+    position: relative;
+    margin: 5px;
+    width: 95%;
+    height: 60px;
+    background-color:rgba(16,19,34,255) ;
+    color:rgba(239,243,255,255) ;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+th, td{
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+@media screen and (max-width: 768px){
+    nav{
+        position: fixed;
+    }
+
+    .container{
+        flex-wrap: wrap;
+     width: 100%;
+    }
+
+    .content{
+        width: 100%;
+        /* margin-left: 60px; */
+    }
+    .content h1{
+        flex-wrap: wrap;
+        text-size-adjust: auto;
+    }
+
+
+    .comment-section{
+        width: 90%;
+    }
+    .request-section{
+        width: 90%;
+       min-width: 30%;
+
+    }
+
+    .sidepage{
+        width: 100%;
+    }
+
+    #Comment{
+        width: 80%;
+    }
+
+    table{
+        width: 90%
+    }
+}
+
+/* hidden Elements */
+/* ovevrlay */
+#overlay{
+    position: fixed;
+    top: 0;
+    /* left: 24%; */
+    width: 100%;
+    height: 100%;
+    background-color:rgba(21,25,37,0.3);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); /* Semi-transparent overlay */
+    z-index: 999; /* Ensure the overlay is above other content */
+    display: none; /* Initially hidden */
+}
+
+#Comment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    background-color:rgba(21,25,37,255);
+    /* margin: 500px; */
+    width: 600px;
+    height: 500px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    /* text-align: center; */
+    padding: 0 30px 30px;
+    border: 1px solid rgba(16,19,34,255);
+    border-radius: 20px;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+
+#Comment header{
+    width: 100%;
+    height: 20%;
+    background-color:transparent;
+    color:rgba(21,25,37,255);
+}
+
+#commentfrom{
+    border-radius: 20px;
+    margin: 5px;
+    padding:20px;
+    height: fit-content;
+    width: fit-content;
+    background-color: white;
+}
+
+.comment {
+    background-color: rgba(239, 243, 255, 255);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    color: rgba(16, 19, 34, 255);
+}
+
+.project{
+    padding-left: 20px;
+    height: 20%;
+    width: 100%;
+    color: white;
+}
+
+.project form select{
+    width: 70%;
+    height: 50px;
+    background-color: white;
+    color: rgba(21,25,37,255);
+}
+
+.project form select option{
+    background-color: white;
+    color: rgba(21,25,37,255);
+}
+
+.messagebox{
+    display: block;
+    padding-left: 10px;
+    height: 40%;
+    width: 100%;
+    color: white;
+}
+
+.messagebox form textarea{
+    border-radius: 20px;
+    width: 90%;
+    height: 60%;
+
+}
+
+#Comment footer{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#Comment footer a{
+    width: 300px;
+    height: 50%;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    color: rgba(21,25,37,255);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance- HR, Staff, Manager</title>
+    <link rel="stylesheet" href="../stylesheets/performance.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+<section class="grid-container">
+     <!-- header -->
+    <header id="header"> </header>
+
+    <!-- sidebar -->
+
+    <nav id="sidebar">
+
+    </nav>
+
+    <!-- main -->
+    <main id="main-page">
+        <h1 id="heading"> My Performance</h1>
+      
+        <article class="Reports" id="report1">
+            <a href="#" class="report-heading"><i class="icons" data-feather="chevron-down"></i> This Week</a>
+            <p> Progress percentage</p>
+                <article class="timeline">
+                    <section class="progress" id="progressBar"></section>
+                </article>
+
+                <h2>Task Status</h2>
+                <table>
+                    <tr>
+                      <th>Task</th>
+                      <th>Status</th>
+                    </tr>
+                    <tr>
+                      <td>Task 1</td>
+                      <td>Completed</td>
+                    </tr>
+                    <tr>
+                      <td>Task 2</td>
+                      <td>In Progress</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                  </table>
+
+                  <h2> Hours this week</h2>
+                  <article id="hourChart"> </article>
+                 
+        </article>
+
+        <!-- <article class="Reports" id="report2">
+            <a href="#" class="report-heading"><i class="icons" data-feather="chevron-down"></i> This Month</a>
+
+        </article> -->
+    </main>
+</section>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="../js_files/performance.js"></script>
+<!-- <script>
+    feather.replace();
+  </script> -->
+</body>
+</html>

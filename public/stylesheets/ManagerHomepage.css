@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
+*{
+    font-family: 'Heebo' ,'Tahoma', sans-serif;
+    color: white;
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    
+}
+body{
+    background: #0F1322 ; 
+    z-index: 000;
+}
+
+
+#name{
+    font-size: 50px;
+}
+.horizontalNavbar{
+    margin-left: 75px;
+    margin-right: 395px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.horNavButtons ul {
+    border: none;
+    background: none;
+    list-style-type: none;
+    display: flex;
+    padding:0;
+}
+.horNavButtons ul a, a{
+    text-decoration: none;
+}
+.horNavButtons{
+    margin-left: auto;
+    margin-top: 15px;
+    background-color: #353948;
+    border-radius: 8px;
+    padding-block: 6px;
+    height: fit-content;
+    flex-wrap: wrap;
+    
+}
+
+.navButton {
+    display: block;
+    position: relative;
+    padding-bottom: 20px;
+    border: 2px solid transparent;
+    margin-inline: 15px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    
+    padding-inline: 15px;
+    cursor: pointer;  
+    background-color: #444857;
+    border-radius: 6px;
+}
+
+.navButton:active{
+    transform: scale(0.9);
+    background-color: #93D5E1;
+}
+.navButton:hover{
+    background-color: #93D5E1;
+}
+
+.verticalNavbar{
+    position: fixed;
+    height: 100vh;
+    width: 40px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: 100%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-right: 2px solid white ;
+}
+.verticalNavbar ul{
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar li{
+    display: flex;
+    margin-left: 5px;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+.verticalNavbar a{
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.verticalNavbar a:hover{
+    cursor: pointer;
+}
+
+.verticalNavbar li:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height:5%;
+    margin-inline: auto;
+    margin-bottom: 10px;
+}
+
+.NameRole{
+    margin-top:40px;
+    margin-bottom:-60px;
+    margin-left: 140px;
+    font-size: 20px;
+}
+#nameSurname{
+    margin-inline: 7px;
+}
+.greeting{
+    display: flex;
+}
+#role{
+    font-size: 16px;
+}
+#PersonalCard{
+    /* margin-left: 65px; */
+    margin-right: 20px;
+    padding: 30px 20px;
+    min-height: 300px;
+    height:fit-content;
+    width: 475px;
+    background-color:#353948;
+    border-radius: 30px;
+}
+#MoreCards{
+    /* margin-left:auto;
+    margin-right: 75px; */
+    margin-top: 20px;
+    padding: 10px 20px;
+    height: 400px;
+    width: 500px;
+    /* background-color: white; */
+    overflow-y: auto;
+    border-radius: 30px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+#MoreCards::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+#MoreCards::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: white;
+    visibility: hidden;
+}
+
+#MoreCards:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+#FeedbackCard{
+    background-color:#93D5E1 ;
+    border-radius: 30px;
+    min-height: 150px;
+    width:100%;
+    padding: 30px 20px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+#TeamReportsCard{
+    background-color:#BEC2D1 ;
+    border-radius: 30px;
+    min-height: 150px;
+    width:100%;
+    padding: 30px 20px;
+    margin-bottom: 10px;
+    
+}
+#StaffTimesheets{
+    background-color:#444857 ;
+    border-radius: 30px;
+    min-height: 150px;
+    width:100%;
+    padding: 30px 20px;
+}
+.cards{
+    display:flex;
+    flex-direction: row;
+}
+.MainCards{
+    margin-top: 70px;
+    margin-left:75px;
+    margin-right:10px;
+    width: 1100px;
+
+    min-height: 400px;
+    height:fit-content;
+    padding:10px 40px;
+    display:flex;
+    justify-content: space-between;
+}
+.SideCards{
+    margin-top:-50px;
+    margin-right:40px;
+    margin-left:auto;
+    padding:0;
+    width: 60%;
+    min-height: 550px;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#CalendarCard{
+    height: fit-content;
+    min-height: 250px;
+    width:auto;
+    border-radius: 25px;
+    padding: 20px 15px;
+}
+#NotificationCard{
+    height: fit-content;
+    min-height: 200px;
+    background-color:#93D5E1;
+    border-radius: 25px;
+    padding: 20px 15px;
+    color: black;
+    /* hide the card */
+    display: none;
+    visibility: hidden;
+}
+
+@media screen and (min-width:300px) and (max-width:767px){
+    .cards{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-inline: auto;
+    }
+    .MainCards{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        margin-left: 75px;
+        padding:0;
+        width: 300px;
+      
+
+    }
+    #PersonalCard{
+        width:100%;
+    }
+    #MoreCards{
+        width:100%;
+        padding-inline: 0;
+        padding-bottom: 0;
+        height:fit-content;
+        margin-bottom: 20px;
+    }
+    #FeedbackCard{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .SideCards{
+        margin-top:10px;
+        margin-left: 75px;
+        width: 300px;
+        justify-content:center;
+        
+    }
+    #CalendarCard{
+        margin-bottom: 40px;
+    }
+    .verticalNavbar{
+        height:100%;
+    }
+    .horNavButtons{
+        background-color:#0F1322;
+
+    }
+    .horNavButtons ul{
+        flex-wrap: wrap;
+    }
+    .horNavButtons ul li{
+        margin-block: 2px;
+    }
+    .horizontalNavbar{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+    }
+    .NameRole{
+        margin-top: 50px;
+        margin-left: 80px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1020px){
+    .MainCards{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        margin-left: 75px;
+        padding:0;
+        width: 300px;
+    }
+    .cards{
+        flex-direction: row;
+        justify-content: space-between;
+
+        margin-inline: auto;
+    }
+    .horizontalNavbar{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+    }
+    .horNavButtons{
+        background-color:#0F1322;
+
+    }
+    .horNavButtons ul{
+        flex-wrap: wrap;
+    }
+    .NameRole{
+        margin-top: 50px;
+        margin-left: 80px;
+    }
+}
+@media screen and (min-width:1600px) {
+    .MainCards{
+        margin-inline:auto;
+        width:1300px;
+    }
+}
+
+/* CALENDAR */
+.wrapper{
+    width: 110%;
+    background: #444857;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    
+  }
+  .wrapper header{
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+ 
+  }
+  header .icons{
+    display: flex;
+  }
+  header .icons span{
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #0F1322;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+  }
+  .icons span:last-child{
+    margin-right: -10px;
+  }
+  header .icons span:hover{
+    background: #f2f2f2;
+  }
+  header .current-date{
+    font-size: 1.45rem;
+    font-weight: 500;
+  }
+  .calendar{
+    padding: 20px;
+    
+  }
+  .calendar ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+  }
+  .calendar .days{
+    margin-bottom: 20px;
+  }
+  .calendar li{
+    color: white;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+  }
+  .calendar .weeks li{
+    font-weight: 500;
+    cursor: default;
+    color: #93D5E1;
+  }
+  .calendar .days li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+  }
+  .days li.inactive{
+    color: #aaa;
+  }
+  .days li.active{
+    color: #fff;
+  }
+  .days li::before{
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .days li.active::before{
+    background: #93D5E1;
+  }
+  .days li:not(.active):hover::before{
+    background: #f2f2f2;
+  }
+
