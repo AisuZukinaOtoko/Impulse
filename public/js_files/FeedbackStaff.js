@@ -2,9 +2,26 @@ import axios from 'https://cdn.skypack.dev/axios';
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    const email = localStorage.getItem('storedData');
-
     //loading feedback comments
+
+    // fetchComments()
+    // .then(function(comments) {
+    //     FeedbackComments(comments);
+    // })
+    // .catch(function(error) {
+    //     // console.error('Error fetching comments:', error);
+    // });
+
+    // function fetchComments() {
+    //     return fetch('http://impulsewebapp.azurewebsites.net/api/feedback')
+    //         .then(function(response) {
+    //             if (!response.ok) {
+    //                 throw new Error('Network response was not ok');
+    //             }
+    //             return response.json();
+    //         });
+    // }
+
     const url = 'https://impulsewebapp.azurewebsites.net/api/feedback';
     axios.get(url)
     .then((response) => {
@@ -35,6 +52,16 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
+    // collapsing & expanding Feedback requests
+        const toggleBar = document.getElementById("open-Requests");
+        const reqsection = document.getElementById("reqSection");
+        
+
+        toggleBar.addEventListener('click', function() {
+            reqsection.classList.toggle('expanded');
+            reqsection.classList.toggle('collapsed');
+        })
+
         //adding a comment
         const AddComment = document.getElementById("add");
         const Comment = document.getElementById("Comment");
@@ -43,38 +70,23 @@ document.addEventListener("DOMContentLoaded", function(){
         const postComment = document.getElementById("post");
         const cancelComment = document.getElementById("cancel");
 
+        const addC = document.querySelectorAll(".addC");
         const dropdown = document.getElementById("dropdown");
 
-        //dropdown menu
-        const url1 = 'https://impulsewebapp.azurewebsites.net/api/project';
-        axios.get(url1)
-        .then((response) => {
-        console.log(response.data.recordset);
-        populateDropdown(response.data.recordset);
-    })
-        .catch((error) => {
-        console.error('Error:', error.message);
-    })
-
-        function populateDropdown(projects) {
-            projects.forEach(project => {
-                const option = document.createElement('option');
-                option.value = project.name; // Assuming 'id' is the field for project ID
-                option.textContent = project.name; // Assuming 'name' is the field for project name
-                dropdown.appendChild(option);
+        addC.forEach(link =>{
+            link.addEventListener('click', function(event){
+                event.preventDefault();
+                // alert('Add your comment for' + this.closest('tr').querySelector('td:first-child').textContent);
+                dropdown.value =  this.closest('tr').querySelector('td:first-child').textContent.trim();
+                dropdown.disabled = true;
+                overlay.style.display = "block";
+                Comment.style.visibility = "visible";
+                Comment.style.top = "50%";
+                Comment.style.transform = "translate(-50%, -50%) scale(1)";
             });
-        }
-
-        const emailInput = document.getElementById('commentfrom');
-        const projectInput = document.getElementById('dropdown');
-        const messageInput = document.getElementById('message');
-        
+        });
 
         postComment.addEventListener('click',async function() {
-
-            emailInput.textContent = email;
-            const project = projectInput.value;
-            const message = messageInput.value;
             // add to Comment Section
             // add to database
             //code goes here
@@ -92,9 +104,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
             const time = new Date();
             const dateTimeString = time.toLocaleString();
-        
+
             const commentData = {
-                "email": email,
+                "email": "JohnDoe1@gmail.com",
                 "project_reference": project,
                 "description": message, 
                 "date": dateTimeString
@@ -111,27 +123,37 @@ document.addEventListener("DOMContentLoaded", function(){
                 console.error('Error:', error.message);
             })
 
-            overlay.style.display = "none";
-            Comment.style.visibility = "hidden";
-            Comment.style.top = "0";
-            Comment.style.transform = "translate(-50%, -50%) scale(0.1)";
+        //     fetch('http://impulsewebapp.azurewebsites.net/api/feedback', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(commentData)
+        // })
+        // .then(function(response) {
+        //     if (response.ok) {
+        //         return response.json();
+        //     } else {
+        //         throw new Error('Network response was not ok');
+        //     }
+        // })
+        // .then(function() {
+        //     fetchComments();
+        //     document.getElementById('dropdown').value = '';
+        //     document.getElementById('message').value = '';
+
+        //     // Close the comment popup
+        //     overlay.style.display = "none";
+        //     Comment.style.visibility = "hidden";
+        //     Comment.style.top = "0";
+        //     Comment.style.transform = "translate(-50%, -50%) scale(0.1)";
+        // })
+        // .catch(function(error) {
+        //     // console.error('Error adding comment:', error.message);
+        // });
             
         })
 
-        function resetValidation(input) {
-            input.style.border = "";
-            const errorMessages = input.parentElement.querySelectorAll('.error-message');
-            errorMessages.forEach(error => error.remove());
-        }
-
-        function showError(input, message) {
-            input.style.border = "2px solid #dc082a";
-            const error = document.createElement('section');
-            error.className = 'error-message';
-            error.style.color = '#dc082a';
-            error.textContent = message;
-            input.parentElement.appendChild(error);
-        }
 
         cancelComment.addEventListener('click', function() {
             overlay.style.display = "none";
@@ -143,12 +165,6 @@ document.addEventListener("DOMContentLoaded", function(){
         
 
         AddComment.addEventListener('click', function(){
-            resetValidation(projectInput);
-            resetValidation(messageInput);
-
-            projectInput.value = "";
-            messageInput.value = "";
-
             dropdown.disabled = false;
             overlay.style.display = "block";
             Comment.style.visibility = "visible";

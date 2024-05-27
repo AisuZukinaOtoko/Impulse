@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
-
 *{
     margin: 0;
     padding: 0;
@@ -7,55 +5,60 @@
     font-family: 'Heebo' ,'Tahoma', sans-serif;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
+html, body{
+    margin:0;
+    padding:0;
     height: 100%;
     width: 100%;
     overflow: scroll; 
-    background-color: rgba(16,19,34,255);
+    /* body grows and prevents horizontal overflow */
 }
 
-.container {
+.container{
     display: flex;
     flex: nowrap;
     height: 100%;
     width: 100%;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 /* NAVIGATION */
-nav {
-    position: fixed; /* Fix position to ensure it stays on the left side */
-    left: 0; /* Align to left side */
-    top: 0; /* Align to the top of the screen */
+nav{
+    left: 0; /*align to left side*/
+    top: 0; /*align to the top of the screen*/
     width: 60px;
-    height: 100%; /* Cover the entire viewport height */
+    height: 100%; /*cover the entire screen*/
     background-color: rgba(16,19,34,255);
     padding-top: 5px;
     z-index: 10;
     border-right: 2px solid white;
+    /* border: 2px solid black; */
+    
     transition: 0.5s ease;
 }
 
-nav ul a {
+nav ul a{
     display: block;
     color: rgba(242,248,249,255);
     text-decoration: none;
     padding: 20px;
-    background-color: rgba(16,19,34,255);
+    background-color:rgba(16,19,34,255);
 }
 
+
 /* Content */
-.content {
-    margin-left: 60px; /* Adjust to make room for fixed nav */
+
+.content{
+    /* position: absolute;
+    top: 0; */
     background-color: rgba(16,19,34,255);
-    width: calc(100% - 60px); /* Adjust width to account for fixed nav */
+    width: 100%;
     height: 100%;
     display: block;
 }
 
-.content h1 {
+.content h1{
     margin: 10px;
     font-size: 20px;
     color: rgba(242,248,249,255);
@@ -74,10 +77,10 @@ nav ul a {
 }
 
 .comment-section{
-    background-color:rgba(16,19,34,255);
+    background-color:rgba(147,213,225,255);
     margin: 10px;
     padding: 5px;
-    width: 80%;
+    width: 55%;
     height: calc(100% - 40px);
     border-radius: 20px;
     display: flex;
@@ -85,15 +88,6 @@ nav ul a {
     align-items: center;
     justify-content: space-between;
     position:relative;
-}
-
-
-.comment {
-    background-color: rgba(239, 243, 255, 255);
-    margin: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    color: rgba(16, 19, 34, 255);
 }
 
 .comment-section a{
@@ -109,26 +103,40 @@ nav ul a {
     justify-content: space-between;
 }
 #insert-comments{
-   background-color: #353948;
+     background-image: url('../../assets/background2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 10px;
     width: 90%;
     height: 90%;
     border-radius: 20px;
     overflow: scroll;
-    padding: 30px;
 
 }
 
 
+.request-section .holder{
+    position: relative;
+    margin: 5px;
+    width: 95%;
+    height: 60px;
+    background-color:rgba(16,19,34,255) ;
+    color:rgba(239,243,255,255) ;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 #reqFeedback{
     margin: 20px;
     width: fit-content;
     height: fit-content;
-    color: rgba(239,243,255,255) ;
-    background-color:#353948 ;
+    background-color:rgba(16,19,34,255) ;
+    color:rgba(239,243,255,255) ;
     border-radius: 20px;
-    text-decoration: none;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -189,7 +197,6 @@ tr:nth-child(even) {
     .comment-section{
         width: 90%;
     }
-
 }
 
 /* ovevrlay */
@@ -260,6 +267,9 @@ tr:nth-child(even) {
     box-shadow: 0 0 8px grey;
     outline: none;
 }
+
+
+
 
 .staff{
     width: 300px;

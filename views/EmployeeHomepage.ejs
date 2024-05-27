@@ -23,6 +23,13 @@
                    <li class="navButton" onclick="storeData()"><a href="../homepage/timesheet.html" >Timesheet</a></li>
                 </ul>
             </article>
+            <article class="NameRole">
+                <section class="greeting">
+                    <p>Hello, </p> 
+                    <p id="nameSurname"><%= user.name %></p>
+                </section>
+                <!-- <p id="role">Employee</p> -->
+            </article>
         </nav>
 
         <nav class="verticalNavbar">
@@ -30,65 +37,62 @@
                 <ul>
                     <li><a href="#"><img src="../assets/ProfileIcon.svg" alt="Profile Icon" /></a></li>
                     <li><a href="#"><img src="../assets/SettingsIcon.svg" alt="Settings Icon"/></a></li>
-                    <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="LogoutIcon"></a></li>
+                    <li><a href="/logout/"><img src="../assets/LogoutIcon.svg" alt="LogoutIcon"/></a></li>
                 </ul> 
             </article>
         </nav>
         
-        <section class="NameRole">
-            <section class="greeting">
-                <p>Hello, </p> 
-                <p id="nameSurname"><%= user.name %></p>
-            </section>
-            <p id="role">Employee</p>
-        </section>
 
        <article class="cards">
             <article class="MainCards" >
                 <!-- remove names of cards when entering the info -->
-                <article id="PersonalCard"><h2 class="ppp">Personal card</h2></article>
+                <article id="PersonalCard"><h2 >Personal card</h2></article>
                 
                 <article id="MoreCards">
                     <section id="FeedbackCard" onclick="MoveToFeedback()">
                        
-                        <a href="../homepage/bookmeals.html"> post feedback card</a>
+                        <a href="../homepage/bookmeals.html">Feedback</a>
+                        
                     </section>
                 </article>
             </article>
 
             <article class="SideCards">
-                <article id="CalendarCard">calendar card</article>
+                <article id="CalendarCard">
+                    <section class="wrapper">
+                        <header>
+                          <p class="current-date"></p>
+                          <article class="icons">
+                            <span id="prev" class="material-symbols-rounded" ><img src="../assets/arrow_back.svg"/></span>
+                            <span id="next" class="material-symbols-rounded"><img src="../assets/arrow_forward.svg" /></span>
+                          </article>
+                        </header>
+                        <article class="calendar">
+                          <ul class="weeks">
+                            <li>S</li>
+                            <li>M</li>
+                            <li>T</li>
+                            <li>W</li>
+                            <li>T</li>
+                            <li>F</li>
+                            <li>S</li>
+                          </ul>
+                          <ul class="days"></ul>
+                        </article>
+                      </section>
+                </article>
                 <article  id="NotificationCard" >notification card</article>
             </article>
        </article>
 
-       <section class="wrapper">
-        <header>
-          <p class="current-date"></p>
-          <article class="icons">
-            <span id="prev" class="material-symbols-rounded">chevron_left</span>
-            <span id="next" class="material-symbols-rounded">chevron_right</span>
-          </article>
-        </header>
-        <article class="calendar">
-          <ul class="weeks">
-            <li>Sun</li>
-            <li>Mon</li>
-            <li>Tue</li>
-            <li>Wed</li>
-            <li>Thu</li>
-            <li>Fri</li>
-            <li>Sat</li>
-          </ul>
-          <ul class="days"></ul>
-        </article>
-      </section>
+
 
         <script src="../js_files/EmployeeHomepage.js"></script>
         <script src="../js_files/bookcarwash.js"></script>
        <script src="../js_files/bookmeals.js"></script>
        <script src="../js_files/timesheet.js"></script>
        <script src="../js_files/FeedbackStaff.js"></script>
+       <script src="../js_files/getUsers.js"></script>
        
        <script>
             window.onload = function() {
@@ -99,6 +103,10 @@
                 let pElement = document.getElementById('Name');
                 let pText = pElement.textContent;
                 localStorage.setItem('storedName', pText);
+
+                let paragraphElem = document.getElementById('Role');
+                let paragraphT = paragraphElem.textContent;
+                localStorage.setItem('storedRole', paragraphT);
 
             }
        </script>

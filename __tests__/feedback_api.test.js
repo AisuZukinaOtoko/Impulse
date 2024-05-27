@@ -25,6 +25,20 @@ describe('Feedback API', () => {
         });
     });
 
+    describe('GET /feedback/:email', () => {
+        it('should return 400 if email parameter is missing', async () => {
+            // Act
+            let email;
+            
+            const response = await request(app).get('/api/feedback/'+email);
+            
+            // Assert
+            expect(response.status).toBe(400);
+            expect(response.text).toBe("An error occured.");
+        });
+    });
+    
+
     describe('POST /feedback', () => {
         it('should create a new feedback', async () => {
             // Arrange
