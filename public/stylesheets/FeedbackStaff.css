@@ -67,33 +67,6 @@ nav ul a{
     font-weight: 200;
 }
 
-.two-sections{
-    width: 95%;
-    height:80%;
-    margin: 20px;
-    background-color:rgba(21,25,37,255);
-    padding: 20px;
-    display: flex;
-    /* align-items: center; */
-    justify-content: space-between;
-    border-radius: 20px;
-    overflow: auto;
-}
-
-.request-section{
-    background-color:rgba(147,213,225,255);
-    margin-top: 10px;
-    padding: 5px;
-    width: 30%;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden;
-    transition: height 0.5s ease;
-}
-
 .expanded{
     /* height: calc(100% - 40px); */
     height: fit-content;
@@ -202,10 +175,6 @@ tr:nth-child(even) {
         text-size-adjust: auto;
     }
 
-    .two-sections{
-        flex-wrap: wrap;
-        width: 100%;
-    }
 
     .comment-section{
         width: 90%;
