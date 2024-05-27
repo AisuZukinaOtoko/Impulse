@@ -83,11 +83,6 @@ document.addEventListener("DOMContentLoaded", function(){
             console.log(project);
 
 
-            // if (!project) {
-            //     showError(projectInput, "Project is required");
-            //     isValid = false;
-            // }
-
             if (!message) {
                 showError(messageInput, "Message is required");
                 isValid = false;

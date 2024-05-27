@@ -63,19 +63,6 @@ nav ul a {
 }
 
 
-.two-sections{
-    width: 95%;
-    height:100%;
-    margin: 20px;
-    background-color:rgba(21,25,37,255);
-    padding: 20px;
-    display: block;
-    /* align-items: center; */
-    justify-content: space-between;
-    border-radius: 20px;
-    overflow: auto;
-}
-
 .expanded{
     /* height: calc(100% - 40px); */
     height: fit-content;
@@ -203,11 +190,6 @@ tr:nth-child(even) {
         width: 90%;
     }
 
-
-    
-    .sidepage{
-        width: 100%;
-    }
 }
 
 /* ovevrlay */

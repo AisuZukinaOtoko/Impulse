@@ -67,18 +67,6 @@ nav ul a{
     font-weight: 600;
 }
 
-/* .two-sections{
-    width: 95%;
-    height:100%;
-    margin: 20px;
-    background-color:rgba(21,25,37,255);
-    padding: 20px;
-    display: block;
-    justify-content: space-between;
-    border-radius: 20px;
-    overflow: auto;
-} */
-
 .expanded{
     /* height: calc(100% - 40px); */
     height: fit-content;
@@ -104,10 +92,6 @@ nav ul a{
     position:relative;
 }
 
-/* .comment{
-    margin: 20px;
-
-} */
 
 .comment-section a{
     /* margin: 10px; */
@@ -155,10 +139,6 @@ nav ul a{
         text-size-adjust: auto;
     }
 
-    .two-sections{
-        flex-wrap: wrap;
-        width: 100%;
-    }
 
     .comment-section{
         width: 90%;
